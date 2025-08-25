@@ -76,7 +76,9 @@ export const FinalCtaSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Ready to <span className="text-amber-400">Transform</span> Your Brand?
+              Your <span className="text-amber-400">Signal</span> is Waiting.
+              <br />
+              <span className="text-2xl sm:text-3xl text-foreground/80 font-normal">Will you answer the call?</span>
             </motion.h2>
             
             <motion.div 
@@ -87,12 +89,12 @@ export const FinalCtaSection: React.FC = () => {
             />
             
             <motion.p 
-              className="text-xl text-foreground/80 max-w-3xl mx-auto"
+              className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Join the select group of brands who've chosen to work with Authentik Studio
+              Join the exclusive group of leaders who refused to blend in and chose to build brands that matter.
             </motion.p>
           </div>
         </div>
@@ -131,31 +133,52 @@ export const FinalCtaSection: React.FC = () => {
 
         {/* Social Proof & Urgency */}
         <motion.div 
-          className="space-y-6 max-w-3xl mx-auto"
+          className="space-y-8 max-w-4xl mx-auto"
           initial={{ y: 30, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
           transition={{ duration: 0.8, delay: 1.8 }}
         >
-          <div className="bg-amber-900/20 border border-amber-500/30 rounded-lg p-6 backdrop-blur-sm">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <span className="text-2xl">🔥</span>
-              <p className="font-medium text-amber-300">Limited Availability</p>
+          <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 border-2 border-red-500/50 rounded-xl p-8 backdrop-blur-sm">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <span className="text-3xl">⏳</span>
+              <p className="font-bold text-red-300 text-lg">Last Chance for Q1 2025</p>
             </div>
-            <p className="text-center text-amber-200/90">
-              We only work with <span className="font-bold">12 clients per year</span> to ensure exceptional results. 
-              <br />
-              <span className="text-sm text-amber-200/70">Currently accepting applications for next quarter.</span>
-            </p>
+            <div className="text-center space-y-3">
+              <p className="text-red-200 text-lg">
+                We're closing applications for Q1 2025 cohort in <span className="font-bold text-red-400">7 days</span>.
+              </p>
+              <p className="text-red-200/80">
+                Only <span className="font-bold text-red-300">3 spots remaining</span> out of our annual limit of 12 clients.
+              </p>
+              <p className="text-sm text-red-200/70">
+                Next available cohort: Q3 2025 (6-month waiting list)
+              </p>
+            </div>
           </div>
           
-          <div className="flex items-center justify-center gap-6 text-sm text-foreground/70">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              <span>94% client retention rate</span>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4 backdrop-blur-sm">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+                <span className="font-medium text-green-400">Proven Results</span>
+              </div>
+              <span className="text-sm text-green-200/80">94% client retention rate</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              <span>Risk-free guarantee</span>
+            
+            <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4 backdrop-blur-sm">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
+                <span className="font-medium text-blue-400">Risk-Free</span>
+              </div>
+              <span className="text-sm text-blue-200/80">90-day guarantee</span>
+            </div>
+            
+            <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4 backdrop-blur-sm">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="w-3 h-3 bg-purple-500 rounded-full"></span>
+                <span className="font-medium text-purple-400">ROI Focused</span>
+              </div>
+              <span className="text-sm text-purple-200/80">2.5x to 5x ROI improvement</span>
             </div>
           </div>
         </motion.div>
@@ -186,7 +209,7 @@ export const FinalCtaSection: React.FC = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-16 py-8 text-2xl tracking-wide relative overflow-hidden group shadow-2xl shadow-amber-500/20"
+                className="bg-amber-400 hover:bg-amber-500 text-black font-bold px-12 py-6 text-xl sm:text-2xl tracking-wide relative overflow-hidden group shadow-2xl shadow-amber-500/20 w-full sm:w-auto"
               >
                 <motion.div
                   className="absolute inset-0 bg-white/20"
@@ -194,8 +217,10 @@ export const FinalCtaSection: React.FC = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
-                <span className="relative z-10">
-                  Book Your Lab Session
+                <span className="relative z-10 flex items-center justify-center gap-3">
+                  <span>🔥</span>
+                  <span>Claim Your Spot Now</span>
+                  <span>→</span>
                 </span>
               </Button>
             </motion.div>

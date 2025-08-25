@@ -75,17 +75,19 @@ export const HeroSection: React.FC = () => {
       >
         {/* Urgency Banner */}
         <motion.div 
-          className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg p-2 sm:p-3 mb-4 sm:mb-6 max-w-sm sm:max-w-xl mx-auto"
+          className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border-2 border-amber-500/50 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 max-w-lg sm:max-w-2xl mx-auto backdrop-blur-sm"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="flex items-center justify-center gap-2 text-red-800">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 bg-red-500 rounded-full flex items-center justify-center">
-              <span className="text-white text-xs">⏰</span>
+          <div className="flex items-center justify-center gap-3 text-amber-200">
+            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-amber-500 rounded-full flex items-center justify-center">
+              <span className="text-black text-sm font-bold">!</span>
             </div>
-            <p className="font-medium text-sm sm:text-base">
-              Only <span className="font-bold text-red-600">3 Studio spots</span> available this month
+            <p className="font-medium text-sm sm:text-base text-center">
+              <span className="text-amber-400 font-bold">Limited Availability:</span> Only <span className="font-bold text-amber-300">12 clients</span> per year
+              <br className="sm:hidden" />
+              <span className="text-xs sm:text-sm text-amber-200/80 block sm:inline sm:ml-2">Currently accepting Q1 2025 applications</span>
             </p>
           </div>
         </motion.div>
@@ -129,38 +131,49 @@ export const HeroSection: React.FC = () => {
           />
           
           <motion.p 
-            className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-foreground/80 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4"
             variants={itemVariants}
           >
-            A manifesto against the generic.
+            Where authentic brands go to <span className="text-amber-400 font-medium">cut through the noise</span>
             <br />
-            A celebration of the authentic.
+            and <span className="text-amber-400 font-medium">claim their voice</span>.
           </motion.p>
         </motion.div>
 
         <motion.div 
-          className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto px-4"
+          className="space-y-6 sm:space-y-8 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
           variants={itemVariants}
         >
-          <p>
-            AI is flooding the internet. Every brand sounds the same. Your audience can smell the generic from miles away.
+          <p className="text-center">
+            In a world drowning in AI-generated noise, your audience craves <span className="text-amber-400 font-medium">human truth</span>.
           </p>
-          <p className="text-lg sm:text-xl font-medium">
-            At Authentik Studio, we don't create content.
+          <p className="text-xl sm:text-2xl font-medium text-center">
+            We don't create content. <span className="text-amber-400 font-bold">We awaken conviction.</span>
             <br />
-            <span className="text-amber-400 font-bold">We create conviction.</span>
+            <span className="text-lg sm:text-xl font-normal text-foreground/80">Through documentary-style storytelling that feels raw, real, and unforgettable.</span>
           </p>
         </motion.div>
         
         <motion.div 
-          className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto px-4"
+          className="space-y-4 sm:space-y-6 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
           variants={itemVariants}
         >
-          <p className="text-lg sm:text-xl font-medium text-center">
-            <span className="text-amber-400 font-bold">Stop blending in.</span> Start standing out.
-          </p>
-          <p className="text-center text-foreground/80">
-            Start with Authentik Studio to cut through the noise, then expand into deeper transformation.
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">$6M+</div>
+              <div className="text-sm sm:text-base text-foreground/70">Additional revenue generated for clients</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">3.2x</div>
+              <div className="text-sm sm:text-base text-foreground/70">Higher conversion rates vs generic content</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">94%</div>
+              <div className="text-sm sm:text-base text-foreground/70">Client retention after 6 months</div>
+            </div>
+          </div>
+          <p className="text-center text-amber-400 font-medium text-xl sm:text-2xl">
+            Ready to become the signal your audience trusts?
           </p>
         </motion.div>
         
@@ -222,15 +235,15 @@ export const HeroSection: React.FC = () => {
         <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-foreground/60">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            <span>ISO 27001 Certified</span>
+            <span>30+ Years Experience</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-            <span>GDPR Compliant</span>
+            <span>Documentary Expertise</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-            <span>30 Years Experience</span>
+            <span>Proven ROI Results</span>
           </div>
         </div>
       </motion.div>

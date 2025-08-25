@@ -3,6 +3,109 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-variant-ligatures: common-ligatures;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(251, 191, 36, 0.5);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(251, 191, 36, 0.8);
+  }
+
+  /* Better focus states */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid rgba(251, 191, 36, 0.8);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .noise-bg {
+    position: relative;
+  }
+  
+  .noise-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(251, 191, 36, 0.03) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .app-container {
+    position: relative;
+  }
+  
+  /* Improved text selection */
+  ::selection {
+    background-color: rgba(251, 191, 36, 0.3);
+    color: inherit;
+  }
+  
+  /* Better button hover states */
+  .button-glow:hover {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.4);
+  }
+  
+  /* Improved animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Better typography scale */
+  .text-hero {
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-section {
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer base {
   :root {
     --background: 12 12% 8%;
     --foreground: 35 15% 92%;

@@ -2,11 +2,6 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const investmentItems = [
-  "Strategy, coaching, content systems",
-  "Editing + reporting",
-  "Optional: immersive on-site storytelling (custom pricing)"
-];
 
 export const InvestmentSection: React.FC = () => {
   const ref = useRef(null);
@@ -57,7 +52,9 @@ export const InvestmentSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.8 }}
             >
-              Ready to <span className="text-amber-400">Invest</span> in Your Brand's Future?
+              This Isn't a <span className="text-amber-400">Cost</span>.
+              <br />
+              It's an <span className="text-amber-400">Investment</span>.
             </motion.h2>
             
             <motion.div 
@@ -68,91 +65,97 @@ export const InvestmentSection: React.FC = () => {
             />
             
             <motion.p 
-              className="text-xl text-foreground/80 max-w-3xl mx-auto"
+              className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              After seeing how we've helped brands cut through the noise, here's what it takes to start with Authentik Studio. For Expansion Lab and Thought Leadership pricing, see our Services section above.
+              While others spend €15K-€25K/month on generic marketing with minimal ROI, our clients invest strategically and see measurable results. Here's what real transformation costs:
             </motion.p>
           </div>
         </div>
         
-        <motion.div 
-          className="space-y-8 text-lg sm:text-xl leading-relaxed"
-          initial={{ y: 40, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
-          <motion.p 
-            className="text-xl sm:text-2xl font-light text-foreground/90"
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-          >
-            Authentik Studio projects start at <span className="text-amber-400 font-medium">€2,000–€5,000</span>.
-          </motion.p>
-          
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           <motion.div 
-            className="text-4xl sm:text-5xl font-serif font-bold text-amber-400 my-8"
-            initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.1 }}
-            style={{
-              textShadow: isInView ? "0 0 20px rgba(251, 191, 36, 0.6)" : "0 0 0px rgba(251, 191, 36, 0)"
-            }}
+            className="text-center p-8 bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-2 border-amber-500/30 rounded-xl backdrop-blur-sm"
+            initial={{ y: 40, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
           >
-            €2,000–€5,000
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400 mb-3">
+              €2K–€5K
+            </div>
+            <div className="font-bold text-lg mb-2 text-amber-300">Authentik Studio</div>
+            <div className="text-sm text-amber-200/80">Per project (4-8 weeks)</div>
           </motion.div>
           
-          <motion.p 
-            className="text-foreground/80"
-            initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.3 }}
+          <motion.div 
+            className="text-center p-8 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-2 border-blue-500/30 rounded-xl backdrop-blur-sm"
+            initial={{ y: 40, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
           >
-            per project
-          </motion.p>
-        </motion.div>
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-blue-400 mb-3">
+              €3K/mo
+            </div>
+            <div className="font-bold text-lg mb-2 text-blue-300">Leadership Coaching</div>
+            <div className="text-sm text-blue-200/80">1:1 coaching (6-12 months)</div>
+          </motion.div>
+          
+          <motion.div 
+            className="text-center p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-2 border-purple-500/30 rounded-xl backdrop-blur-sm"
+            initial={{ y: 40, opacity: 0 }}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+          >
+            <div className="text-3xl sm:text-4xl font-serif font-bold text-purple-400 mb-3">
+              €4K–€6K/mo
+            </div>
+            <div className="font-bold text-lg mb-2 text-purple-300">Expansion Lab</div>
+            <div className="text-sm text-purple-200/80">6-month transformation</div>
+          </motion.div>
+        </div>
         
         <motion.div 
-          className="space-y-6"
-          initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
+          className="text-center space-y-8"
+          initial={{ y: 40, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
         >
-          <p className="text-lg text-foreground/90 mb-6">Includes:</p>
-          <div className="space-y-4">
-            {investmentItems.map((item, index) => (
-              <motion.div 
-                key={index}
-                className="flex items-center justify-center space-x-4 group"
-                initial={{ x: -20, opacity: 0 }}
-                animate={isInView ? { x: 0, opacity: 1 } : { x: -20, opacity: 0 }}
-                transition={{ duration: 0.5, delay: 1.7 + (index * 0.1) }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <motion.div 
-                  className="w-2 h-2 bg-amber-400 rounded-full flex-shrink-0"
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    boxShadow: [
-                      "0 0 0px rgba(251, 191, 36, 0)",
-                      "0 0 10px rgba(251, 191, 36, 0.7)",
-                      "0 0 0px rgba(251, 191, 36, 0)"
-                    ]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.3
-                  }}
-                />
-                <span className="text-foreground/90 group-hover:text-amber-400 transition-colors duration-300">
-                  {item}
-                </span>
-              </motion.div>
-            ))}
+          <motion.p 
+            className="text-2xl sm:text-3xl font-medium leading-relaxed max-w-4xl mx-auto"
+            animate={{
+              textShadow: [
+                "0 0 0px rgba(251, 191, 36, 0)",
+                "0 0 10px rgba(251, 191, 36, 0.3)",
+                "0 0 0px rgba(251, 191, 36, 0)"
+              ]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+          >
+            💰 <span className="text-amber-400">ROI Reality Check:</span> Our top client generated $6M+ in additional revenue. That's the power of authentic storytelling.
+          </motion.p>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg text-red-400">❌ Traditional Agency Route:</h4>
+              <ul className="space-y-2 text-foreground/80">
+                <li>• €15K-€25K/month spent</li>
+                <li>• €2K-€5K ROI (generic results)</li>
+                <li>• Blends in with competitors</li>
+                <li>• No authentic brand voice</li>
+              </ul>
+            </div>
+            
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg text-green-400">✅ Authentik Studio Approach:</h4>
+              <ul className="space-y-2 text-foreground/80">
+                <li>• €2K-€6K/month investment</li>
+                <li>• $6M+ additional revenue (proven results)</li>
+                <li>• Stands out from competitors</li>
+                <li>• Clear, authentic brand voice</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
         

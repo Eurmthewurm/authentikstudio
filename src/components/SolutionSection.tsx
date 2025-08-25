@@ -53,7 +53,9 @@ export const SolutionSection: React.FC = () => {
               animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Our <motion.span 
+              We don't create
+              <br />
+              <motion.span 
                 className="text-amber-400"
                 animate={{
                   filter: [
@@ -64,10 +66,10 @@ export const SolutionSection: React.FC = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                Expansion Lab
-              </motion.span>
+                content
+              </motion.span>.
               <br />
-              isn't another agency.
+              We create <span className="text-amber-400">conviction</span>.
             </motion.h2>
             
             <motion.div 
@@ -78,23 +80,70 @@ export const SolutionSection: React.FC = () => {
             />
           </div>
           
-          <div className="max-w-4xl mx-auto space-y-8 text-lg leading-relaxed">
-            {[
-              { text: "We're signal amplifiers.", className: "text-2xl font-light text-amber-400 text-center" },
-              { text: "We strip away the performative marketing speak and uncover the raw truth of your brand. Then we amplify it into stories that stop people in their tracks.", className: "text-xl text-center" },
-              { text: "The Expansion Lab is our proven 6-month program that transforms generic brands into authentic storytellers who stand out from the noise.", className: "text-lg text-center text-foreground/80" },
-              { text: "See all our services below to find the right path for your brand.", className: "text-base text-center text-foreground/70" }
-            ].map((item, index) => (
-              <motion.p
-                key={index}
-                className={item.className}
+          <div className="max-w-5xl mx-auto space-y-12 text-lg leading-relaxed">
+            <div className="text-center space-y-8">
+              <motion.p 
+                className="text-2xl sm:text-3xl font-light text-amber-400"
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                We're signal amplifiers in a world full of noise.
+              </motion.p>
+              
+              <motion.p 
+                className="text-xl sm:text-2xl text-center max-w-4xl mx-auto"
                 initial={{ y: 30, opacity: 0 }}
                 animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 + (index * 0.2) }}
+                transition={{ duration: 0.6, delay: 1.0 }}
               >
-                {item.text}
+                Through documentary-style storytelling, we help leaders discover their authentic voice and transform it into content that stops people in their tracks.
               </motion.p>
-            ))}
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              <motion.div 
+                className="space-y-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
+                <div className="text-4xl mb-3">🎯</div>
+                <h3 className="font-bold text-lg text-amber-400">Discover Your Voice</h3>
+                <p className="text-foreground/80">Guided sessions to uncover your authentic message and unique positioning</p>
+              </motion.div>
+              
+              <motion.div 
+                className="space-y-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+              >
+                <div className="text-4xl mb-3">📹</div>
+                <h3 className="font-bold text-lg text-amber-400">Create With Impact</h3>
+                <p className="text-foreground/80">Documentary-style content that feels raw, human, and unforgettable</p>
+              </motion.div>
+              
+              <motion.div 
+                className="space-y-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                transition={{ duration: 0.6, delay: 1.6 }}
+              >
+                <div className="text-4xl mb-3">📈</div>
+                <h3 className="font-bold text-lg text-amber-400">Scale Your Growth</h3>
+                <p className="text-foreground/80">Systems and strategies that expand your authentic voice beyond our partnership</p>
+              </motion.div>
+            </div>
+            
+            <motion.p 
+              className="text-lg text-center text-foreground/80 max-w-3xl mx-auto"
+              initial={{ y: 30, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
+            >
+              Whether you choose our <strong>Studio</strong> projects, <strong>Thought Leadership</strong> coaching, or join the <strong>Expansion Lab</strong>, we guide you to the same destination: becoming the signal your audience trusts.
+            </motion.p>
           </div>
         </div>
       </motion.div>

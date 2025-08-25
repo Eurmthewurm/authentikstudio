@@ -7,62 +7,76 @@ const services = [
   {
     id: 'studio',
     title: 'Authentik Studio',
-    subtitle: 'The core agency work — for brands ready to stop sounding like everyone else.',
-    description: 'Forget the flashy edits. Forget the trends. Forget the generic. Your audience isn\'t fooled — they want something real. We craft stories that awaken, clarify, and convert.',
+    subtitle: 'Project-based storytelling for brands ready to stand out from the noise.',
+    description: 'Transform your brand message into documentary-style content that feels authentic, not artificial. We create campaigns that your audience remembers, trusts, and acts on.',
     features: [
-      'Brand storytelling campaigns that stop people in their tracks',
-      'Documentary-style videos that feel raw, human, and unforgettable',
-      'Strategy + production aligned with your brand\'s deeper truth'
+      'Brand voice discovery and positioning strategy',
+      'Documentary-style video production (2-5 pieces)',
+      'Content distribution and amplification strategy',
+      'Performance tracking and optimization'
     ],
     benefits: [
-      'Work that cuts through the noise',
-      'A brand voice people trust',
-      'Content that isn\'t just watched — it\'s felt'
+      '3.2x higher engagement than generic content',
+      'Authentic brand voice that differentiates you',
+      'Content that converts prospects into customers',
+      '6-month content strategy roadmap'
     ],
-    cta: 'Book a Call',
+    price: '€2,000–€5,000',
+    timeline: '4-8 weeks',
+    cta: 'Book Discovery Call',
     ctaLink: 'https://calendly.com/ermo/discoverycall',
     primary: true,
     status: 'Available Now'
   },
   {
     id: 'leadership',
-    title: 'Thought Leadership Support',
-    subtitle: 'For CEOs and founders who want to lead with humility, not hype.',
-    description: 'The internet doesn\'t need another "guru." What it needs are leaders who are real. We help you step into visibility with humility, clarity, and style — so your presence inspires trust, not skepticism.',
+    title: 'Thought Leadership Coaching',
+    subtitle: 'Private 1:1 coaching for CEOs who want to build authentic personal brands.',
+    description: 'Develop the confidence and clarity to become the trusted voice in your industry. We help you communicate with conviction, not just volume.',
     features: [
-      'Personal coaching for camera and stage presence',
-      'Thought leadership strategy for long-term visibility',
-      'Content support that positions you as a voice of conviction'
+      'Monthly 1:1 strategy and coaching sessions',
+      'Personal brand positioning and messaging',
+      'Camera presence and communication training',
+      'Content creation and distribution guidance'
     ],
     benefits: [
-      'Confidence to lead authentically',
-      'An audience that recognizes and trusts you',
-      'A leadership brand that lasts longer than trends'
+      'Authentic leadership presence that builds trust',
+      'Clear personal brand positioning in your market',
+      'Confidence to share your expertise publicly',
+      'Sustainable content strategy for long-term growth'
     ],
-    cta: 'Apply for 1:1 Support',
+    price: '€3,000/month',
+    timeline: '6-12 months',
+    cta: 'Apply for Coaching',
     ctaLink: 'https://calendly.com/ermo/discoverycall',
     primary: false,
-    status: 'Limited Availability'
+    status: 'Limited Spots'
   },
   {
     id: 'lab',
     title: 'The Expansion Lab',
-    subtitle: 'A 6-month immersive journey to uncover your brand\'s unique frequency.',
-    description: 'Most brands copy what\'s already out there. That\'s why they sound the same. The Expansion Lab is where we break that cycle. It\'s a 6-month immersive journey to uncover your brand\'s unique frequency — the signal hidden inside the noise.',
+    subtitle: 'Comprehensive 6-month transformation program for visionary leaders.',
+    description: 'Join an exclusive cohort of leaders on a journey to discover and amplify your authentic voice. This isn\'t just about content—it\'s about becoming the leader your industry needs.',
     features: [
-      'Guided sessions to strip away the generic',
-      'Network with other leaders who refuse to blend in',
-      'Build content strategies that expand with you, not against you'
+      '6-month guided transformation journey',
+      'Weekly group sessions + monthly 1:1 coaching',
+      'Exclusive network of authentic leaders',
+      'Complete content and communication framework',
+      'Ongoing support and accountability'
     ],
     benefits: [
-      'Clarity on your brand\'s authentic story',
-      'A supportive network that challenges mediocrity',
-      'A framework to stand out, not fade in'
+      'Complete brand and leadership transformation',
+      'Authentic voice that sets you apart from competitors',
+      'Supportive network of like-minded leaders',
+      'Scalable systems for long-term growth',
+      'Lifetime access to community and resources'
     ],
-    cta: 'Join the Waitlist',
+    price: '€4,000–€6,000/month',
+    timeline: '6 months',
+    cta: 'Join Waitlist',
     ctaLink: 'https://calendly.com/ermo/discoverycall',
     primary: false,
-    status: 'Coming Soon'
+    status: 'Q2 2025 Cohort'
   }
 ];
 
@@ -155,9 +169,19 @@ export const ServicesSection: React.FC = () => {
                 <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold">
                   {service.title}
                 </h3>
-                <p className="text-base sm:text-lg text-amber-400 font-medium">
-                  {service.subtitle}
-                </p>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                  <p className="text-base sm:text-lg text-amber-400 font-medium flex-1">
+                    {service.subtitle}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm">
+                    <span className="bg-amber-400/10 text-amber-400 px-3 py-1 rounded-full font-medium">
+                      {service.price}
+                    </span>
+                    <span className="bg-blue-400/10 text-blue-400 px-3 py-1 rounded-full font-medium">
+                      {service.timeline}
+                    </span>
+                  </div>
+                </div>
                 <p className="text-base sm:text-lg text-foreground/80 leading-relaxed">
                   {service.description}
                 </p>

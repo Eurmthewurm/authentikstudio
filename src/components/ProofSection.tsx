@@ -28,9 +28,9 @@ const metrics = [
     description: "compared to generic content"
   },
   {
-    number: "€4.2M+",
+    number: "$6M+",
     label: "Additional revenue generated",
-    description: "for top-performing clients in 12 months"
+    description: "for top-performing clients in 18 months"
   },
   {
     number: "94%",
@@ -81,7 +81,9 @@ export const ProofSection: React.FC = () => {
               animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              The <span className="text-amber-400">Proof</span> Is in the Results
+              Real Brands.
+              <br />
+              <span className="text-amber-400">Real Results</span>.
             </motion.h2>
             
             <motion.div 
@@ -92,12 +94,12 @@ export const ProofSection: React.FC = () => {
             />
             
             <motion.p 
-              className="text-xl text-foreground/80 max-w-3xl mx-auto"
+              className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              See how leaders discover their authentic voice and experience the revelation moment: "This is who I really am, and this is what my audience needs from me."
+              While other agencies create forgettable content, we help leaders discover their authentic voice and achieve the revelation moment: "This is who I really am, and this is what my audience needs from me."
             </motion.p>
           </div>
         </div>
@@ -254,42 +256,89 @@ export const ProofSection: React.FC = () => {
         </motion.div>
 
         {/* Case Studies */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-24 text-left">
-          <motion.div 
-            className="space-y-6 p-8 border border-border/50 rounded-lg group hover:border-amber-400/50 transition-all duration-300"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <h3 className="font-serif text-3xl font-bold text-amber-400">J-Griff</h3>
-            <p className="text-lg text-foreground/90">
-              <span className="font-bold">The Revelation:</span> "I realized I wasn't just a filmmaker—I was a storyteller who could help other leaders find their voice." We guided J-Griff through his voice awakening, and he grew from <span className="font-bold">$2M to $8M in 18 months</span> through documentary-style storytelling that felt true.
+        <div className="space-y-12 mb-24">
+          <div className="text-center mb-12">
+            <h3 className="font-serif text-3xl font-bold mb-4">
+              Client <span className="text-amber-400">Success Stories</span>
+            </h3>
+            <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
+              See how we've helped brands transform from generic to authentic, and the measurable results that followed.
             </p>
-            <div className="flex items-baseline space-x-4 pt-4">
-              <span className="font-serif text-4xl font-bold text-amber-400">800K+</span>
-              <span className="text-foreground/80">video views</span>
-            </div>
-          </motion.div>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 text-left">
+            <motion.div 
+              className="space-y-6 p-8 bg-gradient-to-br from-green-900/20 to-emerald-900/20 border-2 border-green-500/30 rounded-xl group hover:border-green-400/50 transition-all duration-300 backdrop-blur-sm"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-serif text-2xl font-bold text-green-400">The Level Up Collective</h3>
+                <div className="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full font-medium">
+                  18 Months
+                </div>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-green-800/30 rounded-lg p-4 border border-green-500/30">
+                  <p className="text-green-300 font-medium text-sm mb-2">THE CHALLENGE:</p>
+                  <p className="text-green-100">Financial literacy educator struggling to scale his mastermind beyond word-of-mouth and reach ambitious growth targets.</p>
+                </div>
+                
+                <div className="bg-green-800/30 rounded-lg p-4 border border-green-500/30">
+                  <p className="text-green-300 font-medium text-sm mb-2">THE TRANSFORMATION:</p>
+                  <p className="text-green-100">"We discovered my authentic voice wasn't just teaching—it was empowering people to take control of their financial future through real stories and proven systems."</p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-serif font-bold text-green-400">$2M → $8M</div>
+                    <div className="text-xs text-green-200/80">Revenue Growth</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-serif font-bold text-green-400">350+</div>
+                    <div className="text-xs text-green-200/80">Mastermind Members</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
 
-          <motion.div 
-            className="space-y-6 p-8 border border-border/50 rounded-lg group hover:border-amber-400/50 transition-all duration-300"
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-          >
-            <h3 className="font-serif text-3xl font-bold text-amber-400">The Great Awakening Podcast</h3>
-            <p className="text-lg text-foreground/90">
-              <span className="font-bold">The Revelation:</span> "We discovered our authentic voice wasn't about teaching—it was about awakening." After collaborating with Aaron Abke and Jeremy Griffin, we helped them achieve 23K+ views on key videos and grow to nearly 7,500 subscribers in just one year.
-            </p>
-            <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4">
-              <div className="flex items-baseline space-x-3">
-                <span className="font-serif text-4xl font-bold text-amber-400">23K+</span>
-                <span className="text-foreground/80">key video views</span>
+            <motion.div 
+              className="space-y-6 p-8 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-2 border-blue-500/30 rounded-xl group hover:border-blue-400/50 transition-all duration-300 backdrop-blur-sm"
+              variants={itemVariants}
+              whileHover={{ y: -5, scale: 1.02 }}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-serif text-2xl font-bold text-blue-400">Tuff Pupper</h3>
+                <div className="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full font-medium">
+                  Product Launch
+                </div>
               </div>
-              <div className="flex items-baseline space-x-3">
-                <span className="font-serif text-4xl font-bold text-amber-400">~7.5K</span>
-                <span className="text-foreground/80">subscribers</span>
+              
+              <div className="space-y-4">
+                <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-500/30">
+                  <p className="text-blue-300 font-medium text-sm mb-2">THE CHALLENGE:</p>
+                  <p className="text-blue-100">Pet product brand needed authentic storytelling to differentiate from generic pet accessories and connect with dog owners.</p>
+                </div>
+                
+                <div className="bg-blue-800/30 rounded-lg p-4 border border-blue-500/30">
+                  <p className="text-blue-300 font-medium text-sm mb-2">THE TRANSFORMATION:</p>
+                  <p className="text-blue-100">"We shifted from product features to the authentic bond between dogs and their owners through real adventure stories."</p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-serif font-bold text-blue-400">285%</div>
+                    <div className="text-xs text-blue-200/80">Engagement Increase</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-serif font-bold text-blue-400">$180K+</div>
+                    <div className="text-xs text-blue-200/80">First Year Revenue</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Video Testimonials */}

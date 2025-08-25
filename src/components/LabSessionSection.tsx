@@ -4,9 +4,10 @@ import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 
 const sessionSteps = [
-  "Uncover the raw truth of your brand",
-  "Identify your unique signal", 
-  "Show you how to cut through the AI-driven noise"
+  "Analyze what's making your brand invisible in the marketplace",
+  "Uncover your authentic voice and unique positioning", 
+  "Create a roadmap to cut through the noise and reach your ideal clients",
+  "Determine which Authentik Studio service will accelerate your transformation"
 ];
 
 export const DiscoverySection: React.FC = () => {
@@ -60,9 +61,9 @@ export const DiscoverySection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            The <span className="text-amber-400">Lab Session</span>
+            Your <span className="text-amber-400">Discovery</span> Call
             <br />
-            <span className="text-2xl sm:text-3xl text-foreground/80">(First Step)</span>
+            <span className="text-2xl sm:text-3xl text-foreground/80">(Your First Step to Authenticity)</span>
           </motion.h2>
           
           <motion.div 
@@ -85,7 +86,7 @@ export const DiscoverySection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            Your first step isn't a sales call. It's a <span className="text-amber-400">Discovery Call</span>.
+            This isn't a sales pitch. It's a <span className="text-amber-400">strategic breakthrough session</span>.
           </motion.p>
           
           <motion.p
@@ -93,12 +94,12 @@ export const DiscoverySection: React.FC = () => {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
           >
-            A <span className="text-amber-400 font-medium">60-minute creative breakthrough call</span> where we discover which service is right for you:
+            In just <span className="text-amber-400 font-medium">60 focused minutes</span>, we'll uncover your brand's authentic voice and determine the perfect path forward:
           </motion.p>
         </motion.div>
         
         <motion.div 
-          className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
           initial={{ y: 50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
@@ -143,19 +144,24 @@ export const DiscoverySection: React.FC = () => {
           animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
           transition={{ duration: 0.8, delay: 2.1 }}
         >
-          <motion.p 
-            className="text-xl font-medium text-amber-400"
-            animate={{
-              textShadow: [
-                "0 0 0px rgba(251, 191, 36, 0)",
-                "0 0 10px rgba(251, 191, 36, 0.5)",
-                "0 0 0px rgba(251, 191, 36, 0)"
-              ]
-            }}
-            transition={{ duration: 3, repeat: Infinity }}
-          >
-            Even if we don't continue, you'll walk away with clarity you can use immediately.
-          </motion.p>
+          <div className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border-2 border-amber-500/50 rounded-xl p-6 backdrop-blur-sm max-w-4xl mx-auto">
+            <motion.p 
+              className="text-xl font-medium text-amber-400 text-center"
+              animate={{
+                textShadow: [
+                  "0 0 0px rgba(251, 191, 36, 0)",
+                  "0 0 10px rgba(251, 191, 36, 0.5)",
+                  "0 0 0px rgba(251, 191, 36, 0)"
+                ]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+            >
+              🎁 <span className="font-bold">Zero-Pressure Guarantee:</span> Even if we don't work together, you'll walk away with actionable insights worth thousands.
+            </motion.p>
+            <p className="text-amber-200/80 text-center mt-3 text-sm">
+              No pitch. No pressure. Just pure value and strategic clarity for your brand.
+            </p>
+          </div>
           
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer" className="inline-block">
             <motion.div
