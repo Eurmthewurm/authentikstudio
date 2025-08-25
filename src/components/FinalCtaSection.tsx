@@ -92,7 +92,7 @@ export const FinalCtaSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Join the select group of brands who've chosen to stand out from the noise
+              Join the select group of brands who've chosen to work with Authentik Studio
             </motion.p>
           </div>
         </div>

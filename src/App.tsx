@@ -9,6 +9,7 @@ import { DeliverablesSection } from './components/DeliverablesSection';
 import { FounderSection } from './components/FounderSection';
 import { AudienceSection } from './components/AudienceSection';
 import { LabSessionSection } from './components/LabSessionSection';
+import { ServicesSection } from './components/ServicesSection';
 import { InvestmentSection } from './components/InvestmentSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
 import { ScrollAwareBackground } from './components/ScrollAwareBackground';
@@ -44,6 +45,8 @@ function App() {
         <SectionDivider />
         <FounderSection />
         <AudienceSection />
+        <SectionDivider />
+        <ServicesSection />
         <SectionDivider />
         <LabSessionSection />
         <InvestmentSection />

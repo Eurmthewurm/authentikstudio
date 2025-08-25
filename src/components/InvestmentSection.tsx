@@ -73,7 +73,7 @@ export const InvestmentSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              After seeing how we've guided leaders like J-Griff through their voice awakening, here's what it takes to join our community of authentic communicators
+              After seeing how we've helped brands cut through the noise, here's what it takes to work with Authentik Studio
             </motion.p>
           </div>
         </div>
@@ -90,7 +90,7 @@ export const InvestmentSection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            The Expansion Lab is a <span className="text-amber-400 font-medium">6-month partnership</span>.
+            Authentik Studio projects start at <span className="text-amber-400 font-medium">€2,000–€5,000</span>.
           </motion.p>
           
           <motion.div 
@@ -102,7 +102,7 @@ export const InvestmentSection: React.FC = () => {
               textShadow: isInView ? "0 0 20px rgba(251, 191, 36, 0.6)" : "0 0 0px rgba(251, 191, 36, 0)"
             }}
           >
-            €4,000–€6,000/month
+            €2,000–€5,000
           </motion.div>
           
           <motion.p 
@@ -111,7 +111,7 @@ export const InvestmentSection: React.FC = () => {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.3 }}
           >
-            depending on scope
+            per project
           </motion.p>
         </motion.div>
         

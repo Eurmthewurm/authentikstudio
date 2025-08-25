@@ -38,7 +38,7 @@ export const StickyHeader: React.FC = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Button size="default" className="bg-amber-400 hover:bg-amber-500 text-black font-medium">
-                Book Your Lab Session
+                Book Studio Call
               </Button>
             </motion.div>
           </a>

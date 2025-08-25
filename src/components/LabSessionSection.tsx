@@ -85,7 +85,7 @@ export const LabSessionSection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            Your first step isn't a sales call. It's a <span className="text-amber-400">Lab Session</span>.
+            Your first step isn't a sales call. It's a <span className="text-amber-400">Studio Discovery Call</span>.
           </motion.p>
           
           <motion.p
@@ -185,7 +185,7 @@ export const LabSessionSection: React.FC = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
-                <span className="relative z-10">Book Your Lab Session</span>
+                <span className="relative z-10">Book Your Studio Call</span>
               </Button>
             </motion.div>
           </a>

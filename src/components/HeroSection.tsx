@@ -85,7 +85,7 @@ export const HeroSection: React.FC = () => {
               <span className="text-white text-xs">⏰</span>
             </div>
             <p className="font-medium text-base">
-              Only <span className="font-bold text-red-600">5 spots remaining</span> this quarter
+              Only <span className="font-bold text-red-600">3 Studio spots</span> available this month
             </p>
           </div>
         </motion.div>
@@ -160,7 +160,7 @@ export const HeroSection: React.FC = () => {
             <span className="text-amber-400 font-bold">Stop blending in.</span> Start standing out.
           </p>
           <p className="text-center text-foreground/80">
-            Join our Expansion Lab and discover your brand's unique frequency in just 6 months.
+            Start with Authentik Studio to cut through the noise, then expand into deeper transformation.
           </p>
         </motion.div>
         
@@ -197,7 +197,7 @@ export const HeroSection: React.FC = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
-                <span className="relative z-10">Start Your Lab Session</span>
+                <span className="relative z-10">Book Your Studio Call</span>
               </Button>
             </motion.div>
           </a>

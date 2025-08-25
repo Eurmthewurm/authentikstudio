@@ -76,7 +76,7 @@ export const FounderSection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
           >
-            That's why we exist: to help founders cut through, lead with authenticity, and expand into their next stage of growth.
+            That's why we exist: to help leaders awaken their audience, clarify their message, and expand their presence through authentic storytelling.
           </motion.p>
         </motion.div>
       </motion.div>
