@@ -123,7 +123,7 @@ export const MethodSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              The Expansion Lab is where leaders discover their authentic voice and learn to communicate with clarity and conviction. We guide you through a transformation that goes beyond content—it's about becoming the leader your audience needs.
+              Whether you're working with us on a project or joining our Expansion Lab, we guide you through a transformation that goes beyond content—it's about discovering your authentic voice and becoming the leader your audience needs.
             </motion.p>
           </div>
 
@@ -137,7 +137,7 @@ export const MethodSection: React.FC = () => {
                 Your <span className="text-amber-400">Leadership</span> Transformation Journey
               </h3>
               <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-                This isn't just a content creation process—it's a leadership development journey where you'll discover your authentic voice alongside other visionary leaders
+                This isn't just a content creation process—it's a leadership development journey where you'll discover your authentic voice. For Expansion Lab members, you'll do this alongside other visionary leaders.
               </p>
             </div>
             

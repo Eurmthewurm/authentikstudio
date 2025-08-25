@@ -82,7 +82,8 @@ export const SolutionSection: React.FC = () => {
             {[
               { text: "We're signal amplifiers.", className: "text-2xl font-light text-amber-400 text-center" },
               { text: "We strip away the performative marketing speak and uncover the raw truth of your brand. Then we amplify it into stories that stop people in their tracks.", className: "text-xl text-center" },
-              { text: "The Expansion Lab is our proven 6-month program that transforms generic brands into authentic storytellers who stand out from the noise.", className: "text-lg text-center text-foreground/80" }
+              { text: "The Expansion Lab is our proven 6-month program that transforms generic brands into authentic storytellers who stand out from the noise.", className: "text-lg text-center text-foreground/80" },
+              { text: "See all our services below to find the right path for your brand.", className: "text-base text-center text-foreground/70" }
             ].map((item, index) => (
               <motion.p
                 key={index}

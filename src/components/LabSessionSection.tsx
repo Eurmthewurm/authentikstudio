@@ -9,7 +9,7 @@ const sessionSteps = [
   "Show you how to cut through the AI-driven noise"
 ];
 
-export const LabSessionSection: React.FC = () => {
+export const DiscoverySection: React.FC = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -85,7 +85,7 @@ export const LabSessionSection: React.FC = () => {
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            Your first step isn't a sales call. It's a <span className="text-amber-400">Studio Discovery Call</span>.
+            Your first step isn't a sales call. It's a <span className="text-amber-400">Discovery Call</span>.
           </motion.p>
           
           <motion.p
@@ -93,7 +93,7 @@ export const LabSessionSection: React.FC = () => {
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
           >
-            A <span className="text-amber-400 font-medium">60-minute creative breakthrough call</span> where we:
+            A <span className="text-amber-400 font-medium">60-minute creative breakthrough call</span> where we discover which service is right for you:
           </motion.p>
         </motion.div>
         
@@ -185,7 +185,7 @@ export const LabSessionSection: React.FC = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
-                <span className="relative z-10">Book Your Studio Call</span>
+                <span className="relative z-10">Book Your Discovery Call</span>
               </Button>
             </motion.div>
           </a>

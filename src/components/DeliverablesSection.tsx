@@ -87,7 +87,7 @@ export const DeliverablesSection: React.FC = () => {
             className="text-xl text-foreground/80 max-w-3xl mx-auto"
             variants={itemVariants}
           >
-            With the Expansion Lab you'll receive guidance, community, and systems to help you discover and amplify your authentic voice
+            When you work with Authentik Studio, you'll receive guidance, systems, and support to help you cut through the noise and amplify your authentic voice
           </motion.p>
         </motion.div>
         

@@ -73,7 +73,7 @@ export const InvestmentSection: React.FC = () => {
               animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              After seeing how we've helped brands cut through the noise, here's what it takes to work with Authentik Studio
+              After seeing how we've helped brands cut through the noise, here's what it takes to start with Authentik Studio. For Expansion Lab and Thought Leadership pricing, see our Services section above.
             </motion.p>
           </div>
         </div>

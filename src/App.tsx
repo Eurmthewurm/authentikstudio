@@ -8,7 +8,7 @@ import { ProofSection } from './components/ProofSection';
 import { DeliverablesSection } from './components/DeliverablesSection';
 import { FounderSection } from './components/FounderSection';
 import { AudienceSection } from './components/AudienceSection';
-import { LabSessionSection } from './components/LabSessionSection';
+import { DiscoverySection } from './components/LabSessionSection';
 import { ServicesSection } from './components/ServicesSection';
 import { InvestmentSection } from './components/InvestmentSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
@@ -48,7 +48,7 @@ function App() {
         <SectionDivider />
         <ServicesSection />
         <SectionDivider />
-        <LabSessionSection />
+        <DiscoverySection />
         <InvestmentSection />
         <FinalCtaSection />
       </main>
