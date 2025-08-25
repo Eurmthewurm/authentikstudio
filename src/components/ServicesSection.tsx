@@ -76,7 +76,7 @@ const services = [
     cta: 'Join Waitlist',
     ctaLink: 'https://calendly.com/ermo/discoverycall',
     primary: false,
-    status: 'Q2 2025 Cohort'
+    status: 'Next Cohort'
   }
 ];
 

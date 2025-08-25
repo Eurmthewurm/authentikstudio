@@ -141,17 +141,17 @@ export const FinalCtaSection: React.FC = () => {
           <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 border-2 border-red-500/50 rounded-xl p-8 backdrop-blur-sm">
             <div className="flex items-center justify-center gap-4 mb-4">
               <span className="text-3xl">⏳</span>
-              <p className="font-bold text-red-300 text-lg">Last Chance for Q1 2025</p>
+              <p className="font-bold text-red-300 text-lg">Limited Availability</p>
             </div>
             <div className="text-center space-y-3">
               <p className="text-red-200 text-lg">
-                We're closing applications for Q1 2025 cohort in <span className="font-bold text-red-400">7 days</span>.
+                We're accepting applications for our next cohort with <span className="font-bold text-red-400">limited spots</span>.
               </p>
               <p className="text-red-200/80">
                 Only <span className="font-bold text-red-300">3 spots remaining</span> out of our annual limit of 12 clients.
               </p>
               <p className="text-sm text-red-200/70">
-                Next available cohort: Q3 2025 (6-month waiting list)
+                Apply early to secure your spot (limited enrollment)
               </p>
             </div>
           </div>

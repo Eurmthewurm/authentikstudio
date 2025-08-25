@@ -87,7 +87,7 @@ export const HeroSection: React.FC = () => {
             <p className="font-medium text-sm sm:text-base text-center">
               <span className="text-amber-400 font-bold">Limited Availability:</span> Only <span className="font-bold text-amber-300">12 clients</span> per year
               <br className="sm:hidden" />
-              <span className="text-xs sm:text-sm text-amber-200/80 block sm:inline sm:ml-2">Currently accepting Q1 2025 applications</span>
+              <span className="text-xs sm:text-sm text-amber-200/80 block sm:inline sm:ml-2">Currently accepting new applications</span>
             </p>
           </div>
         </motion.div>
