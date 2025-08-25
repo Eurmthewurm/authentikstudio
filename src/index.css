@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 12 12% 8%;
+    --foreground: 35 15% 92%;
+    --card: 12 12% 8%;
+    --card-foreground: 35 15% 92%;
+    --popover: 12 12% 8%;
+    --popover-foreground: 35 15% 92%;
+    --primary: 42 96% 65%;
+    --primary-foreground: 12 12% 8%;
+    --secondary: 12 12% 15%;
+    --secondary-foreground: 35 15% 92%;
+    --muted: 12 12% 15%;
+    --muted-foreground: 35 8% 65%;
+    --accent: 42 96% 65%;
+    --accent-foreground: 12 12% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 12 12% 20%;
+    --input: 12 12% 15%;
+    --ring: 42 96% 65%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  .font-serif {
+    font-family: 'Courier Prime', monospace;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Hide default cursor for custom cursor experience */
+  .app-container, .app-container a, .app-container button {
+    @apply cursor-none;
+  }
+}
+
+@layer components {
+  .grain {
+    position: relative;
+  }
+  
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 20px 20px, 40px 40px;
+    background-position: 0 0, 10px 10px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .noise-bg {
+    background: 
+      radial-gradient(ellipse at center, rgba(66, 63, 41, 0.1) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 48%, rgba(251, 191, 36, 0.03) 50%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(251, 191, 36, 0.03) 50%, transparent 52%);
+  }
+}
