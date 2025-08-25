@@ -217,33 +217,67 @@ export const HeroSection: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* Featured In Section - Moved up for better visibility */}
+      {/* Featured In Section - Enhanced for better visibility */}
       <motion.div 
-        className="w-full max-w-5xl mx-auto text-center mt-4 sm:mt-6 relative z-10 px-4"
+        className="w-full max-w-6xl mx-auto text-center mt-12 sm:mt-16 relative z-10 px-4"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.8 }}
       >
-        <h4 className="text-xs sm:text-sm text-foreground/60 mb-2 sm:mb-3 tracking-widest">TRUSTED BY LEADING BRANDS</h4>
-        <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-2 text-base sm:text-lg text-foreground/70 font-medium">
-          {featuredIn.map((name) => (
-            <span key={name}>{name}</span>
-          ))}
-        </div>
-        
-        {/* Trust Indicators */}
-        <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-foreground/60">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            <span>30+ Years Experience</span>
+        {/* Background highlight */}
+        <div className="bg-gradient-to-r from-amber-900/10 via-amber-800/20 to-amber-900/10 border border-amber-500/20 rounded-xl p-6 sm:p-8 backdrop-blur-sm">
+          <motion.h4 
+            className="text-sm sm:text-base text-amber-400 mb-4 sm:mb-6 tracking-widest font-semibold"
+            animate={{
+              opacity: [0.7, 1, 0.7]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          >
+            TRUSTED BY LEADING BRANDS
+          </motion.h4>
+          
+          <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-3 sm:gap-y-4 text-lg sm:text-xl lg:text-2xl text-foreground/90 font-medium mb-6">
+            {featuredIn.map((name, index) => (
+              <motion.span 
+                key={name}
+                className="hover:text-amber-400 transition-colors duration-300 cursor-default"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 2 + (index * 0.1) }}
+                whileHover={{ scale: 1.05 }}
+              >
+                {name}
+              </motion.span>
+            ))}
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-            <span>Documentary Expertise</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
-            <span>Proven ROI Results</span>
+          
+          {/* Trust Indicators */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-foreground/70">
+            <motion.div 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+              <span>30+ Years Experience</span>
+            </motion.div>
+            <motion.div 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></span>
+              <span>Documentary Expertise</span>
+            </motion.div>
+            <motion.div 
+              className="flex items-center gap-2"
+              whileHover={{ scale: 1.05 }}
+            >
+              <span className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></span>
+              <span>Proven ROI Results</span>
+            </motion.div>
           </div>
         </div>
       </motion.div>
