@@ -75,24 +75,24 @@ export const HeroSection: React.FC = () => {
       >
         {/* Urgency Banner */}
         <motion.div 
-          className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg p-3 mb-6 max-w-xl mx-auto"
+          className="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg p-2 sm:p-3 mb-4 sm:mb-6 max-w-sm sm:max-w-xl mx-auto"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <div className="flex items-center justify-center gap-2 text-red-800">
-            <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+            <div className="w-4 h-4 sm:w-5 sm:h-5 bg-red-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">⏰</span>
             </div>
-            <p className="font-medium text-base">
+            <p className="font-medium text-sm sm:text-base">
               Only <span className="font-bold text-red-600">3 Studio spots</span> available this month
             </p>
           </div>
         </motion.div>
 
-        <motion.div className="space-y-8" variants={itemVariants}>
+        <motion.div className="space-y-6 sm:space-y-8" variants={itemVariants}>
           <motion.h1 
-            className="font-serif text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-none"
+            className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none"
             variants={textVariants}
           >
             <motion.span
@@ -122,14 +122,14 @@ export const HeroSection: React.FC = () => {
           </motion.h1>
           
           <motion.div 
-            className="w-24 h-px bg-amber-400 mx-auto"
+            className="w-16 sm:w-24 h-px bg-amber-400 mx-auto"
             initial={{ width: 0 }}
-            animate={{ width: 96 }}
+            animate={{ width: window.innerWidth < 640 ? 64 : 96 }}
             transition={{ duration: 1, delay: 1.5 }}
           />
           
           <motion.p 
-            className="text-xl sm:text-2xl lg:text-3xl font-light text-foreground/80 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-light text-foreground/80 max-w-3xl mx-auto leading-relaxed px-4"
             variants={itemVariants}
           >
             A manifesto against the generic.
@@ -139,13 +139,13 @@ export const HeroSection: React.FC = () => {
         </motion.div>
 
         <motion.div 
-          className="space-y-6 text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto"
+          className="space-y-4 sm:space-y-6 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto px-4"
           variants={itemVariants}
         >
           <p>
             AI is flooding the internet. Every brand sounds the same. Your audience can smell the generic from miles away.
           </p>
-          <p className="text-xl font-medium">
+          <p className="text-lg sm:text-xl font-medium">
             At Authentik Studio, we don't create content.
             <br />
             <span className="text-amber-400 font-bold">We create conviction.</span>
@@ -153,10 +153,10 @@ export const HeroSection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="space-y-4 text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto"
+          className="space-y-3 sm:space-y-4 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-4xl mx-auto px-4"
           variants={itemVariants}
         >
-          <p className="text-xl font-medium text-center">
+          <p className="text-lg sm:text-xl font-medium text-center">
             <span className="text-amber-400 font-bold">Stop blending in.</span> Start standing out.
           </p>
           <p className="text-center text-foreground/80">
@@ -189,7 +189,7 @@ export const HeroSection: React.FC = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-8 py-6 text-lg tracking-wide relative overflow-hidden group"
+                className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg tracking-wide relative overflow-hidden group w-full sm:w-auto"
               >
                 <motion.div
                   className="absolute inset-0 bg-white/20"
@@ -206,20 +206,20 @@ export const HeroSection: React.FC = () => {
 
       {/* Featured In Section - Moved up for better visibility */}
       <motion.div 
-        className="w-full max-w-5xl mx-auto text-center mt-6 relative z-10"
+        className="w-full max-w-5xl mx-auto text-center mt-4 sm:mt-6 relative z-10 px-4"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.8 }}
       >
-        <h4 className="text-sm text-foreground/60 mb-3 tracking-widest">TRUSTED BY LEADING BRANDS</h4>
-        <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 gap-y-2 text-lg text-foreground/70 font-medium">
+        <h4 className="text-xs sm:text-sm text-foreground/60 mb-2 sm:mb-3 tracking-widest">TRUSTED BY LEADING BRANDS</h4>
+        <div className="flex flex-wrap justify-center items-center gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-2 text-base sm:text-lg text-foreground/70 font-medium">
           {featuredIn.map((name) => (
             <span key={name}>{name}</span>
           ))}
         </div>
         
         {/* Trust Indicators */}
-        <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-foreground/60">
+        <div className="mt-3 sm:mt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-foreground/60">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
             <span>ISO 27001 Certified</span>

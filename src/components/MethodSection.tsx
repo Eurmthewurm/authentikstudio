@@ -29,21 +29,21 @@ const processSteps = [
   {
     phase: "Phase 1",
     title: "Discovery & Voice Awakening",
-    duration: "Weeks 1-2",
+    duration: "Months 1-2",
     description: "We guide you through deep introspection to uncover your authentic voice. This is where leaders often have their first revelation: 'This is who I really am, and this is what my audience needs from me.'",
     deliverables: ["Authentic voice guide", "Leadership communication strategy", "Audience resonance framework", "Personal brand clarity"]
   },
   {
     phase: "Phase 2",
     title: "Leadership Communication Mastery",
-    duration: "Weeks 3-4",
+    duration: "Months 3-4",
     description: "Learn to communicate with the conviction that only comes from authenticity. We guide you through creating content that doesn't just inform—it transforms your audience's perspective.",
     deliverables: ["Communication mastery framework", "Content creation system", "Audience engagement strategies", "Leadership presence coaching"]
   },
   {
     phase: "Phase 3",
     title: "Expansion & Community Building",
-    duration: "Weeks 5-6",
+    duration: "Months 5-6",
     description: "Join a community of leaders who've discovered their authentic voice. Learn from each other's revelations and build systems that scale beyond our partnership.",
     deliverables: ["Community access", "Scaling frameworks", "Ongoing mentorship", "Peer learning networks"]
   }
@@ -193,20 +193,20 @@ export const MethodSection: React.FC = () => {
           </motion.div>
 
           {/* Core Principles */}
-          <div className="grid lg:grid-cols-3 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
             {/* Left side - Core Principles */}
             <motion.div 
               className="lg:col-span-2 space-y-6"
               variants={itemVariants}
             >
               <div className="space-y-4">
-                <h2 className="font-serif text-4xl font-bold">
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold">
                   Our <span className="text-amber-400">Core</span> Principles
                 </h2>
                 <div className="w-16 h-px bg-amber-400"></div>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {steps.map((step, index) => (
                   <motion.div 
                     key={index} 
@@ -236,17 +236,17 @@ export const MethodSection: React.FC = () => {
             
             {/* Right side - Additional content to fill space */}
             <motion.div 
-              className="space-y-6"
+              className="space-y-6 mt-8 lg:mt-0"
               variants={itemVariants}
             >
               <div className="space-y-4">
-                <h3 className="font-serif text-2xl font-bold text-amber-400">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-amber-400">
                   Why This Works
                 </h3>
                 <div className="w-12 h-px bg-amber-400"></div>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div className="p-4 bg-amber-400/10 border border-amber-400/20 rounded-lg">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-amber-400 text-xl">🎯</span>

@@ -102,11 +102,11 @@ export const ServicesSection: React.FC = () => {
       >
         {/* Header */}
         <motion.div 
-          className="text-center space-y-12 mb-20"
+          className="text-center space-y-8 sm:space-y-12 mb-16 sm:mb-20"
           variants={itemVariants}
         >
           <motion.h2 
-            className="font-serif text-5xl sm:text-6xl font-bold"
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold"
             initial={{ y: 30, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
             transition={{ duration: 0.8 }}
@@ -115,14 +115,14 @@ export const ServicesSection: React.FC = () => {
           </motion.h2>
           
           <motion.div 
-            className="w-24 h-px bg-amber-400 mx-auto"
+            className="w-16 sm:w-24 h-px bg-amber-400 mx-auto"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 96 } : { width: 0 }}
+            animate={isInView ? { width: window.innerWidth < 640 ? 64 : 96 } : { width: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           
           <motion.p 
-            className="text-xl text-foreground/80 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto px-4"
             variants={itemVariants}
           >
             Three paths. One mission: cut through the noise with authenticity.
@@ -134,13 +134,13 @@ export const ServicesSection: React.FC = () => {
           {services.map((service) => (
             <motion.div
               key={service.id}
-              className={`relative ${service.primary ? 'border-2 border-amber-400/50 bg-gradient-to-br from-amber-400/5 to-transparent' : 'border border-border/50 bg-gradient-to-br from-slate-900/30 to-gray-900/30'} rounded-2xl p-8 md:p-12 backdrop-blur-sm`}
+              className={`relative ${service.primary ? 'border-2 border-amber-400/50 bg-gradient-to-br from-amber-400/5 to-transparent' : 'border border-border/50 bg-gradient-to-br from-slate-900/30 to-gray-900/30'} rounded-2xl p-6 sm:p-8 md:p-12 backdrop-blur-sm`}
               variants={itemVariants}
               whileHover={{ y: -5, borderColor: service.primary ? "rgba(251, 191, 36, 0.8)" : "rgba(148, 163, 184, 0.6)" }}
               transition={{ duration: 0.3 }}
             >
               {/* Status Badge */}
-              <div className={`absolute -top-3 left-8 px-4 py-1 rounded-full text-sm font-medium ${
+              <div className={`absolute -top-3 left-4 sm:left-8 px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium ${
                 service.primary 
                   ? 'bg-amber-400 text-black' 
                   : service.status === 'Limited Availability'
@@ -151,29 +151,29 @@ export const ServicesSection: React.FC = () => {
               </div>
 
               {/* Service Header */}
-              <div className="space-y-6 mb-8">
-                <h3 className="font-serif text-3xl md:text-4xl font-bold">
+              <div className="space-y-4 sm:space-y-6 mb-6 sm:mb-8">
+                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold">
                   {service.title}
                 </h3>
-                <p className="text-lg text-amber-400 font-medium">
+                <p className="text-base sm:text-lg text-amber-400 font-medium">
                   {service.subtitle}
                 </p>
-                <p className="text-lg text-foreground/80 leading-relaxed">
+                <p className="text-base sm:text-lg text-foreground/80 leading-relaxed">
                   {service.description}
                 </p>
               </div>
 
               {/* Features and Benefits Grid */}
-              <div className="grid md:grid-cols-2 gap-8 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
                 {/* What We Do */}
-                <div className="space-y-4">
-                  <h4 className="font-bold text-lg text-foreground/90">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground/90">
                     What We Do:
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-foreground/80">
-                        <span className="text-amber-400 mt-1">→</span>
+                      <li key={idx} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-foreground/80">
+                        <span className="text-amber-400 mt-1 flex-shrink-0">→</span>
                         <span>{feature}</span>
                       </li>
                     ))}
@@ -181,14 +181,14 @@ export const ServicesSection: React.FC = () => {
                 </div>
 
                 {/* What You Get */}
-                <div className="space-y-4">
-                  <h4 className="font-bold text-lg text-foreground/90">
+                <div className="space-y-3 sm:space-y-4">
+                  <h4 className="font-bold text-base sm:text-lg text-foreground/90">
                     What You Get:
                   </h4>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {service.benefits.map((benefit, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-foreground/80">
-                        <span className="text-amber-400 mt-1">✓</span>
+                      <li key={idx} className="flex items-start gap-2 sm:gap-3 text-sm sm:text-base text-foreground/80">
+                        <span className="text-amber-400 mt-1 flex-shrink-0">✓</span>
                         <span>{benefit}</span>
                       </li>
                     ))}
@@ -222,10 +222,10 @@ export const ServicesSection: React.FC = () => {
 
         {/* Bottom CTA */}
         <motion.div 
-          className="text-center mt-16 space-y-6"
+          className="text-center mt-12 sm:mt-16 space-y-4 sm:space-y-6 px-4"
           variants={itemVariants}
         >
-          <p className="text-lg text-foreground/80">
+          <p className="text-base sm:text-lg text-foreground/80">
             Not sure which path is right for you?
           </p>
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer">
@@ -235,7 +235,7 @@ export const ServicesSection: React.FC = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-8 py-4 text-lg"
+                className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
               >
                 Book a Discovery Call
               </Button>
