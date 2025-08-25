@@ -7,8 +7,8 @@ const services = [
   {
     id: 'studio',
     title: 'Authentik Studio',
-    subtitle: 'Project-based storytelling for brands ready to stand out from the noise.',
-    description: 'Transform your brand message into documentary-style content that feels authentic, not artificial. We create campaigns that your audience remembers, trusts, and acts on.',
+    subtitle: 'We don\'t create content. We create conviction.',
+    description: 'Forget the flashy edits. Forget the trends. Forget the generic. Your audience isn\'t fooled — they want something real. We craft stories that awaken, clarify, and convert through documentary-style content that feels raw, human, and unforgettable.',
     features: [
       'Brand voice discovery and positioning strategy',
       'Documentary-style video production (2-5 pieces)',
@@ -16,10 +16,10 @@ const services = [
       'Performance tracking and optimization'
     ],
     benefits: [
-      '3.2x higher engagement than generic content',
-      'Authentic brand voice that differentiates you',
-      'Content that converts prospects into customers',
-      '6-month content strategy roadmap'
+      'Work that cuts through the noise',
+      'A brand voice people trust',
+      'Content that isn\'t just watched — it\'s felt',
+      'Campaigns that awaken conviction, not just clicks'
     ],
     price: '€2,000–€5,000',
     timeline: '4-8 weeks',
@@ -30,9 +30,9 @@ const services = [
   },
   {
     id: 'leadership',
-    title: 'Thought Leadership Coaching',
-    subtitle: 'Private 1:1 coaching for CEOs who want to build authentic personal brands.',
-    description: 'Develop the confidence and clarity to become the trusted voice in your industry. We help you communicate with conviction, not just volume.',
+    title: 'Thought Leadership Support',
+    subtitle: 'Leadership without the hype. Visibility without the noise.',
+    description: 'The internet doesn\'t need another "guru." What it needs are leaders who are real. We help you step into visibility with humility, clarity, and style — so your presence inspires trust, not skepticism.',
     features: [
       'Monthly 1:1 strategy and coaching sessions',
       'Personal brand positioning and messaging',
@@ -40,10 +40,10 @@ const services = [
       'Content creation and distribution guidance'
     ],
     benefits: [
-      'Authentic leadership presence that builds trust',
-      'Clear personal brand positioning in your market',
-      'Confidence to share your expertise publicly',
-      'Sustainable content strategy for long-term growth'
+      'Confidence to lead authentically',
+      'An audience that recognizes and trusts you',
+      'A leadership brand that lasts longer than trends',
+      'Visibility rooted in substance, not hype'
     ],
     price: '€3,000/month',
     timeline: '6-12 months',
@@ -55,8 +55,8 @@ const services = [
   {
     id: 'lab',
     title: 'The Expansion Lab',
-    subtitle: 'Comprehensive 6-month transformation program for visionary leaders.',
-    description: 'Join an exclusive cohort of leaders on a journey to discover and amplify your authentic voice. This isn\'t just about content—it\'s about becoming the leader your industry needs.',
+    subtitle: 'Find your frequency. Expand beyond the generic.',
+    description: 'Most brands copy what\'s already out there. That\'s why they sound the same. The Expansion Lab is where we break that cycle. A 6-month immersive journey to uncover your brand\'s unique frequency — the signal hidden inside the noise.',
     features: [
       '6-month guided transformation journey',
       'Weekly group sessions + monthly 1:1 coaching',
@@ -65,11 +65,11 @@ const services = [
       'Ongoing support and accountability'
     ],
     benefits: [
-      'Complete brand and leadership transformation',
-      'Authentic voice that sets you apart from competitors',
-      'Supportive network of like-minded leaders',
-      'Scalable systems for long-term growth',
-      'Lifetime access to community and resources'
+      'Clarity on your brand\'s authentic story',
+      'A supportive network that challenges mediocrity',
+      'A framework to stand out, not fade in',
+      'Community of leaders who refuse to blend in',
+      'Lifetime access to resources and ongoing support'
     ],
     price: '€4,000–€6,000/month',
     timeline: '6 months',
