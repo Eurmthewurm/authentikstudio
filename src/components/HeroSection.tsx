@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
-const featuredIn = ["National Geographic", "BBC", "Discovery", "Black Magic", "Arte"];
+const featuredIn = ["National Geographic", "BBC", "Discovery", "Aaron Abke", "The Great Awakening Podcast", "Black Magic", "Arte"];
 
 export const HeroSection: React.FC = () => {
   const containerVariants = {
