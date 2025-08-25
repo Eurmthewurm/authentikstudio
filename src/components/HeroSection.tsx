@@ -155,10 +155,10 @@ export const HeroSection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="space-y-4 sm:space-y-6 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
+          className="space-y-6 sm:space-y-8 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
           variants={itemVariants}
         >
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 text-center">
             <div className="space-y-2">
               <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">$6M+</div>
               <div className="text-sm sm:text-base text-foreground/70">Additional revenue generated for clients</div>
@@ -178,7 +178,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="pt-6"
+          className="pt-8 sm:pt-10"
           variants={itemVariants}
         >
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer">

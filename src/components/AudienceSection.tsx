@@ -71,7 +71,7 @@ export const AudienceSection: React.FC = () => {
           />
         </motion.div>
         
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* For */}
           <motion.div 
             className="space-y-8"
@@ -86,7 +86,7 @@ export const AudienceSection: React.FC = () => {
               ✅ Perfect For:
             </motion.h3>
             
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               {forItems.map((item, index) => (
                 <motion.li 
                   key={index}
@@ -132,7 +132,7 @@ export const AudienceSection: React.FC = () => {
               ❌ Not For:
             </motion.h3>
             
-            <ul className="space-y-4">
+            <ul className="space-y-6">
               {notForItems.map((item, index) => (
                 <motion.li 
                   key={index}

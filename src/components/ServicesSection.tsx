@@ -246,7 +246,7 @@ export const ServicesSection: React.FC = () => {
 
         {/* Bottom CTA */}
         <motion.div 
-          className="text-center mt-12 sm:mt-16 space-y-4 sm:space-y-6 px-4"
+          className="text-center mt-16 sm:mt-20 space-y-6 sm:space-y-8 px-4"
           variants={itemVariants}
         >
           <p className="text-base sm:text-lg text-foreground/80">
