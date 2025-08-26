@@ -117,12 +117,12 @@ export const DiscoverySection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="space-y-0 sm:space-y-1"
+          className="space-y-6 sm:space-y-8"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.1 }}
         >
-          <div className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border-2 border-amber-500/50 rounded-xl p-4 sm:p-6 backdrop-blur-sm text-width mb-0 mobile-gap-fix-3">
+          <div className="bg-gradient-to-r from-amber-900/30 to-orange-900/30 border-2 border-amber-500/50 rounded-xl p-4 sm:p-6 backdrop-blur-sm text-width">
             <motion.p 
               className="text-lg sm:text-xl font-medium text-amber-400 text-center"
               animate={{
@@ -141,38 +141,40 @@ export const DiscoverySection: React.FC = () => {
             </p>
           </div>
           
-          <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer" className="inline-block">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 0 0px 0px rgba(251, 191, 36, 0)",
-                  "0 0 25px 5px rgba(251, 191, 36, 0.3)",
-                  "0 0 0px 0px rgba(251, 191, 36, 0)"
-                ]
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: "easeInOut"
-              }}
-            >
-              <Button 
-                size="lg" 
-                className="mobile-button bg-amber-400 hover:bg-amber-500 text-black font-medium tracking-wide relative overflow-hidden group touch-target"
+          <div className="text-center">
+            <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{
+                  boxShadow: [
+                    "0 0 0px 0px rgba(251, 191, 36, 0)",
+                    "0 0 25px 5px rgba(251, 191, 36, 0.3)",
+                    "0 0 0px 0px rgba(251, 191, 36, 0)"
+                  ]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  repeatDelay: 2,
+                  ease: "easeInOut"
+                }}
               >
-                <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-                <span className="relative z-10">Get Your Free Brand Clarity Session</span>
-              </Button>
-            </motion.div>
-          </a>
+                <Button 
+                  size="lg" 
+                  className="mobile-button bg-amber-400 hover:bg-amber-500 text-black font-medium tracking-wide relative overflow-hidden group touch-target"
+                >
+                  <motion.div
+                    className="absolute inset-0 bg-white/20"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 0.6, ease: "easeInOut" }}
+                  />
+                  <span className="relative z-10">Get Your Free Brand Clarity Session</span>
+                </Button>
+              </motion.div>
+            </a>
+          </div>
         </motion.div>
       </motion.div>
     </section>

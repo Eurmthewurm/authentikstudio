@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentik Studio - Downloadable Social Media Banners</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f0f0f;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #fbbf24;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 42px;
+            font-weight: 700;
+        }
+        
+        .banner-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #334155;
+        }
+        
+        .banner-info {
+            margin-bottom: 20px;
+        }
+        
+        .banner-title {
+            color: #fbbf24;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .banner-desc {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #475569;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #0f172a;
+        }
+        
+        canvas {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .download-button {
+            background: #fbbf24;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+        
+        .download-button:hover {
+            background: #f59e0b;
+        }
+        
+        .instructions {
+            background: #0f172a;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #fbbf24;
+            margin-top: 0;
+            font-size: 20px;
+        }
+        
+        .instructions ol {
+            line-height: 1.6;
+            color: #94a3b8;
+        }
+        
+        .preview-note {
+            background: #7c3aed;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AUTHENTIK STUDIO - DOWNLOADABLE BANNERS</h1>
+        
+        <div class="preview-note">
+            ✨ These banners use your exact website serif fonts and colors. Click "Download" to get high-quality PNG files!
+        </div>
+        
+        <!-- LinkedIn Banner -->
+        <div class="banner-section">
+            <div class="banner-info">
+                <div class="banner-title">📌 LinkedIn Profile Banner</div>
+                <div class="banner-desc">1584 x 396 pixels - Perfect for LinkedIn profile header</div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="linkedinCanvas" width="1584" height="396"></canvas>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="download-button" onclick="downloadLinkedIn()">📥 Download LinkedIn Banner</button>
+            </div>
+        </div>
+        
+        <!-- YouTube Banner -->
+        <div class="banner-section">
+            <div class="banner-info">
+                <div class="banner-title">📺 YouTube Channel Banner</div>
+                <div class="banner-desc">2560 x 1440 pixels - Perfect for YouTube channel art (all devices)</div>
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="youtubeCanvas" width="2560" height="1440"></canvas>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="download-button" onclick="downloadYouTube()">📥 Download YouTube Banner</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📱 How to Use Your Downloaded Banners</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                <div>
+                    <h4 style="color: #60a5fa; margin-bottom: 15px;">For LinkedIn:</h4>
+                    <ol>
+                        <li>Click "Download LinkedIn Banner" above</li>
+                        <li>Save the PNG file to your computer</li>
+                        <li>Go to your LinkedIn profile</li>
+                        <li>Click the camera icon on your header</li>
+                        <li>Upload your new banner</li>
+                    </ol>
+                </div>
+                
+                <div>
+                    <h4 style="color: #f87171; margin-bottom: 15px;">For YouTube:</h4>
+                    <ol>
+                        <li>Click "Download YouTube Banner" above</li>
+                        <li>Save the PNG file to your computer</li>
+                        <li>Go to YouTube Studio</li>
+                        <li>Customization → Branding</li>
+                        <li>Upload your new channel art</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; padding: 20px; background: #1e293b; border-radius: 8px;">
+                <p style="margin: 0; color: #fbbf24; font-weight: 600;">✨ Design Features:</p>
+                <p style="margin: 10px 0 0 0; color: #94a3b8;">These banners use your exact website serif fonts (matching your site's typography), colors (#fbbf24 amber), and messaging for perfect brand consistency. The PNG files are high-quality and ready for professional use.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Wait for fonts to load
+        document.fonts.ready.then(() => {
+            createLinkedInBanner();
+            createYouTubeBanner();
+        });
+
+        function createLinkedInBanner() {
+            const canvas = document.getElementById('linkedinCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2d2d2d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Background effects
+            ctx.fillStyle = 'rgba(251, 191, 36, 0.05)';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.2, canvas.height * 0.8, 200, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgba(251, 191, 36, 0.03)';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.8, canvas.height * 0.2, 150, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Animated lines
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.3)';
+            ctx.lineWidth = 2;
+            
+            // Line 1
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.1, canvas.height * 0.2);
+            ctx.lineTo(canvas.width * 0.35, canvas.height * 0.2);
+            ctx.stroke();
+            
+            // Line 2
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.65, canvas.height * 0.6);
+            ctx.lineTo(canvas.width * 0.85, canvas.height * 0.6);
+            ctx.stroke();
+            
+            // Line 3
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.3, canvas.height * 0.8);
+            ctx.lineTo(canvas.width * 0.55, canvas.height * 0.8);
+            ctx.stroke();
+            
+            // Main title - using exact website serif font
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.font = 'bold 90px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('SIGNAL', canvas.width / 2, 120);
+            
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('IN THE NOISE', canvas.width / 2, 190);
+            
+            // Subtitle
+            ctx.fillStyle = '#e5e5e5';
+            ctx.font = '300 28px "Inter", sans-serif';
+            ctx.fillText('Stop blending in. Start leading.', canvas.width / 2, 240);
+            ctx.fillText('Your brand becomes the signal people trust, remember, and buy from.', canvas.width / 2, 270);
+            
+            // Stats
+            const statY = 320;
+            const statSpacing = canvas.width / 4;
+            
+            // Stat 1
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 42px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('$6M+', statSpacing, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 14px "Inter", sans-serif';
+            ctx.fillText('Additional revenue', statSpacing, statY + 25);
+            ctx.fillText('generated for clients', statSpacing, statY + 45);
+            
+            // Stat 2
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 42px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('3.2x', statSpacing * 2, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 14px "Inter", sans-serif';
+            ctx.fillText('Higher conversion', statSpacing * 2, statY + 25);
+            ctx.fillText('vs generic content', statSpacing * 2, statY + 45);
+            
+            // Stat 3
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 42px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('94%', statSpacing * 3, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 14px "Inter", sans-serif';
+            ctx.fillText('Client retention', statSpacing * 3, statY + 25);
+            ctx.fillText('after 6 months', statSpacing * 3, statY + 45);
+            
+            // Domain
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 18px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('www.authentikstudio.com', canvas.width / 2, canvas.height - 20);
+        }
+
+        function createYouTubeBanner() {
+            const canvas = document.getElementById('youtubeCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2d2d2d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Background effects
+            ctx.fillStyle = 'rgba(251, 191, 36, 0.05)';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.2, canvas.height * 0.8, 400, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgba(251, 191, 36, 0.03)';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.8, canvas.height * 0.2, 300, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Animated lines
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.3)';
+            ctx.lineWidth = 3;
+            
+            // Line 1
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.15, canvas.height * 0.15);
+            ctx.lineTo(canvas.width * 0.45, canvas.height * 0.15);
+            ctx.stroke();
+            
+            // Line 2
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.55, canvas.height * 0.5);
+            ctx.lineTo(canvas.width * 0.8, canvas.height * 0.5);
+            ctx.stroke();
+            
+            // Line 3
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.25, canvas.height * 0.85);
+            ctx.lineTo(canvas.width * 0.55, canvas.height * 0.85);
+            ctx.stroke();
+            
+            // Main title - using exact website serif font
+            ctx.textAlign = 'center';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.font = 'bold 180px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('SIGNAL IN THE', canvas.width / 2, 350);
+            
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('NOISE', canvas.width / 2, 550);
+            
+            // Subtitle
+            ctx.fillStyle = '#e5e5e5';
+            ctx.font = '300 54px "Inter", sans-serif';
+            ctx.fillText('Where authentic brands go to cut through the noise and claim their voice', canvas.width / 2, 650);
+            
+            // Stats
+            const statY = 800;
+            const statSpacing = canvas.width / 4;
+            
+            // Stat 1
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 72px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('$6M+', statSpacing, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 28px "Inter", sans-serif';
+            ctx.fillText('Additional revenue', statSpacing, statY + 50);
+            ctx.fillText('generated for top clients', statSpacing, statY + 85);
+            
+            // Stat 2
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 72px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('3.2x', statSpacing * 2, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 28px "Inter", sans-serif';
+            ctx.fillText('Higher conversion rates', statSpacing * 2, statY + 50);
+            ctx.fillText('vs generic content', statSpacing * 2, statY + 85);
+            
+            // Stat 3
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = 'bold 72px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('94%', statSpacing * 3, statY);
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 28px "Inter", sans-serif';
+            ctx.fillText('Client retention', statSpacing * 3, statY + 50);
+            ctx.fillText('after 6 months', statSpacing * 3, statY + 85);
+            
+            // Tagline
+            ctx.fillStyle = '#fbbf24';
+            ctx.font = '500 42px "Inter", sans-serif';
+            ctx.fillText('Documentary-style storytelling that feels raw, real, and unforgettable', canvas.width / 2, 1000);
+            
+            // Domain
+            ctx.fillStyle = '#94a3b8';
+            ctx.font = '400 32px "Playfair Display", "Times New Roman", serif';
+            ctx.fillText('www.authentikstudio.com', canvas.width / 2, canvas.height - 50);
+        }
+
+        function downloadLinkedIn() {
+            const canvas = document.getElementById('linkedinCanvas');
+            const link = document.createElement('a');
+            link.download = 'authentik-studio-linkedin-banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        function downloadYouTube() {
+            const canvas = document.getElementById('youtubeCanvas');
+            const link = document.createElement('a');
+            link.download = 'authentik-studio-youtube-banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+    </script>
+</body>
+</html>

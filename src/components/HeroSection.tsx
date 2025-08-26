@@ -137,25 +137,11 @@ export const HeroSection: React.FC = () => {
             className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-foreground/80 text-width leading-relaxed"
             variants={itemVariants}
           >
-            Stop blending in. Start leading. <span className="text-amber-400 font-medium">Turn invisible brands</span>
-            <br />
-            into <span className="text-amber-400 font-medium">the signal your audience trusts, remembers, and buys from</span>.
+            <span className="text-amber-400 font-medium">Your brand becomes the signal people trust, remember, and buy from</span>.
           </motion.p>
         </motion.div>
 
-        <motion.div 
-          className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed text-foreground/90 text-width"
-          variants={itemVariants}
-        >
-          <p className="text-center">
-            While you're invisible, your competitors are becoming <span className="text-amber-400 font-medium">irreplaceable</span>.
-          </p>
-          <p className="text-lg sm:text-xl font-medium text-center">
-            We don't create content. <span className="text-amber-400 font-bold">We forge conviction.</span>
-            <br />
-            <span className="text-base sm:text-lg font-normal text-foreground/80">Through documentary-style storytelling that makes prospects think: "Finally, someone who gets it."</span>
-          </p>
-        </motion.div>
+
         
         <motion.div 
           className="space-y-2 sm:space-y-3 md:space-y-4 text-base sm:text-lg md:text-xl leading-relaxed text-foreground/90 content-width"
@@ -175,9 +161,6 @@ export const HeroSection: React.FC = () => {
               <div className="text-xs sm:text-sm md:text-base text-foreground/70">Client retention after 6 months</div>
             </div>
           </div>
-          <p className="text-center text-amber-400 font-medium text-lg sm:text-xl md:text-2xl">
-            Ready to become the signal your audience trusts instead of the noise they ignore?
-          </p>
         </motion.div>
         
         <motion.div 

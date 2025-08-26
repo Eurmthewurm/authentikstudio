@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentik Studio - Social Media Banners</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f0f0f;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .banner-container {
+            margin-bottom: 40px;
+            border: 2px solid #334155;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #1e293b;
+        }
+        
+        .banner-info {
+            background: #1e293b;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        
+        /* LinkedIn Banner - 1584 x 396 */
+        .linkedin-banner {
+            width: 1584px;
+            height: 396px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+        }
+        
+        /* YouTube Banner - 2560 x 1440 */
+        .youtube-banner {
+            width: 2560px;
+            height: 1440px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 120px;
+            box-sizing: border-box;
+        }
+        
+        /* Background Effects */
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .animated-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+        
+        .line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.3), transparent);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .line:nth-child(1) { top: 20%; width: 400px; left: 10%; animation-delay: 0s; }
+        .line:nth-child(2) { top: 60%; width: 300px; right: 15%; animation-delay: 1.5s; }
+        .line:nth-child(3) { top: 80%; width: 350px; left: 30%; animation-delay: 3s; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(1); }
+            50% { opacity: 0.8; transform: scaleX(1.2); }
+        }
+        
+        /* Content Styling */
+        .banner-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .linkedin-content {
+            max-width: 1400px;
+        }
+        
+        .youtube-content {
+            max-width: 2200px;
+        }
+        
+        .main-title {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+        }
+        
+        .linkedin .main-title {
+            font-size: 84px;
+            line-height: 0.85;
+        }
+        
+        .youtube .main-title {
+            font-size: 180px;
+            line-height: 0.85;
+        }
+        
+        .amber {
+            color: #fbbf24;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #e5e5e5;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .linkedin .subtitle {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        
+        .youtube .subtitle {
+            font-size: 54px;
+            margin-bottom: 70px;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 30px;
+        }
+        
+        .linkedin .stats {
+            gap: 50px;
+            margin-bottom: 25px;
+            justify-content: center;
+        }
+        
+        .youtube .stats {
+            gap: 100px;
+            justify-content: center;
+            margin-bottom: 70px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 8px;
+        }
+        
+        .linkedin .stat-number {
+            font-size: 42px;
+        }
+        
+        .youtube .stat-number {
+            font-size: 72px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.3;
+        }
+        
+        .linkedin .stat-label {
+            font-size: 14px;
+        }
+        
+        .youtube .stat-label {
+            font-size: 28px;
+        }
+        
+        .tagline {
+            font-weight: 500;
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .linkedin .tagline {
+            font-size: 24px;
+        }
+        
+        .youtube .tagline {
+            font-size: 42px;
+            margin-bottom: 40px;
+        }
+        
+        .domain {
+            font-family: 'Courier New', monospace;
+            color: #94a3b8;
+            font-size: 16px;
+        }
+        
+        .linkedin .domain {
+            font-size: 18px;
+        }
+        
+        .youtube .domain {
+            font-size: 32px;
+        }
+        
+        /* Remove the scaling - show full size */
+        
+        .download-info {
+            background: #0f172a;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: #94a3b8;
+        }
+        
+        .download-button {
+            background: #fbbf24;
+            color: #000;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        
+        .download-button:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: #fbbf24; font-family: 'Courier New', monospace; text-align: center; margin-bottom: 40px;">
+        AUTHENTIK STUDIO - SOCIAL MEDIA BANNERS
+    </h1>
+    
+    <!-- LinkedIn Banner -->
+    <div class="banner-container">
+        <div class="banner-info">
+            <strong>LinkedIn Banner</strong> - 1584 x 396 pixels (Recommended size)
+        </div>
+        <div class="linkedin-banner banner">
+                <div class="animated-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="banner-content linkedin-content">
+                    <div class="main-title">
+                        SIGNAL<br>
+                        IN THE <span class="amber">NOISE</span>
+                    </div>
+                    
+                    <div class="subtitle">
+                        Stop blending in. Start leading. Turn invisible brands into the signal your audience trusts.
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">$6M+</div>
+                            <div class="stat-label">Additional revenue<br>generated for clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3.2x</div>
+                            <div class="stat-label">Higher conversion<br>vs generic content</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">94%</div>
+                            <div class="stat-label">Client retention<br>after 6 months</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tagline">Ready to become the signal your audience trusts instead of the noise they ignore?</div>
+                    <div class="domain">www.authentikstudio.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- YouTube Banner -->
+    <div class="banner-container">
+        <div class="banner-info">
+            <strong>YouTube Banner</strong> - 2560 x 1440 pixels (Recommended size for all devices)
+        </div>
+        <div class="youtube-banner banner">
+                <div class="animated-lines">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="banner-content youtube-content">
+                    <div class="main-title">
+                        SIGNAL IN THE <span class="amber">NOISE</span>
+                    </div>
+                    
+                    <div class="subtitle">
+                        Where authentic brands go to cut through the noise and claim their voice
+                    </div>
+                    
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="stat-number">$6M+</div>
+                            <div class="stat-label">Additional revenue<br>generated for top clients</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">3.2x</div>
+                            <div class="stat-label">Higher conversion rates<br>vs generic content</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">94%</div>
+                            <div class="stat-label">Client retention<br>after 6 months</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tagline">Documentary-style storytelling that feels raw, real, and unforgettable</div>
+                    <div class="domain">www.authentikstudio.com</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="download-info">
+        <h3 style="color: #fbbf24; margin-top: 0;">How to use these banners:</h3>
+        <p><strong>LinkedIn:</strong> Right-click the LinkedIn banner above and "Save Image As" or take a screenshot. Upload to your LinkedIn profile in the "Media" section of your header.</p>
+        <p><strong>YouTube:</strong> Right-click the YouTube banner above and "Save Image As" or take a screenshot. Upload to your YouTube channel art in YouTube Studio.</p>
+        <p><strong>Design Elements:</strong> These banners use your exact website color scheme (#fbbf24 amber/gold), typography (Courier New for headlines), and messaging to maintain perfect brand consistency.</p>
+        
+        <button class="download-button" onclick="downloadBanner('linkedin')">Screenshot LinkedIn Banner</button>
+        <button class="download-button" onclick="downloadBanner('youtube')">Screenshot YouTube Banner</button>
+    </div>
+    
+    <script>
+        function downloadBanner(type) {
+            if (type === 'linkedin') {
+                alert('To save the LinkedIn banner:\n\n1. Right-click on the LinkedIn banner above\n2. Select "Save Image As..."\n3. Save to your computer\n4. Upload to LinkedIn profile header');
+            } else {
+                alert('To save the YouTube banner:\n\n1. Right-click on the YouTube banner above\n2. Select "Save Image As..."\n3. Save to your computer\n4. Upload to YouTube channel art in YouTube Studio');
+            }
+        }
+    </script>
+</body>
+</html>
