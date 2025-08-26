@@ -43,7 +43,7 @@ export const InvestmentSection: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="space-y-8 sm:space-y-12">
+        <div className="space-y-16 sm:space-y-20 md:space-y-24">
           <div className="text-center space-y-6 sm:space-y-8">
             <motion.h2 
               className="font-serif text-5xl sm:text-6xl font-bold"
@@ -74,7 +74,7 @@ export const InvestmentSection: React.FC = () => {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-20 sm:mb-24 md:mb-28">
           <motion.div 
             className="text-center p-8 bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-2 border-amber-500/30 rounded-xl backdrop-blur-sm"
             initial={{ y: 40, opacity: 0 }}
@@ -116,7 +116,7 @@ export const InvestmentSection: React.FC = () => {
         </div>
         
         <motion.div 
-          className="text-center space-y-8"
+          className="text-center space-y-12 sm:space-y-16 md:space-y-20"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
@@ -217,24 +217,24 @@ export const InvestmentSection: React.FC = () => {
 
         {/* Common Objections FAQ */}
         <motion.div 
-          className="mt-12 p-8 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border-2 border-blue-500/30 rounded-xl backdrop-blur-sm"
+          className="mt-20 sm:mt-24 md:mt-28 p-10 sm:p-12 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border-2 border-blue-500/30 rounded-xl backdrop-blur-sm"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.4 }}
         >
-          <div className="text-center mb-8">
+          <div className="text-center mb-12 sm:mb-16">
             <h3 className="text-2xl font-bold text-blue-300 mb-2">Common Questions</h3>
             <p className="text-blue-200/80">Addressing the concerns we hear most from prospects</p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-8 sm:space-y-10">
             <motion.div 
-              className="bg-blue-800/20 rounded-lg p-6 border border-blue-500/30 backdrop-blur-sm"
+              className="bg-blue-800/20 rounded-lg p-8 sm:p-10 border border-blue-500/30 backdrop-blur-sm"
               whileHover={{ y: -2, borderColor: "rgba(59, 130, 246, 0.6)" }}
               transition={{ duration: 0.2 }}
             >
-              <h4 className="font-bold text-blue-200 text-lg mb-3">💸 "Isn't €4,000-€6,000/month expensive?"</h4>
-              <p className="text-blue-200/90 mb-3">
+              <h4 className="font-bold text-blue-200 text-lg mb-4 sm:mb-5">💸 "Isn't €4,000-€6,000/month expensive?"</h4>
+              <p className="text-blue-200/90 mb-4 sm:mb-5">
                 Consider this: Most companies spend €15K-€25K/month on marketing with generic agencies and get €2K-€5K ROI. 
                 We help you spend €18K-€24K total over 6 months and generate €45K-€120K+ in additional revenue.
               </p>
