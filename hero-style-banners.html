@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentik Studio - Hero Style Social Media Banners</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #0f0f0f;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #fbbf24;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 42px;
+            font-weight: 700;
+        }
+        
+        .banner-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #334155;
+        }
+        
+        .banner-info {
+            margin-bottom: 20px;
+        }
+        
+        .banner-title {
+            color: #fbbf24;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .banner-desc {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        canvas {
+            border: 2px solid #374151;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        .download-section {
+            background: #0f172a;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 12px;
+            color: #94a3b8;
+        }
+        
+        .download-button {
+            background: #fbbf24;
+            color: #000;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 15px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+        
+        .download-button:hover {
+            background: #f59e0b;
+        }
+        
+        .instructions {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AUTHENTIK STUDIO - HERO STYLE BANNERS</h1>
+        
+        <!-- LinkedIn Banner -->
+        <div class="banner-section">
+            <div class="banner-info">
+                <div class="banner-title">📌 LinkedIn Banner</div>
+                <div class="banner-desc">1584 x 396 pixels - Perfect for LinkedIn profile header</div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="linkedinCanvas" width="1584" height="396"></canvas>
+            </div>
+            <button onclick="downloadLinkedIn()" class="download-button">Download LinkedIn Banner</button>
+        </div>
+        
+        <!-- YouTube Banner -->
+        <div class="banner-section">
+            <div class="banner-info">
+                <div class="banner-title">🎬 YouTube Banner</div>
+                <div class="banner-desc">2560 x 1440 pixels - Perfect for YouTube channel art</div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="youtubeCanvas" width="2560" height="1440"></canvas>
+            </div>
+            <button onclick="downloadYouTube()" class="download-button">Download YouTube Banner</button>
+            <button onclick="createPersonalYouTubeBanner(); document.getElementById('personalToggle').style.display='inline'" class="download-button" style="background: #374151;">Personal Version</button>
+            <button onclick="downloadPersonalYouTube()" class="download-button" id="personalToggle" style="background: #059669; display:none;">Download Personal</button>
+        </div>
+        
+        <!-- Logo Section -->
+        <div class="banner-section">
+            <div class="banner-info">
+                <div class="banner-title">🎯 Brand Logo</div>
+                <div class="banner-desc">500 x 500 pixels - Perfect for website, social media, and print</div>
+            </div>
+            <div class="canvas-container">
+                <canvas id="logoCanvas" width="500" height="500"></canvas>
+            </div>
+            <button onclick="downloadLogo()" class="download-button">Download Logo</button>
+            <button onclick="toggleLogoStyle()" class="download-button" style="background: #374151;">Toggle Style</button>
+        </div>
+        
+        <div class="download-section">
+            <h3 style="color: #fbbf24; margin-bottom: 20px;">📋 Instructions</h3>
+            <div class="instructions">
+                <p><strong>LinkedIn:</strong> Upload to your LinkedIn profile header section. Optimal dimensions: 1584 x 396 pixels.</p>
+                <p><strong>YouTube:</strong> Upload to your YouTube channel art section. Optimal dimensions: 2560 x 1440 pixels.</p>
+                <p><strong>File Format:</strong> All banners are exported as high-quality PNG files for best compatibility.</p>
+                <p><strong>Quality:</strong> Full resolution, no compression - ready for professional use.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create LinkedIn Banner matching hero section
+        function createLinkedInBanner() {
+            const canvas = document.getElementById('linkedinCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient matching hero
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2d2d2d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add subtle animated lines effect (static version)
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.1)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 8; i++) {
+                const y = (canvas.height / 10) * (i + 1);
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            
+            // Center everything
+            const centerX = canvas.width / 2;
+            ctx.textAlign = 'center';
+            
+            // Main title matching hero - Playfair Display serif
+            ctx.font = 'bold 90px "Playfair Display", serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('SIGNAL', centerX, 140);
+            
+            ctx.fillStyle = '#fbbf24'; // Amber color
+            ctx.fillText('IN THE NOISE', centerX, 230);
+            
+            // Subtitle matching hero
+            ctx.font = '400 22px "Inter", sans-serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('Your brand becomes the signal people trust, remember, and buy from', centerX, 280);
+            
+            // Leading brands - row 1
+            ctx.font = '600 14px "Inter", sans-serif';
+            ctx.fillStyle = '#a3a3a3'; // Changed to gray
+            const topBrands = ['BBC', 'National Geographic', 'David Attenborough'];
+            const topSpacing = 200;
+            const topStartX = centerX - topSpacing;
+            
+            topBrands.forEach((brand, index) => {
+                ctx.fillText(brand, topStartX + (index * topSpacing), 320);
+            });
+            
+            // Leading brands - row 2
+            const bottomBrands = ['Aaron Abke', 'Discovery', 'Arte'];
+            const bottomSpacing = 180;
+            const bottomStartX = centerX - bottomSpacing;
+            
+            bottomBrands.forEach((brand, index) => {
+                ctx.fillText(brand, bottomStartX + (index * bottomSpacing), 340);
+            });
+            
+            // Website URL
+            ctx.font = '600 20px "Inter", sans-serif';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('www.authentikstudio.com', centerX, 370);
+        }
+        
+        // Create YouTube Banner matching hero section with safe area positioning
+        function createYouTubeBanner() {
+            const canvas = document.getElementById('youtubeCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient matching hero
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2d2d2d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add subtle animated lines effect (static version)
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.1)';
+            ctx.lineWidth = 2;
+            for (let i = 0; i < 12; i++) {
+                const y = (canvas.height / 15) * (i + 2);
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            
+            // Center everything within safe area (1546x423px centered)
+            const centerX = canvas.width / 2;
+            const safeAreaCenterY = canvas.height / 2;
+            ctx.textAlign = 'center';
+            
+            // Main title matching hero - positioned within safe area
+            ctx.font = 'bold 120px "Playfair Display", serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('SIGNAL', centerX, safeAreaCenterY - 80);
+            
+            ctx.fillStyle = '#fbbf24'; // Amber color
+            ctx.fillText('IN THE NOISE', centerX, safeAreaCenterY + 20);
+            
+            // Subtitle matching hero - compact for safe area
+            ctx.font = '400 32px "Inter", sans-serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('Your brand becomes the signal people trust, remember, and buy from', centerX, safeAreaCenterY + 80);
+            
+            // Leading brands in single row within safe area
+            ctx.font = '600 24px "Inter", sans-serif';
+            ctx.fillStyle = '#a3a3a3';
+            const brands = ['BBC', 'National Geographic', 'David Attenborough', 'Aaron Abke'];
+            const brandSpacing = 280;
+            const brandStartX = centerX - (brandSpacing * 1.5);
+            
+            brands.forEach((brand, index) => {
+                ctx.fillText(brand, brandStartX + (index * brandSpacing), safeAreaCenterY + 130);
+            });
+            
+            // Website URL - positioned at bottom of safe area
+            ctx.font = '600 36px "Inter", sans-serif';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('www.authentikstudio.com', centerX, safeAreaCenterY + 180);
+        }
+        
+        // Create Personal YouTube Banner for Ermo Egberts
+        function createPersonalYouTubeBanner() {
+            const canvas = document.getElementById('youtubeCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient matching hero
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2d2d2d');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add subtle animated lines effect (static version)
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.1)';
+            ctx.lineWidth = 2;
+            for (let i = 0; i < 12; i++) {
+                const y = (canvas.height / 15) * (i + 2);
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+            
+            // Center everything within safe area
+            const centerX = canvas.width / 2;
+            const safeAreaCenterY = canvas.height / 2;
+            ctx.textAlign = 'center';
+            
+            // Personal name - prominent
+            ctx.font = 'bold 140px "Playfair Display", serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('ERMO EGBERTS', centerX, safeAreaCenterY - 60);
+            
+            // Brand tagline
+            ctx.font = 'bold 60px "Playfair Display", serif';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('SIGNAL IN THE NOISE', centerX, safeAreaCenterY + 40);
+            
+            // Value proposition for personal brand
+            ctx.font = '400 32px "Inter", sans-serif';
+            ctx.fillStyle = '#e5e5e5';
+            ctx.fillText('Helping brands become the signal people trust, remember, and buy from', centerX, safeAreaCenterY + 100);
+            
+            // Social proof in single row
+            ctx.font = '600 24px "Inter", sans-serif';
+            ctx.fillStyle = '#a3a3a3';
+            const brands = ['BBC', 'National Geographic', 'David Attenborough', 'Aaron Abke'];
+            const brandSpacing = 280;
+            const brandStartX = centerX - (brandSpacing * 1.5);
+            
+            brands.forEach((brand, index) => {
+                ctx.fillText(brand, brandStartX + (index * brandSpacing), safeAreaCenterY + 150);
+            });
+            
+            // Website URL
+            ctx.font = '600 28px "Inter", sans-serif';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('www.authentikstudio.com', centerX, safeAreaCenterY + 190);
+        }
+        
+        // Download personal YouTube banner
+        function downloadPersonalYouTube() {
+            const canvas = document.getElementById('youtubeCanvas');
+            const link = document.createElement('a');
+            link.download = 'ermo-egberts-youtube-banner.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Create Brand Logo
+        function createLogo() {
+            const canvas = document.getElementById('logoCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background - clean white for versatility
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Center point
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            ctx.textAlign = 'center';
+            
+            // Logo concept: Stylized "AS" monogram with enhanced signal wave
+            
+            // Draw multiple signal wave layers for more visual interest
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.15)';
+            ctx.lineWidth = 4;
+            
+            // Main wave
+            ctx.beginPath();
+            for (let x = 50; x <= 450; x += 2) {
+                const y = centerY + Math.sin((x - 50) * 0.03) * 25;
+                if (x === 50) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Secondary wave (offset)
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.1)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            for (let x = 50; x <= 450; x += 2) {
+                const y = centerY + Math.sin((x - 50) * 0.03 + Math.PI/3) * 15;
+                if (x === 50) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Signal pulse circles behind letters
+            ctx.strokeStyle = 'rgba(251, 191, 36, 0.08)';
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 3; i++) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, 80 + (i * 30), 0, 2 * Math.PI);
+                ctx.stroke();
+            }
+            
+            // Main logo text - "AS" monogram
+            ctx.font = 'bold 120px "Playfair Display", serif';
+            ctx.fillStyle = '#1a1a1a';
+            ctx.fillText('AS', centerX, centerY + 15);
+            
+            // Company name below
+            ctx.font = '600 18px "Inter", sans-serif';
+            ctx.fillStyle = '#666666';
+            ctx.fillText('AUTHENTIK STUDIO', centerX, centerY + 80);
+            
+            // Tagline
+            ctx.font = '400 12px "Inter", sans-serif';
+            ctx.fillStyle = '#999999';
+            ctx.fillText('SIGNAL IN THE NOISE', centerX, centerY + 105);
+        }
+        
+        // Alternative logo version - horizontal layout
+        function createLogoHorizontal() {
+            const canvas = document.getElementById('logoCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear and set white background
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            const centerY = canvas.height / 2;
+            ctx.textAlign = 'left';
+            
+            // Signal icon (left side)
+            const iconX = 80;
+            ctx.strokeStyle = '#fbbf24';
+            ctx.lineWidth = 4;
+            
+            // Draw signal bars
+            const barHeights = [20, 35, 50, 35, 20];
+            const barWidth = 8;
+            const barSpacing = 12;
+            
+            barHeights.forEach((height, index) => {
+                const x = iconX + (index * barSpacing);
+                const y = centerY - (height / 2);
+                
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x, y + height);
+                ctx.stroke();
+            });
+            
+            // Company name (right side)
+            ctx.font = 'bold 48px "Playfair Display", serif';
+            ctx.fillStyle = '#1a1a1a';
+            ctx.textAlign = 'left';
+            ctx.fillText('AUTHENTIK', 180, centerY - 10);
+            
+            ctx.font = '400 48px "Playfair Display", serif';
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillText('STUDIO', 180, centerY + 40);
+        }
+        
+        // Download logo function
+        function downloadLogo() {
+            const canvas = document.getElementById('logoCanvas');
+            const link = document.createElement('a');
+            link.download = 'authentik-studio-logo.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Add logo style toggle
+        let logoStyle = 'monogram'; // 'monogram' or 'horizontal'
+        
+        function toggleLogoStyle() {
+            logoStyle = logoStyle === 'monogram' ? 'horizontal' : 'monogram';
+            if (logoStyle === 'monogram') {
+                createLogo();
+            } else {
+                createLogoHorizontal();
+            }
+        }
+        
+        // Generate banners and logo when page loads
+        window.onload = function() {
+            createLinkedInBanner();
+            createYouTubeBanner();
+            createLogo();
+        };
+    </script>
+</body>
+</html>
