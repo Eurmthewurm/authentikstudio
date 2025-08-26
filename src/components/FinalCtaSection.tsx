@@ -1,14 +1,13 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 
 export const FinalCtaSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-32 md:py-48 px-6 relative noise-bg overflow-hidden" ref={ref}>
+    <section className="py-8 sm:py-12 md:py-16 container-padding relative noise-bg overflow-hidden" ref={ref}>
       {/* Animated final signal burst */}
       <div className="absolute inset-0">
         {Array.from({ length: 8 }).map((_, i) => (
@@ -63,38 +62,38 @@ export const FinalCtaSection: React.FC = () => {
       </div>
 
       <motion.div 
-        className="max-w-5xl mx-auto text-center space-y-16 relative z-10"
+        className="content-width text-center space-y-1 sm:space-y-2 md:space-y-4 relative z-10"
         initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="space-y-12">
-          <div className="text-center space-y-8">
+        <div className="space-y-1 sm:space-y-2">
+          <div className="text-center space-y-1 sm:space-y-2">
             <motion.h2 
               className="font-serif text-5xl sm:text-6xl font-bold"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              Your <span className="text-amber-400">Signal</span> is Waiting.
+              Stop Being <span className="text-amber-400">Invisible</span>.
               <br />
-              <span className="text-2xl sm:text-3xl text-foreground/80 font-normal">Will you answer the call?</span>
+              <span className="text-2xl sm:text-3xl text-foreground/80 font-normal">Your competitors are already moving. Will you?</span>
             </motion.h2>
             
             <motion.div 
               className="w-24 h-px bg-amber-400 mx-auto"
               initial={{ width: 0 }}
-              animate={isInView ? { width: 96 } : { width: 0 }}
+              animate={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             />
             
             <motion.p 
               className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              Join the exclusive group of leaders who refused to blend in and chose to build brands that matter.
+              Every day you wait is another day your ideal clients choose someone else. While you're invisible, your competitors are becoming irreplaceable.
             </motion.p>
           </div>
         </div>
@@ -102,13 +101,13 @@ export const FinalCtaSection: React.FC = () => {
         <motion.div 
           className="space-y-8 text-xl sm:text-2xl lg:text-3xl font-light leading-relaxed"
           initial={{ y: 40, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
           <motion.p 
             className="text-foreground/90"
             initial={{ x: -30, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : { x: -30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
             Stop blending in.
@@ -116,7 +115,7 @@ export const FinalCtaSection: React.FC = () => {
           <motion.p 
             className="text-amber-400 font-medium"
             initial={{ x: 30, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : { x: 30, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
           >
             Start standing out.
@@ -124,7 +123,7 @@ export const FinalCtaSection: React.FC = () => {
           <motion.p 
             className="text-foreground/90"
             initial={{ y: 20, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.6 }}
           >
             Your signal is waiting.
@@ -135,7 +134,7 @@ export const FinalCtaSection: React.FC = () => {
         <motion.div 
           className="space-y-8 max-w-4xl mx-auto"
           initial={{ y: 30, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.8 }}
         >
           <div className="bg-gradient-to-r from-red-900/30 to-orange-900/30 border-2 border-red-500/50 rounded-xl p-8 backdrop-blur-sm">
@@ -186,7 +185,7 @@ export const FinalCtaSection: React.FC = () => {
         <motion.div 
           className="pt-12"
           initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.0 }}
         >
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer" className="inline-block">

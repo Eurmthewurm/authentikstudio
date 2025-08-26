@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-24 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center container-padding py-12 sm:py-16 relative overflow-hidden">
       {/* Background animated lines */}
       <div className="absolute inset-0 overflow-hidden">
         {Array.from({ length: 8 }).map((_, i) => (
@@ -68,33 +68,36 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <motion.div 
-        className="max-w-5xl mx-auto text-center space-y-12 relative z-10 flex-grow flex flex-col justify-center"
+        className="content-width text-center space-y-4 sm:space-y-6 md:space-y-8 relative z-10 flex-grow flex flex-col justify-center"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         {/* Urgency Banner */}
         <motion.div 
-          className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border-2 border-amber-500/50 rounded-lg p-3 sm:p-4 mb-6 sm:mb-8 max-w-lg sm:max-w-2xl mx-auto backdrop-blur-sm"
+          className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border-2 border-amber-500/50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 md:mb-8 max-w-sm sm:max-w-lg md:max-w-2xl mx-auto backdrop-blur-sm"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <div className="flex items-center justify-center gap-3 text-amber-200">
-            <div className="w-5 h-5 sm:w-6 sm:h-6 bg-amber-500 rounded-full flex items-center justify-center">
-              <span className="text-black text-sm font-bold">!</span>
+          <div className="flex items-center justify-center gap-2 sm:gap-3 text-amber-200">
+            <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-black text-xs sm:text-sm font-bold">!</span>
             </div>
-            <p className="font-medium text-sm sm:text-base text-center">
-              <span className="text-amber-400 font-bold">Limited Availability:</span> Only <span className="font-bold text-amber-300">12 clients</span> per year
-              <br className="sm:hidden" />
-              <span className="text-xs sm:text-sm text-amber-200/80 block sm:inline sm:ml-2">Currently accepting new applications</span>
-            </p>
+            <div className="text-center">
+              <p className="font-medium text-xs sm:text-sm md:text-base">
+                <span className="text-amber-400 font-bold">Limited Availability:</span> Only <span className="font-bold text-amber-300">12 clients</span> per year
+              </p>
+              <p className="text-xs text-amber-200/80">
+                Currently accepting new applications
+              </p>
+            </div>
           </div>
         </motion.div>
 
-        <motion.div className="space-y-6 sm:space-y-8" variants={itemVariants}>
+        <motion.div className="space-y-4 sm:space-y-6 md:space-y-8" variants={itemVariants}>
           <motion.h1 
-            className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none"
+            className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none"
             variants={textVariants}
           >
             <motion.span
@@ -131,54 +134,54 @@ export const HeroSection: React.FC = () => {
           />
           
           <motion.p 
-            className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-light text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-foreground/80 text-width leading-relaxed"
             variants={itemVariants}
           >
-            Where authentic brands go to <span className="text-amber-400 font-medium">cut through the noise</span>
+            Stop blending in. Start leading. <span className="text-amber-400 font-medium">Turn invisible brands</span>
             <br />
-            and <span className="text-amber-400 font-medium">claim their voice</span>.
+            into <span className="text-amber-400 font-medium">the signal your audience trusts, remembers, and buys from</span>.
           </motion.p>
         </motion.div>
 
         <motion.div 
-          className="space-y-6 sm:space-y-8 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
+          className="space-y-4 sm:space-y-6 md:space-y-8 text-base sm:text-lg md:text-xl leading-relaxed text-foreground/90 text-width"
           variants={itemVariants}
         >
           <p className="text-center">
-            In a world drowning in AI-generated noise, your audience craves <span className="text-amber-400 font-medium">human truth</span>.
+            While you're invisible, your competitors are becoming <span className="text-amber-400 font-medium">irreplaceable</span>.
           </p>
-          <p className="text-xl sm:text-2xl font-medium text-center">
-            We don't create content. <span className="text-amber-400 font-bold">We awaken conviction.</span>
+          <p className="text-lg sm:text-xl font-medium text-center">
+            We don't create content. <span className="text-amber-400 font-bold">We forge conviction.</span>
             <br />
-            <span className="text-lg sm:text-xl font-normal text-foreground/80">Through documentary-style storytelling that feels raw, real, and unforgettable.</span>
+            <span className="text-base sm:text-lg font-normal text-foreground/80">Through documentary-style storytelling that makes prospects think: "Finally, someone who gets it."</span>
           </p>
         </motion.div>
         
         <motion.div 
-          className="space-y-6 sm:space-y-8 text-lg sm:text-xl leading-relaxed text-foreground/90 max-w-5xl mx-auto px-4"
+          className="space-y-2 sm:space-y-3 md:space-y-4 text-base sm:text-lg md:text-xl leading-relaxed text-foreground/90 content-width"
           variants={itemVariants}
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 text-center">
+          <div className="mobile-grid text-center">
             <div className="space-y-2">
-              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">$6M+</div>
-              <div className="text-sm sm:text-base text-foreground/70">Additional revenue generated for top-performing clients in 18 months</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">$6M+</div>
+              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Additional revenue generated for top-performing clients in 18 months</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">3.2x</div>
-              <div className="text-sm sm:text-base text-foreground/70">Higher conversion rates vs generic content</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">3.2x</div>
+              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Higher conversion rates vs generic content</div>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400">94%</div>
-              <div className="text-sm sm:text-base text-foreground/70">Client retention after 6 months</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">94%</div>
+              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Client retention after 6 months</div>
             </div>
           </div>
-          <p className="text-center text-amber-400 font-medium text-xl sm:text-2xl">
-            Ready to become the signal your audience trusts?
+          <p className="text-center text-amber-400 font-medium text-lg sm:text-xl md:text-2xl">
+            Ready to become the signal your audience trusts instead of the noise they ignore?
           </p>
         </motion.div>
         
         <motion.div 
-          className="pt-8 sm:pt-10"
+          className="pt-2 sm:pt-3 md:pt-4"
           variants={itemVariants}
         >
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer">
@@ -198,11 +201,11 @@ export const HeroSection: React.FC = () => {
                 repeatDelay: 2,
                 ease: "easeInOut"
               }}
-              className="inline-block"
+              className="inline-block w-full sm:w-auto"
             >
               <Button 
                 size="lg" 
-                className="bg-amber-400 hover:bg-amber-500 text-black font-medium px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg tracking-wide relative overflow-hidden group w-full sm:w-auto"
+                className="mobile-button bg-amber-400 hover:bg-amber-500 text-black font-medium tracking-wide relative overflow-hidden group touch-target"
               >
                 <motion.div
                   className="absolute inset-0 bg-white/20"
@@ -210,7 +213,7 @@ export const HeroSection: React.FC = () => {
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 />
-                <span className="relative z-10">Book Your Studio Call</span>
+                <span className="relative z-10">Get Your Brand Clarity Session</span>
               </Button>
             </motion.div>
           </a>

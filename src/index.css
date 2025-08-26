@@ -2,9 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+/* FORCE FIX FOR SPECIFIC MOBILE GAPS */
+@media (max-width: 640px) {
+  /* Gap 1: Force no margin after "becoming the signal" paragraph */
+  .mobile-gap-fix-1 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Gap 2: Force no margin after "Organizations afraid" section */
+  .mobile-gap-fix-2 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* Gap 3: Force no margin after "Zero-Pressure Guarantee" */
+  .mobile-gap-fix-3 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  
+  /* FORCE VISIBILITY ON MOBILE - Override any animation that might hide content */
+  section {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Ensure framer-motion elements are visible on mobile */
+  [data-framer-component] {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+  
+  /* Force all motion.div elements to be visible */
+  div[style*="opacity: 0"] {
+    opacity: 1 !important;
+  }
+  
+  div[style*="transform"] {
+    transform: none !important;
+  }
+  
+  /* Ensure all content containers are visible */
+  .content-width,
+  .max-w-4xl,
+  .max-w-5xl,
+  .max-w-6xl {
+    opacity: 1 !important;
+    transform: none !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {
@@ -13,6 +71,8 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 
   /* Custom scrollbar */
@@ -38,6 +98,25 @@
   a:focus-visible {
     outline: 2px solid rgba(251, 191, 36, 0.8);
     outline-offset: 2px;
+  }
+  
+  /* Mobile-specific improvements */
+  @media (max-width: 768px) {
+    /* Ensure text doesn't get too small on mobile */
+    html {
+      font-size: 16px;
+    }
+    
+    /* Better mobile spacing */
+    .space-y-mobile > * + * {
+      margin-top: 1rem;
+    }
+    
+    /* Mobile-friendly containers */
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 }
 
@@ -103,6 +182,30 @@
     line-height: 1.1;
     letter-spacing: -0.01em;
   }
+  
+  /* Mobile-first responsive spacing */
+  .section-padding {
+    @apply py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-24 xl:py-32;
+  }
+  
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Improved mobile touch targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Better mobile spacing utilities */
+  .space-y-mobile {
+    @apply space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12;
+  }
+  
+  .gap-mobile {
+    @apply gap-4 sm:gap-6 md:gap-8 lg:gap-12;
+  }
 }
 
 @layer base {
@@ -146,9 +249,18 @@
     font-family: 'Inter', sans-serif;
   }
 
-  /* Hide default cursor for custom cursor experience */
-  .app-container, .app-container a, .app-container button {
-    @apply cursor-none;
+  /* Hide default cursor for custom cursor experience - only on larger screens */
+  @media (min-width: 1024px) {
+    .app-container, .app-container a, .app-container button {
+      @apply cursor-none;
+    }
+  }
+  
+  /* Ensure proper mobile cursor behavior */
+  @media (max-width: 1023px) {
+    .app-container, .app-container a, .app-container button {
+      cursor: auto !important;
+    }
   }
 }
 
@@ -175,5 +287,54 @@
       radial-gradient(ellipse at center, rgba(66, 63, 41, 0.1) 0%, transparent 50%),
       linear-gradient(45deg, transparent 48%, rgba(251, 191, 36, 0.03) 50%, transparent 52%),
       linear-gradient(-45deg, transparent 48%, rgba(251, 191, 36, 0.03) 50%, transparent 52%);
+  }
+  
+  /* Mobile optimizations */
+  .mobile-optimized {
+    @apply max-w-full overflow-x-hidden;
+  }
+  
+  /* Better mobile button styling */
+  .mobile-button {
+    @apply px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg min-h-[44px] w-full sm:w-auto;
+  }
+  
+  /* Improved mobile grid */
+  .mobile-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  .mobile-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Mobile-friendly max widths */
+  .content-width {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-width {
+    @apply max-w-4xl mx-auto;
+  }
+  
+  .narrow-width {
+    @apply max-w-3xl mx-auto;
+  }
+  
+  /* Improved mobile text scaling */
+  .text-display {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .text-heading {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-subheading {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-body {
+    @apply text-sm sm:text-base md:text-lg;
   }
 }

@@ -1,14 +1,13 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 
 export const InvestmentSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-24 md:py-32 px-6 relative" ref={ref}>
+    <section className="py-8 sm:py-12 md:py-16 container-padding relative" ref={ref}>
       {/* Animated value indicators */}
       <div className="absolute inset-0">
         {Array.from({ length: 3 }).map((_, i) => (
@@ -39,17 +38,17 @@ export const InvestmentSection: React.FC = () => {
       </div>
 
       <motion.div 
-        className="max-w-4xl mx-auto text-center space-y-16 relative z-10"
+        className="content-width text-center space-y-1 sm:space-y-2 md:space-y-4 relative z-10"
         initial={{ opacity: 0, y: 50 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="space-y-12">
-          <div className="text-center space-y-8">
+        <div className="space-y-8 sm:space-y-12">
+          <div className="text-center space-y-6 sm:space-y-8">
             <motion.h2 
               className="font-serif text-5xl sm:text-6xl font-bold"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
               This Isn't a <span className="text-amber-400">Cost</span>.
@@ -60,26 +59,26 @@ export const InvestmentSection: React.FC = () => {
             <motion.div 
               className="w-24 h-px bg-amber-400 mx-auto"
               initial={{ width: 0 }}
-              animate={isInView ? { width: 96 } : { width: 0 }}
+              animate={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             />
             
             <motion.p 
               className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              While others spend €15K-€25K/month on generic marketing with minimal ROI, our clients invest strategically and see measurable results. Here's what real transformation costs:
+              While others spend €15K-€25K/month on generic marketing with minimal ROI, our clients invest strategically and see measurable results. Every day you wait is money left on the table:
             </motion.p>
           </div>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           <motion.div 
             className="text-center p-8 bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-2 border-amber-500/30 rounded-xl backdrop-blur-sm"
             initial={{ y: 40, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <div className="text-3xl sm:text-4xl font-serif font-bold text-amber-400 mb-3">
@@ -92,7 +91,7 @@ export const InvestmentSection: React.FC = () => {
           <motion.div 
             className="text-center p-8 bg-gradient-to-br from-blue-900/20 to-indigo-900/20 border-2 border-blue-500/30 rounded-xl backdrop-blur-sm"
             initial={{ y: 40, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <div className="text-3xl sm:text-4xl font-serif font-bold text-blue-400 mb-3">
@@ -105,7 +104,7 @@ export const InvestmentSection: React.FC = () => {
           <motion.div 
             className="text-center p-8 bg-gradient-to-br from-purple-900/20 to-pink-900/20 border-2 border-purple-500/30 rounded-xl backdrop-blur-sm"
             initial={{ y: 40, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
           >
             <div className="text-3xl sm:text-4xl font-serif font-bold text-purple-400 mb-3">
@@ -119,7 +118,7 @@ export const InvestmentSection: React.FC = () => {
         <motion.div 
           className="text-center space-y-8"
           initial={{ y: 40, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
         >
           <motion.p 
@@ -136,24 +135,24 @@ export const InvestmentSection: React.FC = () => {
             💰 <span className="text-amber-400">ROI Reality Check:</span> Our top client generated $6M+ in additional revenue. That's the power of authentic storytelling.
           </motion.p>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto text-left">
             <div className="space-y-4">
-              <h4 className="font-bold text-lg text-red-400">❌ Traditional Agency Route:</h4>
+              <h4 className="font-bold text-lg text-red-400">❌ The Expensive Way (Most Agencies):</h4>
               <ul className="space-y-2 text-foreground/80">
-                <li>• €15K-€25K/month spent</li>
-                <li>• €2K-€5K ROI (generic results)</li>
-                <li>• Blends in with competitors</li>
-                <li>• No authentic brand voice</li>
+                <li>• €15K-€25K/month spent on generic content</li>
+                <li>• €2K-€5K ROI (if you're lucky)</li>
+                <li>• Blends in with every other competitor</li>
+                <li>• No authentic brand voice or differentiation</li>
               </ul>
             </div>
             
             <div className="space-y-4">
-              <h4 className="font-bold text-lg text-green-400">✅ Authentik Studio Approach:</h4>
+              <h4 className="font-bold text-lg text-green-400">✅ The Smart Way (Authentik Studio):</h4>
               <ul className="space-y-2 text-foreground/80">
-                <li>• €2K-€6K/month investment</li>
+                <li>• €2K-€6K/month strategic investment</li>
                 <li>• $6M+ additional revenue (proven results)</li>
-                <li>• Stands out from competitors</li>
-                <li>• Clear, authentic brand voice</li>
+                <li>• Stands out from every competitor</li>
+                <li>• Clear, authentic brand voice that converts</li>
               </ul>
             </div>
           </div>
@@ -162,7 +161,7 @@ export const InvestmentSection: React.FC = () => {
         <motion.div 
           className="pt-8"
           initial={{ y: 40, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.0 }}
         >
           <motion.p 
@@ -184,7 +183,7 @@ export const InvestmentSection: React.FC = () => {
         <motion.div 
           className="mt-12 p-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 border-2 border-green-500/30 rounded-xl relative overflow-hidden backdrop-blur-sm"
           initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.2 }}
         >
           {/* Background pattern */}
@@ -220,7 +219,7 @@ export const InvestmentSection: React.FC = () => {
         <motion.div 
           className="mt-12 p-8 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border-2 border-blue-500/30 rounded-xl backdrop-blur-sm"
           initial={{ y: 50, opacity: 0 }}
-          animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.4 }}
         >
           <div className="text-center mb-8">

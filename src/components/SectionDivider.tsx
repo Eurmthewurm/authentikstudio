@@ -1,17 +1,16 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 export const SectionDivider: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   return (
-    <div ref={ref} className="py-16 md:py-24">
+    <div ref={ref} className="py-2 sm:py-3 md:py-4">
       <motion.div
         className="flex items-center justify-center gap-x-3"
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
         transition={{ staggerChildren: 0.3 }}
       >
         <motion.div

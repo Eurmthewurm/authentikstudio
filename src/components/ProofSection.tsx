@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { VideoTestimonial } from './VideoTestimonial';
 
@@ -41,7 +41,6 @@ const metrics = [
 
 export const ProofSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,19 +65,19 @@ export const ProofSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 relative" ref={ref}>
+    <section className="py-8 sm:py-12 md:py-16 container-padding relative" ref={ref}>
       <motion.div 
-        className="max-w-6xl mx-auto relative z-10"
+        className="content-width relative z-10"
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
       >
-        <div className="space-y-16">
-          <div className="text-center space-y-8">
+        <div className="space-y-1 sm:space-y-2 md:space-y-4">
+          <div className="text-center space-y-1 sm:space-y-2">
             <motion.h2 
               className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               initial={{ scale: 0.8, opacity: 0 }}
-              animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               Real Brands.
@@ -89,14 +88,14 @@ export const ProofSection: React.FC = () => {
             <motion.div 
               className="w-24 h-px bg-amber-400 mx-auto"
               initial={{ width: 0 }}
-              animate={isInView ? { width: 96 } : { width: 0 }}
+              animate={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             />
             
             <motion.p 
               className="text-xl text-foreground/80 max-w-4xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               While other agencies create forgettable content, we help leaders discover their authentic voice and achieve the revelation moment: "This is who I really am, and this is what my audience needs from me."
@@ -106,7 +105,7 @@ export const ProofSection: React.FC = () => {
 
         {/* Metrics Showcase */}
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16 sm:mb-24"
           variants={containerVariants}
         >
           {metrics.map((metric, index) => (
@@ -141,10 +140,10 @@ export const ProofSection: React.FC = () => {
 
         {/* Showreel Section */}
         <motion.div 
-          className="mb-24 text-center"
+          className="mb-16 sm:mb-24 text-center"
           variants={itemVariants}
         >
-          <div className="space-y-6 mb-12">
+          <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
             <h3 className="font-serif text-3xl font-bold">
               Our <span className="text-amber-400">Work</span> in Action
             </h3>
@@ -165,7 +164,7 @@ export const ProofSection: React.FC = () => {
 
         {/* Before/After Case Study */}
         <motion.div 
-          className="mb-24 p-8 bg-gradient-to-br from-slate-900/50 to-gray-900/50 border border-border/50 rounded-xl backdrop-blur-sm"
+          className="mb-16 sm:mb-24 p-8 bg-gradient-to-br from-slate-900/50 to-gray-900/50 border border-border/50 rounded-xl backdrop-blur-sm"
           variants={itemVariants}
         >
           <div className="text-center mb-12">
@@ -177,7 +176,7 @@ export const ProofSection: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-8">
+                      <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Before */}
             <motion.div 
               className="p-6 bg-red-900/20 border-2 border-red-500/30 rounded-lg relative backdrop-blur-sm"
@@ -256,7 +255,7 @@ export const ProofSection: React.FC = () => {
         </motion.div>
 
         {/* Case Studies */}
-        <div className="space-y-12 mb-24">
+        <div className="space-y-8 sm:space-y-12 mb-16 sm:mb-24">
           <div className="text-center mb-12">
             <h3 className="font-serif text-3xl font-bold mb-4">
               Client <span className="text-amber-400">Success Stories</span>
@@ -342,7 +341,7 @@ export const ProofSection: React.FC = () => {
         </div>
 
         {/* Video Testimonials */}
-        <motion.div className="mb-24" variants={itemVariants}>
+        <motion.div className="mb-16 sm:mb-24" variants={itemVariants}>
           <div className="text-center mb-12">
             <h3 className="font-serif text-3xl font-bold mb-4">
               Hear From Leaders We've <span className="text-amber-400">Guided</span>
@@ -362,7 +361,7 @@ export const ProofSection: React.FC = () => {
         
         {/* Text Testimonials */}
         <motion.div 
-          className="grid md:grid-cols-2 gap-8"
+                        className="grid md:grid-cols-2 gap-6 sm:gap-8"
           variants={containerVariants}
         >
           {testimonials.map((testimonial, index) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const deliverables = [
@@ -31,7 +31,6 @@ const deliverables = [
 
 export const DeliverablesSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -56,21 +55,21 @@ export const DeliverablesSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 relative overflow-hidden" ref={ref}>
+    <section className="py-8 sm:py-12 md:py-16 container-padding relative overflow-hidden" ref={ref}>
       <motion.div 
-        className="max-w-5xl mx-auto relative z-10"
+        className="content-width relative z-10"
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
       >
         <motion.div 
-          className="text-center space-y-12 mb-20"
+          className="text-center space-y-1 sm:space-y-2 mb-2 sm:mb-3"
           variants={itemVariants}
         >
           <motion.h2 
             className="font-serif text-5xl sm:text-6xl font-bold"
             initial={{ y: 30, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             What You <span className="text-amber-400">Get</span>
@@ -79,7 +78,7 @@ export const DeliverablesSection: React.FC = () => {
           <motion.div 
             className="w-24 h-px bg-amber-400 mx-auto"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 96 } : { width: 0 }}
+            animate={{ width: 96 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           
@@ -91,9 +90,9 @@ export const DeliverablesSection: React.FC = () => {
           </motion.p>
         </motion.div>
         
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           <motion.div 
-            className="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-4xl mx-auto"
+            className="grid md:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8 max-w-4xl mx-auto"
             variants={containerVariants}
           >
             {deliverables.map((item, index) => (
@@ -120,7 +119,7 @@ export const DeliverablesSection: React.FC = () => {
                 <motion.p 
                   className="text-lg text-foreground/90 group-hover:text-amber-400 transition-colors duration-300"
                   initial={{ x: 20, opacity: 0 }}
-                  animate={isInView ? { x: 0, opacity: 1 } : { x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.5 + (index * 0.1) }}
                 >
                   {item.text}
@@ -132,7 +131,7 @@ export const DeliverablesSection: React.FC = () => {
           <motion.div 
             className="text-center"
             initial={{ y: 40, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
             <motion.p 

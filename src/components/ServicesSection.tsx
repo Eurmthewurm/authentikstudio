@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from './ui/button';
 
@@ -10,16 +10,17 @@ const services = [
     subtitle: 'We don\'t create content. We create conviction.',
     description: 'Forget the flashy edits. Forget the trends. Forget the generic. Your audience isn\'t fooled — they want something real. We craft stories that awaken, clarify, and convert through documentary-style content that feels raw, human, and unforgettable.',
     features: [
+      '8-12 monthly strategy sessions + voice coaching framework',
       'Brand voice discovery and positioning strategy',
       'Documentary-style video production (2-5 pieces)',
       'Content distribution and amplification strategy',
       'Performance tracking and optimization'
     ],
     benefits: [
-      'Work that cuts through the noise',
-      'A brand voice people trust',
-      'Content that isn\'t just watched — it\'s felt',
-      'Campaigns that awaken conviction, not just clicks'
+      'Messages that make prospects think "Finally, someone who gets it"',
+      'A brand voice people trust instead of scroll past',
+      'Content that isn\'t just watched — it\'s felt and remembered',
+      'Campaigns that awaken conviction, not just generate clicks'
     ],
     price: '€2,000–€5,000',
     timeline: '4-8 weeks',
@@ -34,16 +35,17 @@ const services = [
     subtitle: 'Leadership without the hype. Visibility without the noise.',
     description: 'The internet doesn\'t need another "guru." What it needs are leaders who are real. We help you step into visibility with humility, clarity, and style — so your presence inspires trust, not skepticism.',
     features: [
-      'Monthly 1:1 strategy and coaching sessions',
-      'Personal brand positioning and messaging',
+      '12 monthly 1:1 strategy and coaching sessions',
+      'Personal brand positioning and messaging framework',
       'Camera presence and communication training',
-      'Content creation and distribution guidance'
+      'Content creation and distribution guidance',
+      'Ongoing performance tracking and optimization'
     ],
     benefits: [
-      'Confidence to lead authentically',
-      'An audience that recognizes and trusts you',
-      'A leadership brand that lasts longer than trends',
-      'Visibility rooted in substance, not hype'
+      'Confidence to lead authentically without sounding like everyone else',
+      'An audience that recognizes and trusts you as a thought leader',
+      'A leadership brand built on substance, not hype',
+      'Visibility rooted in expertise, not empty marketing tactics'
     ],
     price: '€3,000/month',
     timeline: '6-12 months',
@@ -82,7 +84,6 @@ const services = [
 
 export const ServicesSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -107,22 +108,22 @@ export const ServicesSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 relative noise-bg overflow-hidden" ref={ref}>
+    <section className="py-16 sm:py-24 md:py-32 px-6 relative noise-bg overflow-hidden" ref={ref}>
       <motion.div 
         className="max-w-6xl mx-auto relative z-10"
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
       >
         {/* Header */}
         <motion.div 
-          className="text-center space-y-8 sm:space-y-12 mb-16 sm:mb-20"
+          className="text-center space-y-6 sm:space-y-8 lg:space-y-12 mb-12 sm:mb-16 lg:mb-20"
           variants={itemVariants}
         >
           <motion.h2 
             className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold"
             initial={{ y: 30, opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
             Stop Blending In. <span className="text-amber-400">Start Standing Out.</span>
@@ -131,7 +132,7 @@ export const ServicesSection: React.FC = () => {
           <motion.div 
             className="w-16 sm:w-24 h-px bg-amber-400 mx-auto"
             initial={{ width: 0 }}
-            animate={isInView ? { width: window.innerWidth < 640 ? 64 : 96 } : { width: 0 }}
+            animate={{ width: window.innerWidth < 640 ? 64 : 96 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           />
           
@@ -144,7 +145,7 @@ export const ServicesSection: React.FC = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {services.map((service) => (
             <motion.div
               key={service.id}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const steps = [
@@ -51,7 +51,6 @@ const processSteps = [
 
 export const MethodSection: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -76,7 +75,7 @@ export const MethodSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 relative" ref={ref}>
+    <section className="py-16 sm:py-24 md:py-32 px-6 relative" ref={ref}>
       {/* Animated connection lines */}
       <div className="absolute inset-0 hidden lg:block">
         <svg className="w-full h-full" viewBox="0 0 1200 800" preserveAspectRatio="none">
@@ -86,7 +85,7 @@ export const MethodSection: React.FC = () => {
             stroke="rgba(251, 191, 36, 0.3)"
             strokeWidth="2"
             initial={{ pathLength: 0 }}
-            animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+            animate={{ pathLength: 1 }}
             transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
           />
         </svg>
@@ -96,14 +95,14 @@ export const MethodSection: React.FC = () => {
         className="max-w-6xl mx-auto relative z-10"
         variants={containerVariants}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate="visible"
       >
-        <div className="space-y-16">
-          <div className="space-y-8 text-center">
+        <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-6 sm:space-y-8 text-center">
             <motion.h2 
               className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               initial={{ scale: 0.8, opacity: 0 }}
-              animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               We're Not Just <span className="text-amber-400">Creators</span><br />
@@ -113,14 +112,14 @@ export const MethodSection: React.FC = () => {
             <motion.div 
               className="w-24 h-px bg-amber-400 mx-auto"
               initial={{ width: 0 }}
-              animate={isInView ? { width: 96 } : { width: 0 }}
+              animate={{ width: 96 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             />
             
             <motion.p 
               className="text-xl text-foreground/80 max-w-3xl mx-auto"
               initial={{ y: 30, opacity: 0 }}
-              animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               Whether you're working with us on a project or joining our Expansion Lab, we guide you through a transformation that goes beyond content—it's about discovering your authentic voice and becoming the leader your audience needs.
@@ -129,10 +128,10 @@ export const MethodSection: React.FC = () => {
 
           {/* Process Preview */}
           <motion.div 
-            className="mb-20"
+            className="mb-16 sm:mb-20"
             variants={itemVariants}
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12">
               <h3 className="font-serif text-3xl font-bold mb-4">
                 Your <span className="text-amber-400">Leadership</span> Transformation Journey
               </h3>
@@ -141,7 +140,7 @@ export const MethodSection: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 sm:gap-8">
               {processSteps.map((step, index) => (
                 <motion.div 
                   key={index}
@@ -193,7 +192,7 @@ export const MethodSection: React.FC = () => {
           </motion.div>
 
           {/* Core Principles */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-start">
             {/* Left side - Core Principles */}
             <motion.div 
               className="lg:col-span-2 space-y-6"

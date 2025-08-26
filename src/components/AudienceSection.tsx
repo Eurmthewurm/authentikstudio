@@ -43,19 +43,19 @@ export const AudienceSection: React.FC = () => {
   };
 
   return (
-    <section className="py-24 md:py-32 px-6 relative" ref={ref}>
+    <section className="py-8 sm:py-12 md:py-16 container-padding relative" ref={ref}>
       <motion.div 
-        className="max-w-5xl mx-auto relative z-10"
+        className="content-width relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         <motion.div 
-          className="text-center space-y-12 mb-20"
+          className="text-center space-y-0 sm:space-y-1 md:space-y-2 mb-1 sm:mb-3 md:mb-4"
           variants={itemVariants}
         >
           <motion.h2 
-            className="font-serif text-5xl sm:text-6xl font-bold"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
             initial={{ y: 30, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
             transition={{ duration: 0.8 }}
@@ -71,10 +71,10 @@ export const AudienceSection: React.FC = () => {
           />
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 sm:gap-2 lg:gap-4">
           {/* For */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-1 sm:space-y-2"
             variants={itemVariants}
           >
             <motion.h3 
@@ -86,7 +86,7 @@ export const AudienceSection: React.FC = () => {
               ✅ Perfect For:
             </motion.h3>
             
-            <ul className="space-y-6">
+            <ul className="space-y-2 sm:space-y-3">
               {forItems.map((item, index) => (
                 <motion.li 
                   key={index}
@@ -120,7 +120,7 @@ export const AudienceSection: React.FC = () => {
           
           {/* Not For */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-1 sm:space-y-2 mb-0 mobile-gap-fix-2"
             variants={itemVariants}
           >
             <motion.h3 
@@ -132,7 +132,7 @@ export const AudienceSection: React.FC = () => {
               ❌ Not For:
             </motion.h3>
             
-            <ul className="space-y-6">
+            <ul className="space-y-2 sm:space-y-3">
               {notForItems.map((item, index) => (
                 <motion.li 
                   key={index}

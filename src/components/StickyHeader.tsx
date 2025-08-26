@@ -23,13 +23,13 @@ export const StickyHeader: React.FC = () => {
     <AnimatePresence>
       {visible && (
         <motion.header
-          className="fixed top-0 left-0 w-full h-20 px-6 sm:px-12 bg-background/80 backdrop-blur-lg border-b border-border/50 z-50 flex items-center justify-between"
+          className="fixed top-0 left-0 w-full h-16 sm:h-20 container-padding bg-background/80 backdrop-blur-lg border-b border-border/50 z-50 flex items-center justify-between"
           initial={{ y: '-100%' }}
           animate={{ y: '0%' }}
           exit={{ y: '-100%' }}
           transition={{ duration: 0.35, ease: 'easeInOut' }}
         >
-          <div className="font-serif text-xl font-bold">
+          <div className="font-serif text-lg sm:text-xl font-bold">
             Authentik Studio
           </div>
           <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer">
@@ -37,8 +37,12 @@ export const StickyHeader: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button size="default" className="bg-amber-400 hover:bg-amber-500 text-black font-medium">
-                Book Studio Call
+              <Button 
+                size="default" 
+                className="bg-amber-400 hover:bg-amber-500 text-black font-medium touch-target text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+              >
+                <span className="hidden sm:inline">Book Studio Call</span>
+                <span className="sm:hidden">Book Call</span>
               </Button>
             </motion.div>
           </a>

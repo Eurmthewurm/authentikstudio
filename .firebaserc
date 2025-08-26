@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "staging": "authentik-studio"
+  },
+  "targets": {
+    "authentik-studio": {
+      "hosting": {
+        "authentikstudio": [
+          "authentik-studio"
+        ],
+        "authentikstudio-com": [
+          "authentikstudio-com"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

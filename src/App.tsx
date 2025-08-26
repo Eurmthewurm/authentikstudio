@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden app-container">
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden app-container mobile-optimized">
       <CustomCursor />
       <StickyHeader />
       <ScrollAwareBackground />
@@ -46,24 +46,25 @@ function App() {
         <FounderSection />
         <AudienceSection />
         <SectionDivider />
+        <DiscoverySection />
+        <SectionDivider />
         <ServicesSection />
         <SectionDivider />
-        <DiscoverySection />
         <InvestmentSection />
         <FinalCtaSection />
       </main>
       
-      <footer className="mt-16 py-12 px-6 border-t border-border/50 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-y-8">
-            <div className="font-serif text-xl font-bold text-center sm:text-left">
+      <footer className="mt-8 sm:mt-16 py-8 sm:py-12 container-padding border-t border-border/50 relative z-10">
+        <div className="content-width">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-y-6 sm:gap-y-8">
+            <div className="font-serif text-lg sm:text-xl font-bold text-center sm:text-left">
               Authentik Studio
               <div className="text-sm text-foreground/60 font-sans font-normal mt-2">
                 © 2025 Signal in the Noise. All rights reserved.
               </div>
             </div>
             <div className="flex flex-col items-center gap-y-4">
-              <a href="#" onClick={scrollToTop} className="text-sm text-foreground/60 hover:text-amber-400 transition-colors">
+              <a href="#" onClick={scrollToTop} className="text-sm text-foreground/60 hover:text-amber-400 transition-colors touch-target flex items-center justify-center">
                 Back to Top &uarr;
               </a>
             </div>
