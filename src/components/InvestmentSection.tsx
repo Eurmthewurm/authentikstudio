@@ -85,7 +85,7 @@ export const InvestmentSection: React.FC = () => {
               €2K–€5K
             </div>
             <div className="font-bold text-lg mb-2 text-amber-300">Authentik Studio</div>
-            <div className="text-sm text-amber-200/80">Per project (4-8 weeks)</div>
+            <div className="text-sm text-amber-200/80">Per project (6 months)</div>
           </motion.div>
           
           <motion.div 
@@ -240,6 +240,21 @@ export const InvestmentSection: React.FC = () => {
               </p>
               <p className="text-blue-200/80 text-sm font-medium">
                 💡 <span className="text-amber-400">That's a 2.5x to 5x ROI improvement</span> - and we guarantee results.
+              </p>
+            </motion.div>
+            
+            <motion.div 
+              className="bg-blue-800/20 rounded-lg p-6 border border-blue-500/30 backdrop-blur-sm"
+              whileHover={{ y: -2, borderColor: "rgba(59, 130, 246, 0.6)" }}
+              transition={{ duration: 0.2 }}
+            >
+              <h4 className="font-bold text-blue-200 text-lg mb-3">🔍 "What happens in the first month?"</h4>
+              <p className="text-blue-200/90 mb-3">
+                While others rush to create generic content, we invest Month 1 in strategic discovery - the foundation that makes everything else work. 
+                We uncover your authentic voice, analyze your audience, and build the strategic framework that separates you from competitors.
+              </p>
+              <p className="text-blue-200/80 text-sm font-medium">
+                🎯 <span className="text-amber-400">This deep-dive discovery is why our clients achieve 3-5x better ROI than generic agencies.</span>
               </p>
             </motion.div>
             

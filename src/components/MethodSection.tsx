@@ -28,10 +28,10 @@ const steps = [
 const processSteps = [
   {
     phase: "Phase 1",
-    title: "Discovery & Voice Awakening",
+    title: "Strategic Discovery & Voice Foundation",
     duration: "Months 1-2",
-    description: "We guide you through deep introspection to uncover your authentic voice. This is where leaders often have their first revelation: 'This is who I really am, and this is what my audience needs from me.'",
-    deliverables: ["Authentic voice guide", "Leadership communication strategy", "Audience resonance framework", "Personal brand clarity"]
+    description: "While competitors rush to create generic content, we invest in strategic discovery—the foundation that makes everything else work. We uncover your authentic voice, analyze your competitive landscape, and build the strategic framework that separates you from everyone else. This deep-dive approach is why our clients achieve 3-5x better ROI.",
+    deliverables: ["Authentic voice guide", "Competitive differentiation strategy", "Audience resonance framework", "Strategic brand positioning"]
   },
   {
     phase: "Phase 2",

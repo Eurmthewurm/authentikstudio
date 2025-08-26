@@ -8,10 +8,10 @@ const services = [
     id: 'studio',
     title: 'Authentik Studio',
     subtitle: 'We don\'t create content. We create conviction.',
-    description: 'Forget the flashy edits. Forget the trends. Forget the generic. Your audience isn\'t fooled — they want something real. We craft stories that awaken, clarify, and convert through documentary-style content that feels raw, human, and unforgettable.',
+    description: 'While competitors rush to create generic content, we start with strategic discovery—the foundation that makes everything else work. We invest time to uncover your authentic voice, understand your competitive landscape, and build the framework that separates you from everyone else. Then we craft stories that awaken, clarify, and convert through documentary-style content that feels raw, human, and unforgettable.',
     features: [
+      'Strategic discovery & competitive analysis (Month 1-2)',
       '8-12 monthly strategy sessions + voice coaching framework',
-      'Brand voice discovery and positioning strategy',
       'Documentary-style video production (2-5 pieces)',
       'Content distribution and amplification strategy',
       'Performance tracking and optimization'
@@ -23,7 +23,7 @@ const services = [
       'Campaigns that awaken conviction, not just generate clicks'
     ],
     price: '€2,000–€5,000',
-    timeline: '4-8 weeks',
+    timeline: '6 months',
     cta: 'Book Discovery Call',
     ctaLink: 'https://calendly.com/ermo/discoverycall',
     primary: true,
