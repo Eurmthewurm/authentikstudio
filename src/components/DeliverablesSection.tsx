@@ -63,7 +63,7 @@ export const DeliverablesSection: React.FC = () => {
         animate="visible"
       >
         <motion.div 
-          className="text-center space-y-1 sm:space-y-2 mb-2 sm:mb-3"
+          className="text-center space-y-1 sm:space-y-2 mb-8 sm:mb-12 md:mb-16"
           variants={itemVariants}
         >
           <motion.h2 

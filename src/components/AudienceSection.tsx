@@ -51,7 +51,7 @@ export const AudienceSection: React.FC = () => {
         animate={isInView ? "visible" : "hidden"}
       >
         <motion.div 
-          className="text-center space-y-0 sm:space-y-1 md:space-y-2 mb-1 sm:mb-3 md:mb-4"
+          className="text-center space-y-0 sm:space-y-1 md:space-y-2 mb-6 sm:mb-8 md:mb-12"
           variants={itemVariants}
         >
           <motion.h2 
