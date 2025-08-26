@@ -71,10 +71,10 @@ export const AudienceSection: React.FC = () => {
           />
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 sm:gap-2 lg:gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
           {/* For */}
           <motion.div 
-            className="space-y-1 sm:space-y-2"
+            className="space-y-4 sm:space-y-6"
             variants={itemVariants}
           >
             <motion.h3 
@@ -120,7 +120,7 @@ export const AudienceSection: React.FC = () => {
           
           {/* Not For */}
           <motion.div 
-            className="space-y-1 sm:space-y-2 mb-0 mobile-gap-fix-2"
+            className="space-y-4 sm:space-y-6"
             variants={itemVariants}
           >
             <motion.h3 

@@ -159,7 +159,7 @@ export const InvestmentSection: React.FC = () => {
         </motion.div>
         
         <motion.div 
-          className="pt-8"
+          className="pt-12 sm:pt-16 md:pt-20"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.0 }}
@@ -181,7 +181,7 @@ export const InvestmentSection: React.FC = () => {
 
         {/* Risk Reversal Guarantee */}
         <motion.div 
-          className="mt-12 p-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 border-2 border-green-500/30 rounded-xl relative overflow-hidden backdrop-blur-sm"
+          className="mt-16 sm:mt-20 md:mt-24 p-8 bg-gradient-to-r from-green-900/30 to-emerald-900/30 border-2 border-green-500/30 rounded-xl relative overflow-hidden backdrop-blur-sm"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 2.2 }}
