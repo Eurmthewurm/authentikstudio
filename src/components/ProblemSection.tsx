@@ -1,129 +1,70 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
 export const ProblemSection: React.FC = () => {
-  const ref = useRef(null);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const leftVariants = {
-    hidden: { x: -100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
-  const rightVariants = {
-    hidden: { x: 100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
+  const fadeIn = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" as const },
   };
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 container-padding relative overflow-hidden" ref={ref}>
-      {/* Background noise effect */}
-      <div className="absolute inset-0">
-        {Array.from({ length: 20 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-red-500/10 rounded-full"
-            animate={{
-              x: [Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200), Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1200)],
-              y: [Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800), Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800)],
-              scale: [1, 1.5, 1],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{
-              duration: Math.random() * 5 + 3,
-              repeat: Infinity,
-              ease: "linear"
-            }}
-          />
-        ))}
-      </div>
+    <section id="problem" className="section-white container-clean text-foreground">
+      <div className="content-clean text-center">
+        <motion.h2
+          className="text-heading-clean text-gradient-gold mb-12"
+          {...fadeIn}
+        >
+          The Crisis Every Founder Faces in 2025
+        </motion.h2>
 
-      <motion.div 
-        className="content-width relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="grid lg:grid-cols-2 gap-mobile items-center">
-          <motion.div className="space-y-mobile" variants={leftVariants}>
-            <motion.h2 
-              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
-              initial={{ y: 50 }}
-              animate={{ y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Your brand is <motion.span 
-                className="text-red-400"
-                animate={{ 
-                  textShadow: [
-                    "0 0 0px rgba(248, 113, 113, 0)",
-                    "0 0 10px rgba(248, 113, 113, 0.5)",
-                    "0 0 0px rgba(248, 113, 113, 0)"
-                  ]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                invisible
-              </motion.span>
-              <br />
-              in the AI flood.
-            </motion.h2>
-            
-            <motion.div 
-              className="w-16 h-px bg-amber-400"
-              initial={{ width: 0 }}
-              animate={{ width: 64 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            />
+        <motion.p
+          className="text-subheading-clean text-foreground/90 mb-12 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        >
+          You're brilliant. Your product is game-changing. Your vision could reshape entire industries.
+          <br /><strong className="text-primary">So why does no one care?</strong>
+        </motion.p>
+
+        <motion.p
+          className="text-body-clean text-foreground/80 mb-16 max-w-5xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        >
+          While you're buried in product development and metrics, your competitors are stealing the spotlight with stories that stick. Every day you stay invisible:
+        </motion.p>
+
+        <div className="grid-2-clean max-w-6xl mx-auto">
+          <motion.div className="card-clean-lg p-8" {...fadeIn} transition={{ delay: 0.6 }}>
+            <p className="text-xl font-semibold text-primary mb-4">✗ Investors scroll past your pitch</p>
+            <p className="text-body-clean text-foreground/80">for flashier, story-driven startups.</p>
           </motion.div>
-          
-          <motion.div 
-            className="space-y-mobile text-base sm:text-lg leading-relaxed text-foreground/90"
-            variants={rightVariants}
-          >
-            {[
-              "Every day, 4.4 billion pieces of content flood the internet. 90% of it is forgettable noise generated by AI and templates.",
-              "Your prospects scroll past your posts without stopping. They've seen it all before—the same hooks, the same promises, the same hollow messaging.",
-              "Every day you wait is another day your ideal clients choose someone else. While you're invisible, your competitors are becoming irreplaceable.",
-              "The brutal reality: Your audience can smell the artificial from miles away. And they're running toward brands that make them think 'Finally, someone who gets it.'"
-            ].map((text, index) => (
-              <motion.p
-                key={index}
-                initial={{ y: 30, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.3 + (index * 0.2) }}
-                className={index === 2 ? "text-xl font-medium text-amber-400" : ""}
-              >
-                {text}
-              </motion.p>
-            ))}
+          <motion.div className="card-clean-lg p-8" {...fadeIn} transition={{ delay: 0.7 }}>
+            <p className="text-xl font-semibold text-primary mb-4">✗ Customers can't distinguish you</p>
+            <p className="text-body-clean text-foreground/80">from the AI-generated noise flooding their feeds.</p>
+          </motion.div>
+          <motion.div className="card-clean-lg p-8" {...fadeIn} transition={{ delay: 0.8 }}>
+            <p className="text-xl font-semibold text-primary mb-4">✗ Top talent joins competitors</p>
+            <p className="text-body-clean text-foreground/80">who "feel more inspiring."</p>
+          </motion.div>
+          <motion.div className="card-clean-lg p-8" {...fadeIn} transition={{ delay: 0.9 }}>
+            <p className="text-xl font-semibold text-primary mb-4">✗ Your authentic vision gets lost</p>
+            <p className="text-body-clean text-foreground/80">in generic marketing templates.</p>
           </motion.div>
         </div>
-      </motion.div>
+
+        <motion.p
+          className="text-subheading-clean text-primary mt-20 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
+        >
+          <strong className="text-gradient-gold">The brutal truth?</strong> In the AI era, being the best isn't enough. You need to be the most memorable.
+        </motion.p>
+      </div>
     </section>
   );
 };

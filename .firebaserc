@@ -1,6 +1,7 @@
 {
   "projects": {
-    "staging": "authentik-studio"
+    "staging": "authentik-studio",
+    "default": "authentik-studio"
   },
   "targets": {
     "authentik-studio": {

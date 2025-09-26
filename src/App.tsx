@@ -1,76 +1,82 @@
-import React from 'react';
-import { AnimatedGrain } from './components/AnimatedGrain';
-import { HeroSection } from './components/HeroSection';
-import { ProblemSection } from './components/ProblemSection';
-import { SolutionSection } from './components/SolutionSection';
-import { MethodSection } from './components/MethodSection';
-import { ProofSection } from './components/ProofSection';
-import { DeliverablesSection } from './components/DeliverablesSection';
-import { FounderSection } from './components/FounderSection';
-import { AudienceSection } from './components/AudienceSection';
-import { DiscoverySection } from './components/LabSessionSection';
-import { ServicesSection } from './components/ServicesSection';
-import { InvestmentSection } from './components/InvestmentSection';
-import { FinalCtaSection } from './components/FinalCtaSection';
-import { ScrollAwareBackground } from './components/ScrollAwareBackground';
-import { SectionDivider } from './components/SectionDivider';
+import { useEffect } from 'react';
 import { StickyHeader } from './components/StickyHeader';
 import { CustomCursor } from './components/CustomCursor';
+import { ScarcityBanner } from './components/ScarcityBanner';
+import { StickyNav } from './components/StickyNav';
+import { HorizontalFlow } from './components/HorizontalFlow';
+import { QuizVideoPreview } from './components/QuizVideoPreview';
+import { HeroSection } from './components/HeroSection';
+import { CommunicationDilemmaSection } from './components/CommunicationDilemmaSection';
+import { ProblemSection } from './components/ProblemSection';
+import { SolutionSection } from './components/SolutionSection';
+import { ProofSection } from './components/ProofSection';
+import { BenefitsDeepDiveSection } from './components/BenefitsDeepDiveSection';
+import { AboutSection } from './components/AboutSection';
+import { UrgencyScarcitySection } from './components/UrgencyScarcitySection';
+import { RiskReversalSection } from './components/RiskReversalSection';
+import { QuizSection } from './components/QuizSection';
+import { FAQSection } from './components/FAQSection';
+import { FinalCtaSection } from './components/FinalCtaSection';
+import { Footer } from './components/Footer';
+import { SectionDivider } from './components/SectionDivider';
 
 function App() {
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    };
+
+    // Listen for hash changes (e.g., from clicking a link with #id)
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Also handle initial load if there's a hash in the URL
+    handleHashChange();
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden app-container mobile-optimized">
+    <div className="relative">
       <CustomCursor />
+      <ScarcityBanner />
       <StickyHeader />
-      <ScrollAwareBackground />
-      <AnimatedGrain />
-      
-      <main className="relative z-10">
+      <StickyNav />
+      <main>
         <HeroSection />
+        <QuizVideoPreview />
+        <HorizontalFlow />
+        <SectionDivider />
+        <CommunicationDilemmaSection />
+        <SectionDivider />
         <ProblemSection />
         <SectionDivider />
         <SolutionSection />
-        <MethodSection />
+        <SectionDivider />
+        <QuizSection />
         <SectionDivider />
         <ProofSection />
-        <DeliverablesSection />
         <SectionDivider />
-        <FounderSection />
-        <AudienceSection />
+        <BenefitsDeepDiveSection />
         <SectionDivider />
-        <DiscoverySection />
+        <AboutSection />
         <SectionDivider />
-        <ServicesSection />
+        <UrgencyScarcitySection />
         <SectionDivider />
-        <InvestmentSection />
+        <RiskReversalSection />
+        <SectionDivider />
+        <FAQSection />
+        <SectionDivider />
         <FinalCtaSection />
       </main>
-      
-      <footer className="mt-8 sm:mt-16 py-8 sm:py-12 container-padding border-t border-border/50 relative z-10">
-        <div className="content-width">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-y-6 sm:gap-y-8">
-            <div className="font-serif text-lg sm:text-xl font-bold text-center sm:text-left">
-              Authentik Studio
-              <div className="text-sm text-foreground/60 font-sans font-normal mt-2">
-                © 2025 Signal in the Noise. All rights reserved.
-              </div>
-            </div>
-            <div className="flex flex-col items-center gap-y-4">
-              <a href="#" onClick={scrollToTop} className="text-sm text-foreground/60 hover:text-amber-400 transition-colors touch-target flex items-center justify-center">
-                Back to Top &uarr;
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

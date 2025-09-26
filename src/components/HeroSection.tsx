@@ -1,272 +1,178 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { trackCTAClicked } from '@/lib/analytics';
+import { SignalBackground } from './SignalBackground';
+import { User, Lightbulb, Target } from 'lucide-react';
 
-const featuredIn = ["David Attenborough", "National Geographic", "BBC", "Discovery", "Aaron Abke", "The Great Awakening Podcast", "Black Magic", "Arte"];
+const featuredIn = ["David Attenborough", "National Geographic", "BBC", "Discovery", "Aaron Abke", "The Great Awakening Podcast"];
 
 export const HeroSection: React.FC = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
-  const textVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-        ease: "easeOut" as const
-      }
-    }
-  };
-
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center container-padding py-12 sm:py-16 relative overflow-hidden">
-      {/* Background animated lines */}
-      <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute h-px bg-gradient-to-r from-transparent via-amber-400/20 to-transparent"
-            style={{
-              top: `${(i + 1) * 12}%`,
-              width: '200%',
-              left: '-50%'
-            }}
-            animate={{
-              x: ['0%', '50%', '0%'],
-              opacity: [0, 0.5, 0]
-            }}
-            transition={{
-              duration: 8 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
-          />
-        ))}
-      </div>
+    <section className="min-h-screen flex flex-col items-center justify-center container-clean py-16 md:py-20 relative overflow-hidden" style={{backgroundColor: '#111111'}}>
+      {/* Signal DNA Background */}
+      <SignalBackground />
 
-      <motion.div 
-        className="content-width text-center space-y-4 sm:space-y-6 md:space-y-8 relative z-10 flex-grow flex flex-col justify-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Urgency Banner */}
-        <motion.div 
-          className="bg-gradient-to-r from-amber-900/20 to-orange-900/20 border-2 border-amber-500/50 rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 md:mb-8 max-w-sm sm:max-w-lg md:max-w-2xl mx-auto backdrop-blur-sm"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div className="flex items-center justify-center gap-2 sm:gap-3 text-amber-200">
-            <div className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-black text-xs sm:text-sm font-bold">!</span>
-            </div>
-            <div className="text-center">
-              <p className="font-medium text-xs sm:text-sm md:text-base">
-                <span className="text-amber-400 font-bold">Limited Availability:</span> Only <span className="font-bold text-amber-300">12 clients</span> per year
-              </p>
-              <p className="text-xs text-amber-200/80">
-                Currently accepting new applications
-              </p>
-            </div>
+      <div className="relative z-10 text-center max-w-5xl mx-auto">
+        {/* Main Headline */}
+            <motion.h1
+              className="font-serif leading-tight tracking-tight mb-6 sm:mb-8"
+              style={{fontSize: 'clamp(2.5rem, 8vw, 5rem)', lineHeight: '1.1'}}
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+          <div className="font-bold text-white mb-4" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
+            Stop Explaining What You Do.
           </div>
-        </motion.div>
-
-        <motion.div className="space-y-4 sm:space-y-6 md:space-y-8" variants={itemVariants}>
-          <motion.h1 
-            className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none"
-            variants={textVariants}
-          >
-            <motion.span
-              className="block"
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              SIGNAL
-            </motion.span>
-            <motion.span 
-              className="text-amber-400 block"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8 }}
-            >
-              IN THE
-            </motion.span>
-            <motion.span
-              className="block"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 1.1 }}
-            >
-              NOISE
-            </motion.span>
-          </motion.h1>
-          
-          <motion.div 
-            className="w-16 sm:w-24 h-px bg-amber-400 mx-auto"
-            initial={{ width: 0 }}
-            animate={{ width: window.innerWidth < 640 ? 64 : 96 }}
-            transition={{ duration: 1, delay: 1.5 }}
-          />
-          
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light text-foreground/80 text-width leading-relaxed"
-            variants={itemVariants}
-          >
-            <span className="text-amber-400 font-medium">Your brand becomes the signal people trust, remember, and buy from</span>.
-          </motion.p>
-        </motion.div>
-
-
-        
-        <motion.div 
-          className="space-y-2 sm:space-y-3 md:space-y-4 text-base sm:text-lg md:text-xl leading-relaxed text-foreground/90 content-width"
-          variants={itemVariants}
-        >
-          <div className="mobile-grid text-center">
-            <div className="space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">$6M+</div>
-              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Additional revenue generated for top-performing clients in 18 months</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">3.2x</div>
-              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Higher conversion rates vs generic content</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-amber-400">94%</div>
-              <div className="text-xs sm:text-sm md:text-base text-foreground/70">Client retention after 6 months</div>
-            </div>
-          </div>
-        </motion.div>
-        
-        <motion.div 
-          className="pt-2 sm:pt-3 md:pt-4"
-          variants={itemVariants}
-        >
-          <a href="https://calendly.com/ermo/discoverycall" target="_blank" rel="noopener noreferrer">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 0 0px 0px rgba(251, 191, 36, 0)",
-                  "0 0 25px 5px rgba(251, 191, 36, 0.3)",
-                  "0 0 0px 0px rgba(251, 191, 36, 0)"
-                ]
-              }}
-              transition={{
-                duration: 2.5,
-                repeat: Infinity,
-                repeatDelay: 2,
-                ease: "easeInOut"
-              }}
-              className="inline-block w-full sm:w-auto"
-            >
-              <Button 
-                size="lg" 
-                className="mobile-button bg-amber-400 hover:bg-amber-500 text-black font-medium tracking-wide relative overflow-hidden group touch-target"
-              >
+          <div className="font-medium text-white relative" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
+            Start Making People Care.
                 <motion.div
-                  className="absolute inset-0 bg-white/20"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  className="absolute -bottom-2 left-0 h-1 rounded-full"
+                  style={{backgroundColor: '#D4B37A'}}
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 1.5, delay: 0.8, ease: "easeOut" }}
                 />
-                <span className="relative z-10">Get Your Brand Clarity Session</span>
-              </Button>
-            </motion.div>
-          </a>
-        </motion.div>
-      </motion.div>
+          </div>
+        </motion.h1>
 
-      {/* Featured In Section - Enhanced for better visibility */}
-      <motion.div 
-        className="w-full max-w-6xl mx-auto text-center mt-12 sm:mt-16 relative z-10 px-4"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1.8 }}
-      >
-        {/* Background highlight */}
-        <div className="bg-gradient-to-r from-amber-900/10 via-amber-800/20 to-amber-900/10 border border-amber-500/20 rounded-xl p-6 sm:p-8 backdrop-blur-sm">
-          <motion.h4 
-            className="text-sm sm:text-base text-amber-400 mb-4 sm:mb-6 tracking-widest font-semibold"
-            animate={{
-              opacity: [0.7, 1, 0.7]
+        {/* Subheadline */}
+        <motion.p
+          className="text-white mb-8 sm:mb-12 max-w-4xl mx-auto px-4"
+          style={{fontSize: 'clamp(1rem, 4vw, 1.25rem)', lineHeight: '1.6', fontFamily: 'Work Sans, sans-serif', textShadow: '0 1px 3px rgba(0,0,0,0.5)'}}
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        >
+          Unlock the words that make investors lean in, customers say yes, and media pay attention.
+        </motion.p>
+
+        {/* CTA Button */}
+        <motion.div
+          className="mb-12 sm:mb-16 space-y-10"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+        >
+          <motion.div
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
             }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            TRUSTED BY LEADING BRANDS
-          </motion.h4>
-          
-          <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-8 lg:gap-x-10 gap-y-3 sm:gap-y-4 text-lg sm:text-xl lg:text-2xl text-foreground/90 font-medium mb-6">
+            <a href="#free-audit">
+                  <Button
+                    size="lg"
+                    className="px-8 py-4 sm:px-12 sm:py-6 text-lg sm:text-xl font-bold w-full sm:w-auto relative overflow-hidden group transition-all duration-200 min-h-[48px] sm:min-h-[56px]"
+                    style={{backgroundColor: '#D4B37A', color: '#FFFFFF', boxShadow: '0 8px 25px rgba(166, 124, 82, 0.2)'}}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLElement).style.backgroundColor = '#A67C52';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLElement).style.backgroundColor = '#D4B37A';
+                    }}
+                    onClick={() => trackCTAClicked('hero_cta')}
+                  >
+                <span className="relative z-10">Start My Free Quiz</span>
+              </Button>
+            </a>
+          </motion.div>
+        </motion.div>
+
+        {/* Value Bullets */}
+        <motion.div
+          className="mb-12 sm:mb-16 px-4"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+        >
+          <p className="text-sm mb-6 sm:mb-8 font-medium" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>What you'll discover ↓</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
+            <motion.div
+              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
+              whileHover={{ y: -4 }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
+                <User className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Reveal Your Archetype</h3>
+            </motion.div>
+            
+            <motion.div
+              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
+              whileHover={{ y: -4 }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
+                <Lightbulb className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Unlock Your Story Strengths</h3>
+            </motion.div>
+            
+            <motion.div
+              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
+              whileHover={{ y: -4 }}
+            >
+              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Locate Your Connection Gaps</h3>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Trust indicators and bonus info */}
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+        >
+          <p className="text-sm mb-4" style={{color: '#CCCCCC', fontFamily: 'Work Sans, sans-serif'}}>
+            No credit card • Instant results • 100% private
+          </p>
+          <div className="p-3 rounded-lg inline-block" style={{backgroundColor: '#9B6F45'}}>
+            <p className="text-sm font-medium text-white">
+              🎁 <strong>Bonus:</strong> First 50 quiz takers get a free €200 pitch review call
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Featured In / Social Proof */}
+        <motion.div
+          className="pt-8 border-t border-border/30"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+        >
+          <p className="text-sm uppercase tracking-widest mb-8 font-medium" style={{color: '#999999', fontFamily: 'Inter, sans-serif'}}>
+            TRUSTED BY FOUNDERS AT:
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-lg font-medium">
             {featuredIn.map((name, index) => (
-              <motion.span 
+              <motion.span
                 key={name}
-                className="hover:text-amber-400 transition-colors duration-300 cursor-default"
+                className="transition-all duration-300 cursor-pointer px-4 py-2 rounded-lg"
+                style={{color: '#CCCCCC', fontFamily: 'Inter, sans-serif'}}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = '#CCCCCC'}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 2 + (index * 0.1) }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ delay: 1.4 + index * 0.05, duration: 0.6 }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2
+                }}
+                whileTap={{ scale: 0.95 }}
               >
                 {name}
               </motion.span>
             ))}
           </div>
-          
-          {/* Trust Indicators */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm sm:text-base text-foreground/70">
-            <motion.div 
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
-              <span>30+ Years Experience</span>
-            </motion.div>
-            <motion.div 
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></span>
-              <span>Documentary Expertise</span>
-            </motion.div>
-            <motion.div 
-              className="flex items-center gap-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></span>
-              <span>Proven ROI Results</span>
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
