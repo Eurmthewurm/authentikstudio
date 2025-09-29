@@ -358,21 +358,22 @@ export const QuizSection: React.FC = () => {
               {/* HOT HEADER */}
               <div>
                 <motion.div
-                  className="inline-flex items-center gap-3 bg-green-500/20 border border-green-500/30 rounded-full px-6 py-3 mb-6"
+                  className="inline-flex items-center gap-3 rounded-full px-6 py-3 mb-6"
+                  style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '1px solid rgba(212, 179, 122, 0.3)'}}
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  <span className="text-green-400 text-2xl">🎉</span>
-                  <span className="text-green-400 font-bold text-lg">REPORT DELIVERED!</span>
+                  <span className="text-2xl">🎉</span>
+                  <span className="font-bold text-lg" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>REPORT DELIVERED!</span>
                 </motion.div>
                 
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gradient-gold mb-4">
-                  Your Signal DNA: <span className="text-primary">{result.title}</span>
+                <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-4" style={{color: '#111111'}}>
+                  Your Signal DNA: <span style={{color: '#D4B37A'}}>{result.title}</span>
                 </h2>
                 
-                <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 mb-6">
-                  <p className="text-xl font-bold text-primary">
+                <div className="rounded-xl p-4 mb-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                  <p className="text-xl font-bold" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>
                     Score: {score}/24 • {score >= 18 ? '🔥 HOT SIGNAL' : score >= 12 ? '⚡ STRONG FOUNDATION' : '💪 ROOM TO GROW'}
                   </p>
                 </div>
@@ -380,19 +381,20 @@ export const QuizSection: React.FC = () => {
 
               {/* URGENT INSIGHT */}
               <motion.div
-                className="bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/30 rounded-xl p-6 mb-8"
+                className="rounded-xl p-6 mb-8"
+                style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <h3 className="font-serif text-2xl font-bold text-amber-400 mb-4">
+                <h3 className="font-serif text-2xl font-bold mb-4" style={{color: '#A67C52'}}>
                   🚨 Critical Insight About YOUR Communication
                 </h3>
-                <p className="text-lg text-foreground/90 leading-relaxed mb-4">
+                <p className="text-lg leading-relaxed mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   {result.message}
                 </p>
-                <div className="bg-background/50 border border-border/30 rounded-lg p-4">
-                  <p className="text-foreground/80 font-medium">
+                <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                  <p className="font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                     <strong>Bottom Line:</strong> {result.recommendation}
                   </p>
                 </div>
@@ -400,17 +402,18 @@ export const QuizSection: React.FC = () => {
 
               {/* EMAIL CONFIRMATION */}
               <motion.div
-                className="bg-green-500/10 border border-green-500/20 rounded-xl p-6 mb-8"
+                className="rounded-xl p-6 mb-8"
+                style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '1px solid rgba(212, 179, 122, 0.2)'}}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <h4 className="font-bold text-green-400 mb-2 text-xl">📧 Your Detailed Report is LIVE!</h4>
-                <p className="text-foreground/90 mb-4">
+                <h4 className="font-bold mb-2 text-xl" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>📧 Your Detailed Report is LIVE!</h4>
+                <p className="mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   Check your inbox NOW for your personalized Signal DNA blueprint with exact scripts for your next investor pitch.
                 </p>
-                <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-3">
-                  <p className="text-sm text-green-400 font-medium">
+                <div className="rounded-lg p-3" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
+                  <p className="text-sm font-medium" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                     ✨ Bonus: Founder Archetype Deep-Dive Workbook (€97 value) included
                   </p>
                 </div>
@@ -423,122 +426,126 @@ export const QuizSection: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <h3 className="font-serif text-2xl font-bold text-foreground mb-6 text-center">
+                <h3 className="font-serif text-2xl font-bold mb-6 text-center" style={{color: '#111111'}}>
                   See 3 Real Founder Transformation Stories
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6">
+                  <div className="rounded-xl p-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                     <div className="text-center mb-4">
                       <div className="text-3xl mb-2">📈</div>
-                      <h4 className="font-bold text-blue-400">Before: Generic Pitch</h4>
+                      <h4 className="font-bold" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Before: Generic Pitch</h4>
                     </div>
-                    <p className="text-sm text-foreground/70 italic mb-4">
+                    <p className="text-sm italic mb-4" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
                       "We're revolutionizing healthcare with AI-powered diagnostics..."
                     </p>
                     <div className="text-center">
                       <div className="text-3xl mb-2">✨</div>
-                      <h4 className="font-bold text-green-400">After: Signal DNA</h4>
+                      <h4 className="font-bold" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>After: Signal DNA</h4>
                     </div>
-                    <p className="text-sm text-foreground/90 font-medium">
+                    <p className="text-sm font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                       "Imagine your grandmother getting personalized treatment at home instead of waiting 6 months for a specialist..."
                     </p>
                     <div className="mt-4 text-center">
-                      <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="text-white px-3 py-1 rounded-full text-xs font-semibold" style={{backgroundColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>
                         €2.3M Raised
                       </span>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl p-6">
+                  <div className="rounded-xl p-6" style={{backgroundColor: 'rgba(166, 124, 82, 0.05)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
                     <div className="text-center mb-4">
                       <div className="text-3xl mb-2">📉</div>
-                      <h4 className="font-bold text-red-400">Before: Feature Focus</h4>
+                      <h4 className="font-bold" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Before: Feature Focus</h4>
                     </div>
-                    <p className="text-sm text-foreground/70 italic mb-4">
+                    <p className="text-sm italic mb-4" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
                       "Our platform has 47 integrations and 99.9% uptime..."
                     </p>
                     <div className="text-center">
                       <div className="text-3xl mb-2">✨</div>
-                      <h4 className="font-bold text-green-400">After: Impact Story</h4>
+                      <h4 className="font-bold" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>After: Impact Story</h4>
                     </div>
-                    <p className="text-sm text-foreground/90 font-medium">
+                    <p className="text-sm font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                       "Sarah saved 15 hours per week and launched her dream side business..."
                     </p>
                     <div className="mt-4 text-center">
-                      <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="text-white px-3 py-1 rounded-full text-xs font-semibold" style={{backgroundColor: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                         +183% Conversion
                       </span>
                     </div>
                   </div>
 
-                  <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20 rounded-xl p-6">
+                  <div className="rounded-xl p-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                     <div className="text-center mb-4">
                       <div className="text-3xl mb-2">📊</div>
-                      <h4 className="font-bold text-red-400">Before: Data Dump</h4>
+                      <h4 className="font-bold" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Before: Data Dump</h4>
                     </div>
-                    <p className="text-sm text-foreground/70 italic mb-4">
+                    <p className="text-sm italic mb-4" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
                       "We have 10,000 users, 40% MoM growth, targeting a €50B market..."
                     </p>
                     <div className="text-center">
                       <div className="text-3xl mb-2">✨</div>
-                      <h4 className="font-bold text-green-400">After: Vision Story</h4>
+                      <h4 className="font-bold" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>After: Vision Story</h4>
                     </div>
-                    <p className="text-sm text-foreground/90 font-medium">
+                    <p className="text-sm font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                       "We're building the infrastructure for the next generation of conscious entrepreneurs..."
                     </p>
                     <div className="mt-4 text-center">
-                      <span className="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      <span className="text-white px-3 py-1 rounded-full text-xs font-semibold" style={{backgroundColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>
                         €1.2M Raised
                       </span>
                     </div>
                   </div>
                 </div>
-                <p className="text-center text-foreground/80 mt-6 font-medium">
+                <p className="text-center mt-6 font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   <strong>Your archetype is just the start—book your free call for your personal pitch script.</strong>
                 </p>
               </motion.div>
 
               {/* HOT CALL TO ACTION */}
               <motion.div
-                className="bg-gradient-to-r from-primary/20 to-amber-500/20 border-2 border-primary/40 rounded-xl p-8 mb-8"
+                className="rounded-xl p-8 mb-8"
+                style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '2px solid rgba(212, 179, 122, 0.4)'}}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <h4 className="font-bold text-foreground mb-4 text-2xl">
+                <h4 className="font-bold mb-4 text-2xl" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>
                   🔥 HERE'S WHAT HAPPENS NEXT
                 </h4>
-                <p className="text-lg text-foreground/90 mb-6 leading-relaxed">
+                <p className="text-lg mb-6 leading-relaxed" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   Your report shows <strong>exactly</strong> what's holding you back. In 15 minutes, I'll show you how to turn your archetype into your biggest competitive advantage.
                 </p>
                 
                 {/* URGENCY ELEMENTS */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                  <div className="bg-background/50 border border-border/30 rounded-lg p-4">
-                    <p className="text-sm font-bold text-primary mb-1">⚡ IMMEDIATE IMPACT</p>
-                    <p className="text-xs text-foreground/80">Use your scripts in your next meeting</p>
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-bold mb-1" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>⚡ IMMEDIATE IMPACT</p>
+                    <p className="text-xs" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Use your scripts in your next meeting</p>
                   </div>
-                  <div className="bg-background/50 border border-border/30 rounded-lg p-4">
-                    <p className="text-sm font-bold text-primary mb-1">🎯 PERSONALIZED PLAN</p>
-                    <p className="text-xs text-foreground/80">Custom strategy for YOUR archetype</p>
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-bold mb-1" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>🎯 PERSONALIZED PLAN</p>
+                    <p className="text-xs" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Custom strategy for YOUR archetype</p>
                   </div>
-                  <div className="bg-background/50 border border-border/30 rounded-lg p-4">
-                    <p className="text-sm font-bold text-primary mb-1">💰 ROI GUARANTEE</p>
-                    <p className="text-xs text-foreground/80">Better pitches = more funding</p>
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-bold mb-1" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>💰 ROI GUARANTEE</p>
+                    <p className="text-xs" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Better pitches = more funding</p>
                   </div>
                 </div>
 
                 {/* PRICING CONTEXT */}
-                <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-foreground/80">
+                <div className="rounded-lg p-4 mb-6" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
+                  <p className="text-sm" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                     <strong>💡 Quick Math:</strong> Full Signal DNA Transformation = €2,500+ • This call = FREE • 
-                    <span className="text-amber-400 font-bold"> Your time investment = 15 minutes</span>
+                    <span className="font-bold" style={{color: '#A67C52'}}> Your time investment = 15 minutes</span>
                   </p>
                 </div>
                 
                 <Button
                   size="lg"
-                  className="button-primary-clean px-8 sm:px-12 py-6 text-xl font-bold w-full sm:w-auto bg-gradient-to-r from-primary to-amber-500 hover:from-primary/90 hover:to-amber-500/90 transform hover:scale-105 transition-all duration-200"
+                  className="px-8 sm:px-12 py-6 text-xl font-bold w-full sm:w-auto transform hover:scale-105 transition-all duration-200"
+                  style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
+                  onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
+                  onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
                   onClick={() => {
                     trackCTAClicked('calendar_call_hot');
                     window.open('https://calendly.com/ermo/discoverycall', '_blank');
@@ -547,7 +554,7 @@ export const QuizSection: React.FC = () => {
                   🔥 CLAIM YOUR FREE 15-MIN BREAKTHROUGH CALL
                 </Button>
                 
-                <p className="text-xs text-foreground/60 mt-3">
+                <p className="text-xs mt-3" style={{color: '#999999', fontFamily: 'Work Sans, sans-serif'}}>
                   ⏰ Limited spots this week • Most founders see 3x improvement in pitch clarity
                 </p>
               </motion.div>
