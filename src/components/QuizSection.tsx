@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { X, Download, Star } from 'lucide-react';
 import { trackQuizStarted, trackQuizCompleted, trackCTAClicked, trackUTMSource, debugPixelFiring, trackQuestionAnswered, trackEmailCapture } from '@/lib/analytics';
 
 interface QuizQuestion {
@@ -116,6 +117,9 @@ export const QuizSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [score, setScore] = useState(0);
   const [showExitIntent, setShowExitIntent] = useState(false);
+  const [showEbookModal, setShowEbookModal] = useState(false);
+  const [ebookForm, setEbookForm] = useState({ name: '', email: '', consent: false });
+  const [isEbookSubmitting, setIsEbookSubmitting] = useState(false);
   const mouseLeaveRef = useRef<NodeJS.Timeout | null>(null);
 
   // Track quiz start and UTM parameters on component mount
@@ -226,6 +230,38 @@ export const QuizSection: React.FC = () => {
       setShowResults(true);
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const handleEbookSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!ebookForm.name || !ebookForm.email || !ebookForm.consent) return;
+    
+    setIsEbookSubmitting(true);
+    
+    try {
+      // Track ebook download
+      trackCTAClicked('ebook_download');
+      
+      // Here you would integrate with your email marketing API (Mailchimp, ConvertKit, etc.)
+      // For now, we'll simulate the API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Auto-trigger PDF download
+      const link = document.createElement('a');
+      link.href = '/signal-DNA-ebook.pdf';
+      link.download = 'Signal-DNA-Premium-Ebook.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Close modal
+      setShowEbookModal(false);
+      
+    } catch (error) {
+      console.error('Error submitting ebook form:', error);
+    } finally {
+      setIsEbookSubmitting(false);
     }
   };
 
@@ -416,6 +452,86 @@ export const QuizSection: React.FC = () => {
                   <p className="text-sm font-medium" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                     ✨ Bonus: Founder Archetype Deep-Dive Workbook (€97 value) included
                   </p>
+                </div>
+              </motion.div>
+
+              {/* PREMIUM EBOOK UPSELL */}
+              <motion.div
+                className="rounded-xl p-6 mb-8"
+                style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '2px solid rgba(166, 124, 82, 0.3)'}}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <Star className="w-6 h-6" style={{color: '#D4B37A'}} />
+                    <h3 className="font-serif text-2xl font-bold" style={{color: '#A67C52'}}>Upgrade to Premium</h3>
+                  </div>
+                  <h4 className="font-bold text-xl mb-3" style={{color: '#111111', fontFamily: 'Playfair Display, serif'}}>
+                    Deep-Dive Signal DNA Ebook
+                  </h4>
+                </div>
+                
+                <div className="mb-6">
+                  <p className="text-lg mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                    Unlock two extra archetypes, hybrid profiles, and a 'Shadow Archetype' guide. Includes ready-to-use scripts for ultra-custom pitches.
+                  </p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Purpose Evangelist</h5>
+                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Mission-first storyteller with community focus</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Technical Thought Leader</h5>
+                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Deep expertise with public influence</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Hybrid Profiles</h5>
+                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Visionary-Expert & Underdog-Changemaker combos</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Shadow Archetype Guide</h5>
+                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Common pitfalls and countermeasures</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center">
+                  <Button
+                    onClick={() => setShowEbookModal(true)}
+                    className="px-8 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                    style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Yes, I Want Premium Ebook
+                  </Button>
                 </div>
               </motion.div>
 
@@ -746,6 +862,115 @@ export const QuizSection: React.FC = () => {
         </motion.div>
       </div>
     </section>
+
+    {/* EBOOK MODAL */}
+    <AnimatePresence>
+      {showEbookModal && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{backgroundColor: 'rgba(0, 0, 0, 0.8)'}}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="bg-white rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", duration: 0.5 }}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h3 className="font-serif text-2xl font-bold mb-2" style={{color: '#111111'}}>
+                  Premium Signal DNA Ebook
+                </h3>
+                <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
+                  Get instant access to the complete guide
+                </p>
+              </div>
+              <button
+                onClick={() => setShowEbookModal(false)}
+                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+              >
+                <X className="w-5 h-5" style={{color: '#666666'}} />
+              </button>
+            </div>
+
+            <form onSubmit={handleEbookSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  value={ebookForm.name}
+                  onChange={(e) => setEbookForm({...ebookForm, name: e.target.value})}
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-champagne focus:border-transparent"
+                  style={{fontFamily: 'Work Sans, sans-serif'}}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  value={ebookForm.email}
+                  onChange={(e) => setEbookForm({...ebookForm, email: e.target.value})}
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-champagne focus:border-transparent"
+                  style={{fontFamily: 'Work Sans, sans-serif'}}
+                  required
+                />
+              </div>
+
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  checked={ebookForm.consent}
+                  onChange={(e) => setEbookForm({...ebookForm, consent: e.target.checked})}
+                  className="mt-1 w-4 h-4 text-champagne bg-gray-100 border-gray-300 rounded focus:ring-champagne focus:ring-2"
+                  required
+                />
+                <label htmlFor="consent" className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
+                  I agree to receive the premium ebook and marketing communications from Authentik Studio. I can unsubscribe at any time.
+                </label>
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isEbookSubmitting}
+                className="w-full py-4 text-lg font-bold transition-all duration-200"
+                style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
+                onMouseEnter={(e) => !isEbookSubmitting && ((e.target as HTMLElement).style.backgroundColor = '#A67C52')}
+                onMouseLeave={(e) => !isEbookSubmitting && ((e.target as HTMLElement).style.backgroundColor = '#D4B37A')}
+              >
+                {isEbookSubmitting ? (
+                  <>
+                    <div className="w-5 h-5 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Now
+                  </>
+                )}
+              </Button>
+
+              <p className="text-xs text-center" style={{color: '#999999', fontFamily: 'Work Sans, sans-serif'}}>
+                🔒 Your information is secure and will never be shared
+              </p>
+            </form>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
     </>
   );
 };

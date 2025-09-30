@@ -53,6 +53,9 @@ export const StickyHeader: React.FC = () => {
           <a href="#solution" className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
             Solution
           </a>
+          <a href="#method" className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
+            Method
+          </a>
           <a href="#testimonials" className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
             Testimonials
           </a>
@@ -110,6 +113,13 @@ export const StickyHeader: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Solution
+          </a>
+          <a 
+            href="#method" 
+            className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Method
           </a>
           <a 
             href="#testimonials" 

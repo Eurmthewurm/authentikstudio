@@ -9,6 +9,7 @@ import { HeroSection } from './components/HeroSection';
 import { CommunicationDilemmaSection } from './components/CommunicationDilemmaSection';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
+import { MethodSection } from './components/MethodSection';
 import { ProofSection } from './components/ProofSection';
 import { BenefitsDeepDiveSection } from './components/BenefitsDeepDiveSection';
 import { AboutSection } from './components/AboutSection';
@@ -59,6 +60,8 @@ function App() {
         <ProblemSection />
         <SectionDivider />
         <SolutionSection />
+        <SectionDivider />
+        <MethodSection />
         <SectionDivider />
         <QuizSection />
         <SectionDivider />

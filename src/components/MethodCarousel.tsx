@@ -1,23 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, DraftingCompass, Megaphone } from 'lucide-react';
+import { Search, DraftingCompass, Megaphone, ArrowRight } from 'lucide-react';
+import { InteractiveVisualElement } from './InteractiveVisualElement';
 
 export const MethodCarousel: React.FC = () => {
   const methods = [
     {
       icon: Search,
       title: "Deep Story Archaeology",
-      description: "Uncover hidden narrative patterns that make you unforgettable"
+      description: "Uncover hidden narrative patterns that make you unforgettable",
+      step: "01",
+      color: "#D4B37A"
     },
     {
       icon: DraftingCompass,
       title: "Signal Engineering", 
-      description: "Craft messages that cut through noise and create instant connection"
+      description: "Craft messages that cut through noise and create instant connection",
+      step: "02",
+      color: "#A67C52"
     },
     {
       icon: Megaphone,
       title: "Signal Amplification",
-      description: "Scale your authentic voice across every platform and audience"
+      description: "Scale your authentic voice across every platform and audience",
+      step: "03",
+      color: "#C49E58"
     }
   ];
 
@@ -38,16 +45,30 @@ export const MethodCarousel: React.FC = () => {
           {methods.map((method, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center"
+              className="relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
             >
-              <div className="w-full bg-white rounded-2xl p-6 sm:p-8 text-center shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-300 min-h-[280px] sm:min-h-[320px]">
-                {/* Icon */}
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center border-2" style={{borderColor: '#D4B37A', backgroundColor: 'transparent'}}>
-                  <method.icon className="w-8 h-8" style={{color: '#D4B37A'}} />
-                </div>
+              {/* Step Number */}
+              <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10" style={{backgroundColor: method.color}}>
+                {method.step}
+              </div>
+              
+              {/* Card */}
+              <div className="w-full bg-white rounded-2xl p-6 sm:p-8 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 min-h-[280px] sm:min-h-[320px] group">
+                        {/* Interactive Visual Element */}
+                        <div className="w-20 h-20 mx-auto mb-6 relative flex items-center justify-center">
+                          <InteractiveVisualElement 
+                            type={index === 0 ? 'mountain' : index === 1 ? 'flow' : 'signal'}
+                            size="small"
+                            color={method.color}
+                            interactive={true}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <method.icon className="w-8 h-8" style={{color: method.color}} />
+                          </div>
+                        </div>
                 
                 {/* Title */}
                 <h4 className="text-xl font-bold mb-4" style={{color: '#111111', fontFamily: 'Playfair Display, serif'}}>
@@ -59,9 +80,34 @@ export const MethodCarousel: React.FC = () => {
                   {method.description}
                 </p>
                 
-                {/* Decorative line */}
-                <div className="w-12 h-1 mx-auto rounded-full" style={{backgroundColor: '#D4B37A'}} />
+                {/* Progress Indicator */}
+                <div className="flex items-center justify-center gap-2 mb-4">
+                  <div className="w-8 h-1 rounded-full" style={{backgroundColor: method.color}}></div>
+                  <div className="w-4 h-1 rounded-full bg-gray-300"></div>
+                  <div className="w-4 h-1 rounded-full bg-gray-300"></div>
+                </div>
+                
+                        {/* Learn More Button */}
+                        <button 
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105"
+                          style={{color: method.color, backgroundColor: `${method.color}10`}}
+                          onClick={() => {
+                            // Scroll to the quiz section
+                            const quizSection = document.getElementById('free-audit');
+                            if (quizSection) {
+                              quizSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }}
+                        >
+                          Learn More
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
               </div>
+              
+              {/* Connection Line (except for last item) */}
+              {index < methods.length - 1 && (
+                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r" style={{background: `linear-gradient(to right, ${method.color}, ${methods[index + 1].color})`}}></div>
+              )}
             </motion.div>
           ))}
         </div>

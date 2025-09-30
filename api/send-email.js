@@ -41,11 +41,44 @@ export default async function handler(req, res) {
           </div>
           
           <div style="background-color: #FFFFFF; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #D4B37A;">
+            <h3 style="color: #A67C52; font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 15px;">📚 Your Deep-Dive Workbook</h3>
+            <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-family: 'Work Sans', sans-serif;">
+              Transform from generic founder to magnetic storyteller with your exclusive Signal DNA Deep-Dive Workbook. This comprehensive guide takes you beyond surface-level awareness into deep archetype mastery.
+            </p>
+            <div style="background-color: rgba(212, 179, 122, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #D4B37A;">
+              <h4 style="color: #111111; font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 10px 0;">What's Inside:</h4>
+              <ul style="color: #333333; font-size: 14px; line-height: 1.6; margin: 0; padding-left: 20px; font-family: 'Work Sans', sans-serif;">
+                <li>Archetype Clarity Workshop</li>
+                <li>Strengths Amplification Lab</li>
+                <li>Blind Spot Diagnosis & Repair</li>
+                <li>Hybrid Profile Mastery</li>
+                <li>Shadow Archetype Integration</li>
+                <li>Signature Story Blueprint</li>
+              </ul>
+            </div>
+            <a href="https://elite-edition-k8fgc36.gamma.site/" 
+               style="display: inline-block; background-color: #D4B37A; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif; transition: background-color 0.2s; margin-bottom: 20px;">
+              Access Your Deep-Dive Workbook
+            </a>
+            
+            <div style="background-color: rgba(212, 179, 122, 0.05); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #A67C52;">
+              <h4 style="color: #111111; font-family: 'Playfair Display', serif; font-size: 16px; margin: 0 0 10px 0;">🎥 Bonus: Video Testimonial</h4>
+              <p style="color: #333333; font-size: 14px; line-height: 1.6; margin: 0 0 10px 0; font-family: 'Work Sans', sans-serif;">
+                Watch J-Griff's full testimonial video inside the workbook to see the complete transformation story and learn from his experience.
+              </p>
+              <a href="https://vimeo.com/1112128628" 
+                 style="color: #A67C52; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Work Sans', sans-serif;">
+                Watch Video Testimonial →
+              </a>
+            </div>
+          </div>
+
+          <div style="background-color: #FFFFFF; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #D4B37A;">
             <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background-color: rgba(212, 179, 122, 0.05); border-radius: 8px; border-left: 4px solid #D4B37A;">
               <img src="https://via.placeholder.com/60x60/D4B37A/fff?text=JG" alt="J-Griff" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #D4B37A;">
               <div>
                 <p style="color: #333333; font-size: 16px; margin: 0 0 8px 0; font-style: italic; font-family: 'Work Sans', sans-serif;">
-                  "Signal DNA transformed how I connect with my conscious entrepreneur audience."
+                  "Ermo is a master at creating long-form video content—content that humanizes you, builds trust with your audience, and breaks down the invisible walls that usually prevent people from buying from strangers on the internet. He helped us grow from €2M to €6M in revenue within 18 months."
                 </p>
                 <div style="display: flex; align-items: center; gap: 10px;">
                   <span style="color: #D4B37A; font-weight: 600; font-family: 'Work Sans', sans-serif;">— J-Griff</span>

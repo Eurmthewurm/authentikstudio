@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { ProcessFlow } from './ProcessFlow';
-import { MethodCarousel } from './MethodCarousel';
+import { AnimatedSectionBackground } from './AnimatedSectionBackground';
 
 export const SolutionSection: React.FC = () => {
   const fadeIn = {
@@ -17,8 +17,9 @@ export const SolutionSection: React.FC = () => {
   };
 
   return (
-    <section id="solution" className="section-off-white container-clean text-foreground">
-      <div className="content-clean">
+    <section id="solution" className="section-off-white container-clean text-foreground relative">
+      <AnimatedSectionBackground variant="flowing" intensity="subtle" color="#D4B37A" />
+      <div className="content-clean relative z-10">
         <motion.h2
           className="text-heading-clean text-gradient-gold text-center mb-12"
           {...fadeIn}
@@ -67,9 +68,6 @@ export const SolutionSection: React.FC = () => {
         
         {/* Process Flow */}
         <ProcessFlow />
-        
-            {/* Method Carousel */}
-            <MethodCarousel />
       </div>
     </section>
   );

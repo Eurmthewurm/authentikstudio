@@ -36,7 +36,7 @@ export const StickyNav: React.FC = () => {
   const navItems = [
     { label: 'Problem', href: '#problem' },
     { label: 'Solution', href: '#solution' },
-    { label: 'Method', href: '#solution' },
+    { label: 'Method', href: '#method' },
     { label: 'Testimonials', href: '#testimonials' },
     { label: 'FAQ', href: '#faq' }
   ];

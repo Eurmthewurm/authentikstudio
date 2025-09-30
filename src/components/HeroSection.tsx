@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { trackCTAClicked } from '@/lib/analytics';
-import { SignalBackground } from './SignalBackground';
+import { AnimatedHeroBackground } from './AnimatedHeroBackground';
 import { User, Lightbulb, Target } from 'lucide-react';
 
 const featuredIn = ["David Attenborough", "National Geographic", "BBC", "Discovery", "Aaron Abke", "The Great Awakening Podcast"];
@@ -11,7 +11,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center container-clean py-16 md:py-20 relative overflow-hidden" style={{backgroundColor: '#111111'}}>
       {/* Signal DNA Background */}
-      <SignalBackground />
+      <AnimatedHeroBackground />
 
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         {/* Main Headline */}
@@ -118,10 +118,16 @@ export const HeroSection: React.FC = () => {
               <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Locate Your Connection Gaps</h3>
+                  <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Locate Your Connection Gaps</h3>
+                </motion.div>
+              </div>
+              
+              <div className="mt-6 p-4 rounded-lg" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
+                <p className="text-sm text-center" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                  ✨ <strong>Bonus:</strong> Two extra archetypes + Hybrid & Shadow deep-dive (Premium)
+                </p>
+              </div>
             </motion.div>
-          </div>
-        </motion.div>
 
         {/* Trust indicators and bonus info */}
         <motion.div

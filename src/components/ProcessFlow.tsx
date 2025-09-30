@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardList, FileText, Video } from 'lucide-react';
+import { ClipboardList, FileText, Video, ArrowRight, CheckCircle } from 'lucide-react';
 
 export const ProcessFlow: React.FC = () => {
   const steps = [
@@ -8,19 +8,22 @@ export const ProcessFlow: React.FC = () => {
       icon: ClipboardList,
       title: "Take Quiz",
       description: "2-minute Signal DNA assessment",
-      color: "from-blue-500 to-blue-600"
+      color: "#D4B37A",
+      step: "01"
     },
     {
       icon: FileText,
       title: "Get Report",
       description: "Personalized archetype analysis",
-      color: "from-purple-500 to-purple-600"
+      color: "#A67C52",
+      step: "02"
     },
     {
       icon: Video,
       title: "Strategy Session",
       description: "15-min breakthrough call",
-      color: "from-green-500 to-green-600"
+      color: "#C49E58",
+      step: "03"
     }
   ];
 
@@ -35,62 +38,80 @@ export const ProcessFlow: React.FC = () => {
         Your Signal DNA Journey
       </motion.h3>
       
-      <div className="relative max-w-4xl mx-auto">
-        {/* Connection lines */}
-        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 transform -translate-y-1/2 hidden md:block">
-          <motion.div
-            className="h-full bg-gradient-to-r from-primary/40 to-primary/60"
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{ duration: 2, delay: 0.5, ease: "easeInOut" }}
-          />
+      <div className="relative max-w-5xl mx-auto">
+        {/* Progress Bar */}
+        <div className="mb-12">
+          <div className="flex items-center justify-center gap-4">
+            {steps.map((step, index) => (
+              <React.Fragment key={index}>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg" style={{backgroundColor: step.color}}>
+                    {/* Removed number to avoid duplication with card numbers */}
+                  </div>
+                  <span className="text-sm font-medium text-foreground/70 hidden sm:block" style={{fontFamily: 'Work Sans, sans-serif'}}>
+                    {step.title}
+                  </span>
+                </div>
+                {index < steps.length - 1 && (
+                  <div className="w-12 h-0.5 bg-gray-300 hidden sm:block">
+                    <motion.div
+                      className="h-full"
+                      style={{backgroundColor: step.color}}
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1, delay: index * 0.3 + 0.5 }}
+                    />
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="relative text-center group"
+              className="relative"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.2, duration: 0.6 }}
             >
-              {/* Step number */}
-              <motion.div
-                className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold z-10"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: index * 0.2 + 0.3, duration: 0.3, type: "spring" }}
-              >
-                {index + 1}
-              </motion.div>
-              
-              {/* Icon container */}
-              <motion.div
-                className={`w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <step.icon className="w-10 h-10 text-white" />
-              </motion.div>
-              
-              {/* Content */}
-              <h4 className="text-xl font-bold text-foreground mb-2">{step.title}</h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">{step.description}</p>
-              
-              {/* Arrow for mobile */}
-              {index < steps.length - 1 && (
-                <div className="md:hidden flex justify-center mt-6">
-                  <motion.div
-                    className="w-6 h-6 text-primary"
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    <svg fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </motion.div>
+              {/* Card */}
+              <div className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group min-h-[200px]">
+                {/* Step Number */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg z-10" style={{backgroundColor: step.color}}>
+                  {step.step}
                 </div>
+                
+                {/* Icon container */}
+                <motion.div
+                  className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center border-2 group-hover:scale-110 transition-transform duration-300"
+                  style={{borderColor: step.color, backgroundColor: `${step.color}15`}}
+                >
+                  <step.icon className="w-8 h-8" style={{color: step.color}} />
+                </motion.div>
+                
+                {/* Content */}
+                <h4 className="text-lg font-bold text-foreground mb-2" style={{fontFamily: 'Playfair Display, serif'}}>
+                  {step.title}
+                </h4>
+                <p className="text-foreground/70 text-sm leading-relaxed mb-4" style={{fontFamily: 'Work Sans, sans-serif'}}>
+                  {step.description}
+                </p>
+                
+                {/* Status Indicator */}
+                <div className="flex items-center justify-center gap-2">
+                  <CheckCircle className="w-4 h-4" style={{color: step.color}} />
+                  <span className="text-xs font-medium" style={{color: step.color, fontFamily: 'Work Sans, sans-serif'}}>
+                    {index === 0 ? 'Ready' : index === 1 ? 'Complete' : 'Available'}
+                  </span>
+                </div>
+              </div>
+              
+              {/* Connection Line (except for last item) */}
+              {index < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r" style={{background: `linear-gradient(to right, ${step.color}, ${steps[index + 1].color})`}}></div>
               )}
             </motion.div>
           ))}
@@ -104,18 +125,24 @@ export const ProcessFlow: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.6 }}
       >
-        <p className="text-foreground/80 mb-4">Ready to discover your Signal DNA?</p>
-        <motion.a
-          href="#free-audit"
-          className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary/80 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Start Your Journey
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </motion.a>
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 max-w-md mx-auto">
+          <h4 className="text-lg font-bold text-foreground mb-2" style={{fontFamily: 'Playfair Display, serif'}}>
+            Ready to discover your Signal DNA?
+          </h4>
+          <p className="text-foreground/70 text-sm mb-6" style={{fontFamily: 'Work Sans, sans-serif'}}>
+            Start your journey with our free 2-minute assessment
+          </p>
+          <motion.a
+            href="#free-audit"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 hover:scale-105"
+            style={{backgroundColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Start Your Journey
+            <ArrowRight className="w-4 h-4" />
+          </motion.a>
+        </div>
       </motion.div>
     </div>
   );

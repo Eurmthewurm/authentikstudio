@@ -121,7 +121,7 @@ export const trackEmailCapture = (email: string, source: string = 'quiz_completi
   trackLinkedInEvent('email_capture');
 };
 
-export const trackCTAClicked = (ctaType: 'calendar_call' | 'calendar_call_hot' | 'retake_quiz' | 'hero_cta' | 'final_cta') => {
+export const trackCTAClicked = (ctaType: 'calendar_call' | 'calendar_call_hot' | 'retake_quiz' | 'hero_cta' | 'final_cta' | 'ebook_download') => {
   console.log('🎯 Tracking: CTA Clicked', { ctaType });
   trackQuizEvent('cta_clicked', {
     cta_type: ctaType,
