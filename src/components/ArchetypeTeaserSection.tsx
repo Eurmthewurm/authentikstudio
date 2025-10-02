@@ -107,7 +107,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
           {archetypes.map((archetype, index) => (
             <motion.div
               key={index}
-              className="p-6 sm:p-8 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group min-h-[360px] sm:min-h-[420px] flex flex-col justify-center"
+              className="p-6 sm:p-8 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group min-h-[420px] sm:min-h-[480px] flex flex-col justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -125,30 +125,40 @@ export const ArchetypeTeaserSection: React.FC = () => {
               
               {/* Content */}
               <div className="relative z-10 flex flex-col items-center">
-                {/* Floating archetype visual */}
+                {/* Dynamic archetype visual */}
                 <motion.div
-                  className="w-32 h-32 sm:w-40 sm:h-40 mb-6 sm:mb-8"
+                  className="w-40 h-40 sm:w-48 sm:h-48 mb-6 sm:mb-8"
                   animate={{
-                    y: [0, -5, 0],
-                    rotate: [0, 5, 0]
+                    y: [0, -8, 0],
+                    rotate: [0, 3, -3, 0],
+                    scale: [1, 1.05, 1]
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 4,
                     repeat: Infinity,
-                    delay: index * 0.5
+                    delay: index * 0.3,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    scale: 1.1,
+                    rotate: [0, 10, -10, 0],
+                    transition: { duration: 0.6 }
                   }}
                 >
                   <img 
                     src={`/images/archetypes/${archetype.name.toLowerCase()}.png`}
                     alt={`${archetype.name} archetype visual`}
                     className="w-full h-full object-contain"
-                    style={{ filter: 'drop-shadow(0 6px 12px rgba(166, 124, 82, 0.5))' }}
+                    style={{ 
+                      filter: 'drop-shadow(0 8px 16px rgba(166, 124, 82, 0.6)) drop-shadow(0 0 20px rgba(212, 179, 122, 0.3))',
+                      transition: 'filter 0.3s ease'
+                    }}
                     onError={(e) => {
                       // Fallback to emoji if image fails to load
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       target.parentElement!.innerHTML = `
-                        <div class="text-6xl sm:text-7xl flex items-center justify-center w-full h-full">
+                        <div class="text-7xl sm:text-8xl flex items-center justify-center w-full h-full">
                           ${archetype.icon}
                         </div>
                       `;
