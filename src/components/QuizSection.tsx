@@ -771,7 +771,7 @@ export const QuizSection: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* ARCHETYPE-SPECIFIC INSIGHT */}
+                {/* ARCHETYPE DEEP DIVE */}
               <motion.div
                 className="rounded-xl p-6 mb-8"
                 style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}
@@ -779,14 +779,57 @@ export const QuizSection: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <h3 className="font-serif text-2xl font-bold mb-4" style={{color: '#A67C52'}}>
-                  🎯 Your {quizResult?.primaryArchetype || result.title} Quick Tip
+                <h3 className="font-serif text-2xl font-bold mb-6" style={{color: '#A67C52'}}>
+                  🎯 Your {quizResult?.primaryArchetype || result.title} Profile
                 </h3>
-                <p className="text-lg leading-relaxed mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
-                  {result.message}
-                </p>
                 
-                {/* Data-driven callout */}
+                {/* Archetype Description */}
+                <div className="rounded-lg p-6 mb-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-4xl">
+                      {quizResult?.primaryArchetype === 'Visionary' && '🌟'}
+                      {quizResult?.primaryArchetype === 'Builder' && '🔨'}
+                      {quizResult?.primaryArchetype === 'Strategist' && '🎯'}
+                      {quizResult?.primaryArchetype === 'Connector' && '🤝'}
+                      {quizResult?.primaryArchetype === 'Guardian' && '🛡️'}
+                      {quizResult?.primaryArchetype === 'Trailblazer' && '🚀'}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                        {quizResult?.primaryArchetype === 'Visionary' && 'See the future before it happens'}
+                        {quizResult?.primaryArchetype === 'Builder' && 'Turn vision into reality'}
+                        {quizResult?.primaryArchetype === 'Strategist' && 'Navigate complexity with clarity'}
+                        {quizResult?.primaryArchetype === 'Connector' && 'Build bridges between people'}
+                        {quizResult?.primaryArchetype === 'Guardian' && 'Protect what matters most'}
+                        {quizResult?.primaryArchetype === 'Trailblazer' && 'Pioneer uncharted territory'}
+                      </h4>
+                      <p className="text-base leading-relaxed" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                        {quizResult?.primaryArchetype === 'Visionary' && 'Inspires with bold, forward-thinking ideas that paint vivid pictures of tomorrow'}
+                        {quizResult?.primaryArchetype === 'Builder' && 'Earns trust through relentless execution and proven results'}
+                        {quizResult?.primaryArchetype === 'Strategist' && 'Wins attention with strategic foresight and logical frameworks'}
+                        {quizResult?.primaryArchetype === 'Connector' && 'Attracts allies through authentic relationships and shared values'}
+                        {quizResult?.primaryArchetype === 'Guardian' && 'Reassures stakeholders with stability, reliability, and proven track records'}
+                        {quizResult?.primaryArchetype === 'Trailblazer' && 'Breaks norms and creates new possibilities through bold innovation'}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="border-t pt-4" style={{borderColor: 'rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                      💡 Real-world example:
+                    </p>
+                    <p className="text-sm italic" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
+                      {quizResult?.primaryArchetype === 'Visionary' && 'Like Elon Musk sharing his vision for Mars colonization'}
+                      {quizResult?.primaryArchetype === 'Builder' && 'Like Steve Jobs delivering products that just work'}
+                      {quizResult?.primaryArchetype === 'Strategist' && 'Like Warren Buffett explaining investment philosophy'}
+                      {quizResult?.primaryArchetype === 'Connector' && 'Like Oprah building communities around shared stories'}
+                      {quizResult?.primaryArchetype === 'Guardian' && 'Like Tim Cook maintaining Apple\'s quality standards'}
+                      {quizResult?.primaryArchetype === 'Trailblazer' && 'Like Reed Hastings disrupting traditional media'}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Quick Tip */}
                 <div className="rounded-lg p-4 mb-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                   <p className="font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                     <strong>Quick Tip for {quizResult?.primaryArchetype || result.title} founders:</strong> {
@@ -805,6 +848,69 @@ export const QuizSection: React.FC = () => {
                   <p className="text-sm font-medium" style={{color: '#059669', fontFamily: 'Work Sans, sans-serif'}}>
                     📊 {quizResult?.primaryArchetype || 'Founders'} who applied this tip see 30% faster decision cycles.
                   </p>
+                </div>
+              </motion.div>
+
+              {/* HOW THIS HELPS YOU */}
+              <motion.div
+                className="rounded-xl p-6 mb-8"
+                style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <h3 className="font-serif text-2xl font-bold mb-6" style={{color: '#A67C52'}}>
+                  🎯 How Your {quizResult?.primaryArchetype || result.title} Style Helps You Win
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Investor Pitches */}
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <div className="text-center mb-3">
+                      <div className="text-2xl mb-2">💰</div>
+                      <h4 className="font-bold text-sm" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Investor Pitches</h4>
+                    </div>
+                    <p className="text-xs leading-relaxed" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                      {quizResult?.primaryArchetype === 'Visionary' && 'Lead with your bold vision, then back it with concrete milestones and market data.'}
+                      {quizResult?.primaryArchetype === 'Builder' && 'Emphasize your execution track record and proven ability to deliver results.'}
+                      {quizResult?.primaryArchetype === 'Strategist' && 'Present clear frameworks and logical reasoning for your business model.'}
+                      {quizResult?.primaryArchetype === 'Connector' && 'Highlight your network strength and ability to build strategic partnerships.'}
+                      {quizResult?.primaryArchetype === 'Guardian' && 'Focus on stability, risk management, and sustainable growth strategies.'}
+                      {quizResult?.primaryArchetype === 'Trailblazer' && 'Show how you\'re creating new market categories and first-mover advantages.'}
+                    </p>
+                  </div>
+
+                  {/* Customer Acquisition */}
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <div className="text-center mb-3">
+                      <div className="text-2xl mb-2">🎯</div>
+                      <h4 className="font-bold text-sm" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Customer Acquisition</h4>
+                    </div>
+                    <p className="text-xs leading-relaxed" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                      {quizResult?.primaryArchetype === 'Visionary' && 'Paint a compelling picture of the future your customers will experience.'}
+                      {quizResult?.primaryArchetype === 'Builder' && 'Showcase real results and case studies that prove your solution works.'}
+                      {quizResult?.primaryArchetype === 'Strategist' && 'Use data and logical arguments to demonstrate clear ROI and benefits.'}
+                      {quizResult?.primaryArchetype === 'Connector' && 'Build community around shared values and authentic relationships.'}
+                      {quizResult?.primaryArchetype === 'Guardian' && 'Emphasize reliability, security, and long-term value for customers.'}
+                      {quizResult?.primaryArchetype === 'Trailblazer' && 'Position your solution as the innovative choice for forward-thinking customers.'}
+                    </p>
+                  </div>
+
+                  {/* Team Building */}
+                  <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <div className="text-center mb-3">
+                      <div className="text-2xl mb-2">👥</div>
+                      <h4 className="font-bold text-sm" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>Team Building</h4>
+                    </div>
+                    <p className="text-xs leading-relaxed" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                      {quizResult?.primaryArchetype === 'Visionary' && 'Inspire top talent with your compelling mission and growth opportunities.'}
+                      {quizResult?.primaryArchetype === 'Builder' && 'Attract results-oriented people who want to be part of successful execution.'}
+                      {quizResult?.primaryArchetype === 'Strategist' && 'Appeal to analytical minds who value clear processes and logical thinking.'}
+                      {quizResult?.primaryArchetype === 'Connector' && 'Build teams through authentic relationships and shared cultural values.'}
+                      {quizResult?.primaryArchetype === 'Guardian' && 'Attract people who value stability, security, and long-term career growth.'}
+                      {quizResult?.primaryArchetype === 'Trailblazer' && 'Attract innovative thinkers who want to pioneer new solutions and markets.'}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
 
