@@ -431,10 +431,10 @@ export const QuizSection: React.FC = () => {
           archetype_name: quizResult?.primaryArchetype || result.title,
           signal_score: score,
           signal_level: score >= 18 ? 'HOT SIGNAL' : score >= 12 ? 'STRONG FOUNDATION' : 'ROOM TO GROW',
-          is_hybrid: quizResult?.isHybrid || false,
+          is_hybrid: quizResult?.isHybrid ? 'true' : 'false',
           secondary_archetype: quizResult?.secondaryArchetype,
           confidence: quizResult?.confidence,
-          needs_retake: quizResult?.needsRetake || false,
+          needs_retake: quizResult?.needsRetake ? 'true' : 'false',
           original_primary: quizResult?.originalPrimary
         }),
       });
