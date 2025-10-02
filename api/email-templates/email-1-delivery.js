@@ -6,7 +6,7 @@ export const email1DeliveryTemplate = (data) => {
     first_name = 'there',
     archetype_name = 'Founder',
     signal_score = 0,
-    signal_level = 'ROOM TO GROW',
+    signal_level = 'Signal Building',
     micro_tip = 'focus on emotional connection with data',
     download_link = 'https://www.authentikstudio.com/quiz#download',
     strategy_call_link = 'https://calendly.com/ermo/discoverycall',
@@ -29,26 +29,46 @@ export const email1DeliveryTemplate = (data) => {
           <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 15px; font-family: 'Work Sans', sans-serif;">Hi ${first_name},</p>
           
           <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-family: 'Work Sans', sans-serif;">
+            Your Signal DNA Report — ${new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+          </p>
+          
+          <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-family: 'Work Sans', sans-serif;">
             You're a <strong>${archetype_name}</strong>${is_hybrid && secondary_archetype ? ` with strong ${secondary_archetype} traits` : ''}. Here's your Signal Score: ${signal_score}/24 (${signal_level}).
           </p>
           
           ${confidence > 0 ? `
-          <div style="background-color: rgba(212, 179, 122, 0.1); padding: 10px; border-radius: 6px; margin-bottom: 15px; border-left: 3px solid #D4B37A;">
-            <p style="color: #333333; font-size: 14px; margin: 0; font-family: 'Work Sans', sans-serif;">
-              <strong>Result Confidence:</strong> ${confidence}%${needs_retake ? ' (Consider retaking for more accuracy)' : ''}
+          <div style="background-color: ${confidence >= 60 ? 'rgba(34, 197, 94, 0.1)' : 'rgba(255, 193, 7, 0.1)'}; padding: 10px; border-radius: 6px; margin-bottom: 15px; border-left: 3px solid ${confidence >= 60 ? '#059669' : '#856404'};">
+            <p style="color: ${confidence >= 60 ? '#059669' : '#856404'}; font-size: 14px; margin: 0; font-family: 'Work Sans', sans-serif;">
+              ${confidence >= 60 ? '✓ High Confidence' : 'Close call—tap here to revisit a few questions for sharper results'} (${confidence}%)
             </p>
           </div>
           ` : ''}
           
-          <div style="background-color: rgba(212, 179, 122, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #D4B37A;">
+          <div style="background-color: rgba(212, 179, 122, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #D4B37A;">
             <p style="color: #333333; font-size: 16px; line-height: 1.6; margin: 0; font-family: 'Work Sans', sans-serif;">
               <strong>Quick tip for ${archetype_name} founders:</strong> ${micro_tip}
             </p>
           </div>
           
+          <div style="background-color: rgba(34, 197, 94, 0.1); padding: 12px; border-radius: 6px; margin-bottom: 20px; border-left: 3px solid #059669;">
+            <p style="color: #059669; font-size: 14px; margin: 0; font-family: 'Work Sans', sans-serif;">
+              📊 ${archetype_name} founders who applied this tip see 30% faster decision cycles.
+            </p>
+          </div>
+          
+          <div style="background-color: rgba(166, 124, 82, 0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #A67C52;">
+            <p style="color: #333333; font-size: 14px; margin: 0; font-family: 'Work Sans', sans-serif;">
+              <strong>📚 Your ${archetype_name} Workbook opens with a 3-year Vision Map exercise</strong> to align your big goals with actionable milestones.
+            </p>
+          </div>
+          
           <div style="text-align: center; margin: 25px 0;">
-            <a href="${download_link}" style="display: inline-block; background-color: #D4B37A; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif;">
-              Download Your Workbook
+            <a href="${download_link}" style="display: inline-block; background-color: #D4B37A; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif; margin-bottom: 15px;">
+              Download Your ${archetype_name} Workbook
+            </a>
+            <br>
+            <a href="${strategy_call_link}" style="display: inline-block; background-color: transparent; color: #D4B37A; padding: 12px 24px; text-decoration: none; border: 2px solid #D4B37A; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif;">
+              Book Your Free 15-Min Strategy Call
             </a>
           </div>
           

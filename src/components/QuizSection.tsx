@@ -670,41 +670,108 @@ export const QuizSection: React.FC = () => {
                 
                 <div className="rounded-xl p-4 mb-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                   <p className="text-xl font-bold" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>
-                    Score: {score}/24 • {score >= 18 ? '🔥 HOT SIGNAL' : score >= 12 ? '⚡ STRONG FOUNDATION' : '💪 ROOM TO GROW'}
+                    Score: {score}/24 • {score >= 18 ? '🔥 Signal Champion' : score >= 12 ? '⚡ Strong Signal' : '💪 Signal Building'}
                   </p>
                 </div>
 
-                {/* ARCHETYPE REVEAL */}
-                <div className="archetype-reveal mb-6">
-                  <div className="rounded-xl p-4" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}>
-                    <p className="text-lg font-bold mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
-                      <strong>Your Primary Archetype:</strong> {quizResult?.primaryArchetype || result.title}
-                    </p>
-                    {quizResult?.isHybrid && quizResult?.secondaryArchetype && (
-                      <p className="text-md font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
-                        <strong>Hybrid Profile:</strong> {quizResult.primaryArchetype} + {quizResult.secondaryArchetype}
-                      </p>
-                    )}
-                    <p className="teaser text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
-                      Reveal your {quizResult?.primaryArchetype || result.title} signature story elements inside.
-                    </p>
-                    {quizResult?.confidence && (
-                      <p className="text-xs mt-2" style={{color: '#999999', fontFamily: 'Work Sans, sans-serif'}}>
-                        Confidence: {quizResult.confidence}% • Signal Strength: {score}/24
-                      </p>
-                    )}
-                    {quizResult?.needsRetake && (
-                      <div className="mt-3 p-3 rounded-lg" style={{backgroundColor: 'rgba(255, 193, 7, 0.1)', border: '1px solid rgba(255, 193, 7, 0.3)'}}>
-                        <p className="text-sm" style={{color: '#856404', fontFamily: 'Work Sans, sans-serif'}}>
-                          ⚠️ Low confidence result ({quizResult.confidence}%). Consider retaking the quiz for more accurate results.
-                        </p>
-                      </div>
-                    )}
+                {/* ARCHETYPE REVEAL - ENHANCED */}
+                <motion.div 
+                  className="archetype-reveal mb-8"
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                  <div className="relative rounded-xl p-6 sm:p-8 overflow-hidden" style={{backgroundColor: 'rgba(166, 124, 82, 0.15)', border: '2px solid rgba(166, 124, 82, 0.4)'}}>
+                    {/* Animated background */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/5"
+                      animate={{
+                        opacity: [0.3, 0.6, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    
+                    {/* Main archetype display */}
+                    <div className="relative z-10 text-center">
+                      <motion.div
+                        className="inline-flex items-center justify-center gap-3 mb-4"
+                        initial={{ y: -20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.5 }}
+                      >
+                        <motion.div
+                          className="text-4xl"
+                          animate={{
+                            rotate: [0, 10, -10, 0],
+                            scale: [1, 1.1, 1]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            delay: 1
+                          }}
+                        >
+                          {quizResult?.primaryArchetype === 'Visionary' && '🌟'}
+                          {quizResult?.primaryArchetype === 'Builder' && '🔨'}
+                          {quizResult?.primaryArchetype === 'Strategist' && '🎯'}
+                          {quizResult?.primaryArchetype === 'Connector' && '🤝'}
+                          {quizResult?.primaryArchetype === 'Guardian' && '🛡️'}
+                          {quizResult?.primaryArchetype === 'Trailblazer' && '🚀'}
+                        </motion.div>
+                        <div>
+                          <h3 className="text-2xl sm:text-3xl font-bold mb-1" style={{color: '#A67C52', fontFamily: 'Playfair Display, serif'}}>
+                            {quizResult?.primaryArchetype || result.title}
+                          </h3>
+                          {quizResult?.isHybrid && quizResult?.secondaryArchetype && (
+                            <p className="text-lg font-medium" style={{color: '#8B7355', fontFamily: 'Work Sans, sans-serif'}}>
+                              + {quizResult.secondaryArchetype} traits
+                            </p>
+                          )}
+                        </div>
+                      </motion.div>
+                      
+                      {/* Personalized message */}
+                      <motion.p 
+                        className="text-lg mb-4" 
+                        style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
+                      >
+                        Your Signal DNA Report — {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                      </motion.p>
+                      
+                      {/* Confidence indicator */}
+                      <motion.div 
+                        className="flex items-center justify-center gap-2 mb-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 0.9 }}
+                      >
+                        {quizResult?.confidence && quizResult.confidence >= 60 ? (
+                          <span className="text-sm px-3 py-1 rounded-full" style={{backgroundColor: 'rgba(34, 197, 94, 0.1)', color: '#059669', fontFamily: 'Work Sans, sans-serif'}}>
+                            ✓ High Confidence ({quizResult.confidence}%)
+                          </span>
+                        ) : quizResult?.needsRetake ? (
+                          <button 
+                            className="text-sm px-3 py-1 rounded-full cursor-pointer hover:underline" 
+                            style={{backgroundColor: 'rgba(255, 193, 7, 0.1)', color: '#856404', fontFamily: 'Work Sans, sans-serif'}}
+                            onClick={() => resetQuiz()}
+                          >
+                            Close call—tap here to revisit a few questions for sharper results
+                          </button>
+                        ) : null}
+                      </motion.div>
+                    </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              {/* URGENT INSIGHT */}
+              {/* ARCHETYPE-SPECIFIC INSIGHT */}
               <motion.div
                 className="rounded-xl p-6 mb-8"
                 style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}
@@ -713,19 +780,35 @@ export const QuizSection: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <h3 className="font-serif text-2xl font-bold mb-4" style={{color: '#A67C52'}}>
-                  🚨 Critical Insight About YOUR Communication
+                  🎯 Your {quizResult?.primaryArchetype || result.title} Quick Tip
                 </h3>
                 <p className="text-lg leading-relaxed mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   {result.message}
                 </p>
-                <div className="rounded-lg p-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                
+                {/* Data-driven callout */}
+                <div className="rounded-lg p-4 mb-4" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                   <p className="font-medium" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
-                    <strong>Bottom Line:</strong> {result.recommendation}
+                    <strong>Quick Tip for {quizResult?.primaryArchetype || result.title} founders:</strong> {
+                      quizResult?.primaryArchetype === 'Visionary' && 'Focus on painting a vivid picture of the future, but ground it with tangible first steps.'
+                    }
+                    {quizResult?.primaryArchetype === 'Builder' && 'Showcase your execution prowess, but remember to connect it to the bigger \'why\' for emotional resonance.'}
+                    {quizResult?.primaryArchetype === 'Strategist' && 'Your logical approach is powerful, but don\'t forget to weave in personal stories to build trust.'}
+                    {quizResult?.primaryArchetype === 'Connector' && 'Leverage your network, but ensure your core message is clear and not diluted by too many connections.'}
+                    {quizResult?.primaryArchetype === 'Guardian' && 'Your stability and reliability are assets, but balance them with innovation to show you\'re not stuck in the past.'}
+                    {quizResult?.primaryArchetype === 'Trailblazer' && 'Your disruptive ideas are compelling, but balance them with a clear path to adoption and impact.'}
+                  </p>
+                </div>
+                
+                {/* Data-driven stat */}
+                <div className="rounded-lg p-3" style={{backgroundColor: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)'}}>
+                  <p className="text-sm font-medium" style={{color: '#059669', fontFamily: 'Work Sans, sans-serif'}}>
+                    📊 {quizResult?.primaryArchetype || 'Founders'} who applied this tip see 30% faster decision cycles.
                   </p>
                 </div>
               </motion.div>
 
-              {/* EMAIL CONFIRMATION */}
+              {/* WORKBOOK DOWNLOAD */}
               <motion.div
                 className="rounded-xl p-6 mb-8"
                 style={{backgroundColor: 'rgba(212, 179, 122, 0.1)', border: '1px solid rgba(212, 179, 122, 0.2)'}}
@@ -733,14 +816,61 @@ export const QuizSection: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                <h4 className="font-bold mb-2 text-xl" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>📧 Your Detailed Report is LIVE!</h4>
+                <h4 className="font-bold mb-4 text-xl" style={{color: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}>
+                  📧 Your Detailed Report is LIVE!
+                </h4>
                 <p className="mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
                   Check your inbox NOW for your personalized Signal DNA blueprint with exact scripts for your next investor pitch.
                 </p>
-                <div className="rounded-lg p-3" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
-                  <p className="text-sm font-medium" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
-                    ✨ Bonus: Founder Archetype Deep-Dive Workbook (€97 value) included
+                
+                {/* How to Use This Workbook */}
+                <div className="rounded-lg p-4 mb-6" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
+                  <p className="text-sm font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                    📚 How to Use This Workbook
                   </p>
+                  <p className="text-sm" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                    Inside you'll find tailored exercises, swipe files, and action plans specific to your {quizResult?.primaryArchetype || 'Founder'} profile.
+                  </p>
+                </div>
+                
+                {/* Primary CTAs */}
+                <div className="space-y-4">
+                  <button
+                    onClick={() => window.open('https://elite-edition-k8fgc36.gamma.site/', '_blank')}
+                    className="w-full px-6 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg rounded-xl"
+                    style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
+                  >
+                    <Download className="w-5 h-5 mr-2 inline" />
+                    Download Your {quizResult?.primaryArchetype || 'Founder'} Workbook
+                  </button>
+                  
+                  <button
+                    onClick={() => window.open('https://calendly.com/ermo/discoverycall', '_blank')}
+                    className="w-full px-6 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg rounded-xl border-2"
+                    style={{backgroundColor: 'transparent', color: '#D4B37A', borderColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLElement).style.backgroundColor = '#D4B37A';
+                      (e.target as HTMLElement).style.color = '#FFFFFF';
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLElement).style.backgroundColor = 'transparent';
+                      (e.target as HTMLElement).style.color = '#D4B37A';
+                    }}
+                  >
+                    Book Your Free 15-Min Strategy Call
+                  </button>
+                  
+                  <div className="text-center">
+                    <button 
+                      onClick={() => resetQuiz()}
+                      className="text-sm underline hover:no-underline" 
+                      style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}
+                    >
+                      Retake Quiz
+                    </button>
+                  </div>
                 </div>
               </motion.div>
 
@@ -868,6 +998,52 @@ export const QuizSection: React.FC = () => {
                     Yes, I Want Premium Workbook
                   </button>
                 </div>
+              </motion.div>
+              
+              {/* EXPANDABLE PREMIUM SECTION */}
+              <motion.div
+                className="rounded-xl p-4 mb-8"
+                style={{backgroundColor: 'rgba(166, 124, 82, 0.05)', border: '1px solid rgba(166, 124, 82, 0.2)'}}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
+              >
+                <button
+                  onClick={() => setShowEbookModal(!showEbookModal)}
+                  className="w-full text-left flex items-center justify-between p-2"
+                >
+                  <span className="text-sm font-medium" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                    Want more? Deep-Dive Workbook with Guardian & Trailblazer archetypes →
+                  </span>
+                  <span className="text-lg" style={{color: '#A67C52'}}>
+                    {showEbookModal ? '−' : '+'}
+                  </span>
+                </button>
+                
+                <AnimatePresence>
+                  {showEbookModal && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4">
+                        <p className="text-sm mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                          Unlock hybrid profiles, shadow archetype integration, and advanced storytelling frameworks.
+                        </p>
+                        <button
+                          onClick={() => window.open('https://elite-edition-k8fgc36.gamma.site/', '_blank')}
+                          className="w-full px-4 py-2 text-sm font-bold rounded-lg"
+                          style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
+                        >
+                          Access Premium Workbook
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
 
               {/* TRANSFORMATION STORIES CAROUSEL */}

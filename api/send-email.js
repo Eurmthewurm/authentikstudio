@@ -51,7 +51,7 @@ export default async function handler(req, res) {
         first_name: name || 'there',
         archetype_name: archetype_name || result.title,
         signal_score: signal_score || score,
-        signal_level: signal_level || (score >= 18 ? 'HOT SIGNAL' : score >= 12 ? 'STRONG FOUNDATION' : 'ROOM TO GROW'),
+        signal_level: signal_level || (score >= 18 ? 'Signal Champion' : score >= 12 ? 'Strong Signal' : 'Signal Building'),
         micro_tip: archetypeMicroTips[archetype_name || result.title] || archetypeMicroTips['Default'],
         download_link: 'https://www.authentikstudio.com/quiz#download',
         strategy_call_link: 'https://calendly.com/ermo/discoverycall',
