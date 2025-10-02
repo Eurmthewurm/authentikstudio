@@ -9,76 +9,299 @@ interface QuizQuestion {
   question: string;
   options: string[];
   weights: number[];
+  archetypeWeights: number[][]; // [option][archetype] weights for all 6 archetypes
 }
+
+interface ArchetypeScore {
+  name: string;
+  score: number;
+  percentage: number;
+}
+
+interface QuizResult {
+  primaryArchetype: string;
+  secondaryArchetype?: string;
+  isHybrid: boolean;
+  signalStrength: number;
+  archetypeScores: ArchetypeScore[];
+  confidence: number;
+  needsRetake: boolean;
+  originalPrimary: string;
+}
+
+/*
+Archetype Mapping Across Quiz Questions:
+Each question has 4 options, ensuring all 6 archetypes are represented:
+
+Question 1 (Investor Pitching):
+- Builder/Guardian: Heavy on data
+- Strategist: Strategic mix of data and foresight  
+- Visionary/Trailblazer: Vision-focused
+- Connector: Story-driven impact that builds relationships
+
+Question 2 (Customer Conversations):
+- Builder/Trailblazer: Technical features and capabilities
+- Strategist/Guardian: ROI and business outcomes
+- Visionary: The problem we solve and why it matters
+- Connector: Personal transformation stories
+
+Question 3 (Team Communication):
+- Builder/Strategist: Detailed roadmaps and strategic plans
+- Guardian: Data-driven goals and KPIs
+- Visionary/Connector: Customer success stories
+- Trailblazer: Personal mission and values alignment
+
+Question 4 (Media Pitching):
+- Trailblazer/Strategist: Market disruption and competitive advantage
+- Builder: Innovation and technology breakthrough
+- Visionary/Connector: Founder journey and personal story
+- Guardian: Customer impact and social change
+
+Question 5 (Brand Differentiation):
+- Builder/Trailblazer: Unique technology or approach
+- Strategist/Guardian: Specific results we deliver
+- Visionary: Founder story and mission
+- Connector: Emotional transformation we create
+
+Question 6 (Decision Influence):
+- Builder/Strategist: Concrete proof of results and ROI
+- Guardian: Trust in expertise and track record
+- Visionary: Connection to mission and values
+- Connector/Trailblazer: Emotional resonance with story
+*/
 
 const quizQuestions: QuizQuestion[] = [
   {
     id: 'investor_pitch_style',
-    question: 'When pitching to investors, do you focus more on data and metrics or on vision and impact?',
+    question: 'When pitching to investors, do we focus more on data and metrics or on vision and impact?',
     options: [
-      'Heavy on data - I lead with revenue, growth metrics, and market size',
-      'Balanced approach - I mix compelling data with vision',
-      'Vision-focused - I start with the problem and our mission',
-      'Story-driven - I focus on customer impact and transformation'
+      'Heavy on data - We lead with revenue, growth metrics, and market size', // Builder/Guardian
+      'Strategic mix of data and foresight - We present logical frameworks with clear next steps', // Strategist
+      'Vision-focused - We start with bold future possibilities and our mission', // Visionary/Trailblazer
+      'Story-driven impact that builds relationships - We focus on customer transformation and community' // Connector
     ],
-    weights: [2, 4, 3, 4]
+    weights: [2, 4, 3, 4],
+    archetypeWeights: [
+      [2, 0, 0, 1, 2, 0], // Builder, Guardian, Strategist, Connector, Visionary, Trailblazer
+      [0, 0, 3, 1, 0, 0], // Strategic approach
+      [0, 0, 0, 0, 3, 2], // Vision-focused
+      [0, 0, 0, 3, 1, 0]  // Story-driven
+    ]
   },
   {
     id: 'customer_conversation',
-    question: 'In customer conversations, what gets people most excited about your product?',
+    question: 'In customer conversations, what gets people most excited about our product?',
     options: [
-      'Technical features and capabilities',
-      'ROI and business outcomes',
-      'The problem we solve and why it matters',
-      'Personal transformation stories from other customers'
+      'Technical features and capabilities - We showcase our unique approach and innovation', // Builder/Trailblazer
+      'ROI and business outcomes - We demonstrate concrete value and measurable results', // Strategist/Guardian
+      'The problem we solve and why it matters - We connect to their deeper mission and purpose', // Visionary
+      'Personal transformation stories from other customers - We build relationships through shared experiences' // Connector
     ],
-    weights: [2, 3, 4, 4]
+    weights: [2, 3, 4, 4],
+    archetypeWeights: [
+      [2, 0, 0, 0, 0, 2], // Technical features - Builder, Trailblazer
+      [0, 1, 3, 0, 0, 0], // ROI focus - Guardian, Strategist
+      [0, 0, 0, 0, 3, 1], // Problem/solution - Visionary, Trailblazer
+      [0, 0, 0, 3, 1, 0]  // Personal stories - Connector, Visionary
+    ]
   },
   {
     id: 'team_communication',
-    question: 'When rallying your team, how do you typically communicate your vision?',
+    question: 'When rallying our team, how do we typically communicate our vision?',
     options: [
-      'Through detailed roadmaps and strategic plans',
-      'Using data-driven goals and KPIs',
-      'By sharing customer success stories',
-      'Through personal mission and values alignment'
+      'Through detailed roadmaps and strategic plans - We provide clear structure and execution paths', // Builder/Strategist
+      'Using data-driven goals and KPIs - We focus on measurable outcomes and accountability', // Guardian
+      'By sharing customer success stories - We inspire through real impact and transformation', // Visionary/Connector
+      'Through personal mission and values alignment - We connect individual purpose to collective goals' // Trailblazer
     ],
-    weights: [2, 3, 4, 4]
+    weights: [2, 3, 4, 4],
+    archetypeWeights: [
+      [2, 0, 2, 0, 0, 0], // Roadmaps - Builder, Strategist
+      [0, 3, 1, 0, 0, 0], // KPIs - Guardian, Strategist
+      [0, 0, 0, 2, 2, 0], // Success stories - Connector, Visionary
+      [0, 0, 0, 0, 1, 3]  // Mission/values - Visionary, Trailblazer
+    ]
   },
   {
     id: 'media_pitch',
     question: 'When pitching to media, what angle resonates most with journalists?',
     options: [
-      'Market disruption and competitive advantage',
-      'Innovation and technology breakthrough',
-      'Founder journey and personal story',
-      'Customer impact and social change'
+      'Market disruption and competitive advantage - We position as industry challengers with clear differentiation', // Trailblazer/Strategist
+      'Innovation and technology breakthrough - We showcase cutting-edge solutions and technical excellence', // Builder
+      'Founder journey and personal story - We share authentic experiences and mission-driven leadership', // Visionary/Connector
+      'Customer impact and social change - We highlight real-world transformation and community benefit' // Guardian
     ],
-    weights: [3, 3, 4, 4]
+    weights: [3, 3, 4, 4],
+    archetypeWeights: [
+      [0, 0, 2, 0, 0, 3], // Market disruption - Strategist, Trailblazer
+      [3, 0, 0, 0, 0, 1], // Technology breakthrough - Builder, Trailblazer
+      [0, 0, 0, 2, 2, 0], // Founder story - Connector, Visionary
+      [0, 2, 0, 1, 1, 0]  // Social impact - Guardian, Connector, Visionary
+    ]
   },
   {
     id: 'brand_differentiation',
-    question: 'What makes your brand most memorable to people after first contact?',
+    question: 'What makes our brand most memorable to people after first contact?',
     options: [
-      'Our unique technology or approach',
-      'The specific results we deliver',
-      'Our founder story and mission',
-      'The emotional transformation we create'
+      'Our unique technology or approach - We stand out through innovative solutions and methods', // Builder/Trailblazer
+      'The specific results we deliver - We are known for measurable outcomes and proven performance', // Strategist/Guardian
+      'Our founder story and mission - We connect through authentic leadership and purpose-driven vision', // Visionary
+      'The emotional transformation we create - We build lasting relationships through meaningful impact' // Connector
     ],
-    weights: [3, 3, 4, 4]
+    weights: [3, 3, 4, 4],
+    archetypeWeights: [
+      [3, 0, 0, 0, 0, 2], // Technology/approach - Builder, Trailblazer
+      [0, 1, 2, 0, 0, 0], // Results - Guardian, Strategist
+      [0, 0, 0, 0, 3, 1], // Founder story - Visionary, Trailblazer
+      [0, 0, 0, 3, 1, 0]  // Emotional transformation - Connector, Visionary
+    ]
   },
   {
     id: 'decision_influence',
-    question: 'What typically influences people to say "yes" to working with you?',
+    question: 'What typically influences people to say "yes" to working with us?',
     options: [
-      'Concrete proof of results and ROI',
-      'Trust in our expertise and track record',
-      'Connection to our mission and values',
-      'Emotional resonance with our story'
+      'Concrete proof of results and ROI - We demonstrate clear value and measurable outcomes', // Builder/Strategist
+      'Trust in our expertise and track record - We build confidence through reliability and competence', // Guardian
+      'Connection to our mission and values - We align on shared purpose and meaningful impact', // Visionary
+      'Emotional resonance with our story - We create authentic relationships and personal connection' // Connector/Trailblazer
     ],
-    weights: [3, 3, 4, 4]
+    weights: [3, 3, 4, 4],
+    archetypeWeights: [
+      [2, 0, 2, 0, 0, 0], // Proof/ROI - Builder, Strategist
+      [0, 3, 1, 0, 0, 0], // Trust/expertise - Guardian, Strategist
+      [0, 0, 0, 0, 3, 1], // Mission/values - Visionary, Trailblazer
+      [0, 0, 0, 2, 1, 2]  // Emotional resonance - Connector, Visionary, Trailblazer
+    ]
   }
 ];
+
+// Archetype definitions
+const ARCHETYPES = [
+  { name: 'Builder', description: 'Earns trust through execution' },
+  { name: 'Guardian', description: 'Reassures stakeholders with stability and trust' },
+  { name: 'Strategist', description: 'Wins attention with clarity and foresight' },
+  { name: 'Connector', description: 'Attracts allies through authentic relationships' },
+  { name: 'Visionary', description: 'Inspires with bold, forward-thinking ideas' },
+  { name: 'Trailblazer', description: 'Breaks norms, pioneering uncharted territory' }
+];
+
+// Comprehensive scoring engine
+const calculateQuizResult = (answers: number[]): QuizResult => {
+  // Initialize archetype scores
+  const archetypeScores = ARCHETYPES.map(archetype => ({
+    name: archetype.name,
+    score: 0,
+    percentage: 0
+  }));
+
+  // Calculate scores for each archetype based on answers
+  answers.forEach((answerIndex, questionIndex) => {
+    const question = quizQuestions[questionIndex];
+    question.archetypeWeights[answerIndex].forEach((weight, archetypeIndex) => {
+      archetypeScores[archetypeIndex].score += weight;
+    });
+  });
+
+  // Calculate percentages
+  const maxPossibleScore = answers.length * 3; // Maximum weight per question is 3
+  archetypeScores.forEach(score => {
+    score.percentage = Math.round((score.score / maxPossibleScore) * 100);
+  });
+
+  // Sort by score (highest first)
+  archetypeScores.sort((a, b) => b.score - a.score);
+
+  // Determine primary archetype
+  const primary = archetypeScores[0];
+  const secondary = archetypeScores[1];
+
+  // Check for hybrid profile (scores within 10% of each other)
+  const isHybrid = (primary.score - secondary.score) <= (primary.score * 0.1);
+
+  // Calculate confidence (how much the primary archetype stands out)
+  const totalScore = archetypeScores.reduce((sum, score) => sum + score.score, 0);
+  const confidence = Math.round((primary.score / totalScore) * 100);
+
+  // Apply minimum confidence threshold (60%)
+  // If confidence is below 60%, default to Strategist and suggest retaking
+  const finalPrimary = confidence >= 60 ? primary : archetypeScores.find(s => s.name === 'Strategist') || primary;
+  const needsRetake = confidence < 60;
+
+  // Calculate signal strength (separate from archetype scoring)
+  const signalStrength = answers.reduce((sum, answerIndex, questionIndex) => {
+    return sum + quizQuestions[questionIndex].weights[answerIndex];
+  }, 0);
+
+  return {
+    primaryArchetype: finalPrimary.name,
+    secondaryArchetype: isHybrid ? secondary.name : undefined,
+    isHybrid: isHybrid && confidence >= 60,
+    signalStrength,
+    archetypeScores,
+    confidence,
+    needsRetake,
+    originalPrimary: primary.name // Keep track of original for debugging
+  };
+};
+
+// Validation and testing framework
+const validateQuizAccuracy = () => {
+  // Test cases for known archetype patterns
+  const testCases = [
+    {
+      name: 'Pure Builder',
+      answers: [0, 0, 0, 1, 0, 0], // All Builder-focused answers
+      expectedArchetype: 'Builder'
+    },
+    {
+      name: 'Pure Strategist', 
+      answers: [1, 1, 0, 0, 1, 0], // All Strategist-focused answers
+      expectedArchetype: 'Strategist'
+    },
+    {
+      name: 'Pure Visionary',
+      answers: [2, 2, 2, 2, 2, 2], // All Visionary-focused answers
+      expectedArchetype: 'Visionary'
+    },
+    {
+      name: 'Hybrid Builder-Strategist',
+      answers: [0, 1, 0, 0, 1, 0], // Mix of Builder and Strategist
+      expectedArchetype: 'Builder' // Should be Builder with high Strategist
+    }
+  ];
+
+  const results = testCases.map(testCase => {
+    const result = calculateQuizResult(testCase.answers);
+    return {
+      ...testCase,
+      actualArchetype: result.primaryArchetype,
+      confidence: result.confidence,
+      isCorrect: result.primaryArchetype === testCase.expectedArchetype,
+      needsRetake: result.needsRetake
+    };
+  });
+
+  const accuracy = results.filter(r => r.isCorrect).length / results.length;
+  
+  console.log('🧪 Quiz Validation Results:', {
+    accuracy: Math.round(accuracy * 100) + '%',
+    results: results.map(r => ({
+      test: r.name,
+      expected: r.expectedArchetype,
+      actual: r.actualArchetype,
+      confidence: r.confidence + '%',
+      correct: r.isCorrect,
+      needsRetake: r.needsRetake
+    }))
+  });
+
+  return accuracy >= 0.9; // Require 90% accuracy
+};
+
+// Run validation on component mount (development only)
+if (process.env.NODE_ENV === 'development') {
+  validateQuizAccuracy();
+}
 
 const getScoreMessage = (score: number) => {
   if (score >= 22) {
@@ -116,6 +339,7 @@ export const QuizSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [score, setScore] = useState(0);
+  const [quizResult, setQuizResult] = useState<QuizResult | null>(null);
   const [showExitIntent, setShowExitIntent] = useState(false);
   const [showEbookModal, setShowEbookModal] = useState(false);
   const [ebookForm, setEbookForm] = useState({ name: '', email: '', consent: false });
@@ -171,16 +395,15 @@ export const QuizSection: React.FC = () => {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Calculate score
-      const totalScore = newAnswers.reduce((sum, answerIndex, questionIndex) => {
-        return sum + quizQuestions[questionIndex].weights[answerIndex];
-      }, 0);
-      setScore(totalScore);
+      // Calculate comprehensive quiz result
+      const result = calculateQuizResult(newAnswers);
+      setQuizResult(result);
+      setScore(result.signalStrength);
       setShowEmailForm(true);
       
       // Track quiz completion
-      const result = getScoreMessage(totalScore);
-      trackQuizCompleted(totalScore, result.title);
+      const scoreMessage = getScoreMessage(result.signalStrength);
+      trackQuizCompleted(result.signalStrength, scoreMessage.title);
     }
   };
 
@@ -193,7 +416,7 @@ export const QuizSection: React.FC = () => {
       
       console.log('Sending email via Resend...');
       console.log('Email target:', email);
-      console.log('Quiz result:', { score, title: result.title });
+      console.log('Quiz result:', { score, title: result.title, archetype: quizResult?.primaryArchetype });
       
       // Call our serverless function (Resend)
       const response = await fetch('/api/send-email', {
@@ -204,7 +427,15 @@ export const QuizSection: React.FC = () => {
         body: JSON.stringify({
           email,
           score,
-          result
+          result,
+          archetype_name: quizResult?.primaryArchetype || result.title,
+          signal_score: score,
+          signal_level: score >= 18 ? 'HOT SIGNAL' : score >= 12 ? 'STRONG FOUNDATION' : 'ROOM TO GROW',
+          is_hybrid: quizResult?.isHybrid || false,
+          secondary_archetype: quizResult?.secondaryArchetype,
+          confidence: quizResult?.confidence,
+          needs_retake: quizResult?.needsRetake || false,
+          original_primary: quizResult?.originalPrimary
         }),
       });
 
@@ -302,6 +533,7 @@ export const QuizSection: React.FC = () => {
     setShowEmailForm(false);
     setEmail('');
     setScore(0);
+    setQuizResult(null);
   };
 
   if (showEmailForm) {
@@ -330,7 +562,7 @@ export const QuizSection: React.FC = () => {
                   Your Personalized Signal DNA Report is Ready!
                 </h3>
                 <p className="text-foreground/90 mb-4">
-                  Get your custom archetype analysis, personalized scripts, and exact words that make investors lean in.
+                  Get your custom archetype analysis, personalized scripts, and exact words that make your audience lean in.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                   <div className="flex items-center gap-2">
@@ -358,12 +590,20 @@ export const QuizSection: React.FC = () => {
                 </p>
                 
                 <div className="bg-primary/10 border border-primary/20 rounded-xl p-6">
-                  <h4 className="font-semibold text-foreground mb-3">📧 Get Your Full Signal DNA Report</h4>
+                  <h4 className="font-semibold text-foreground mb-3">📧 Unlock Your Results</h4>
                   <p className="text-foreground/90 mb-6">
-                    Enter your email to receive your detailed archetype analysis, personalized scripts, and next steps.
+                    Enter your email to unlock your Founder Archetype result, your personalized 1-page blueprint, and the free workbook.
                   </p>
                   
                   <form onSubmit={handleEmailSubmit} className="space-y-4">
+                    {/* Hidden fields for archetype data */}
+                    <input type="hidden" name="archetype_name" value={quizResult?.primaryArchetype || result.title} />
+                    <input type="hidden" name="signal_score" value={score} />
+                    <input type="hidden" name="signal_level" value={score >= 18 ? 'HOT SIGNAL' : score >= 12 ? 'STRONG FOUNDATION' : 'ROOM TO GROW'} />
+                    <input type="hidden" name="is_hybrid" value={quizResult?.isHybrid || false} />
+                    <input type="hidden" name="secondary_archetype" value={quizResult?.secondaryArchetype || ''} />
+                    <input type="hidden" name="confidence" value={quizResult?.confidence || 0} />
+                    
                     <div className="flex flex-col gap-4">
                       <input
                         type="email"
@@ -443,6 +683,35 @@ export const QuizSection: React.FC = () => {
                     Score: {score}/24 • {score >= 18 ? '🔥 HOT SIGNAL' : score >= 12 ? '⚡ STRONG FOUNDATION' : '💪 ROOM TO GROW'}
                   </p>
                 </div>
+
+                {/* ARCHETYPE REVEAL */}
+                <div className="archetype-reveal mb-6">
+                  <div className="rounded-xl p-4" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.3)'}}>
+                    <p className="text-lg font-bold mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                      <strong>Your Primary Archetype:</strong> {quizResult?.primaryArchetype || result.title}
+                    </p>
+                    {quizResult?.isHybrid && quizResult?.secondaryArchetype && (
+                      <p className="text-md font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                        <strong>Hybrid Profile:</strong> {quizResult.primaryArchetype} + {quizResult.secondaryArchetype}
+                      </p>
+                    )}
+                    <p className="teaser text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>
+                      Reveal your {quizResult?.primaryArchetype || result.title} signature story elements inside.
+                    </p>
+                    {quizResult?.confidence && (
+                      <p className="text-xs mt-2" style={{color: '#999999', fontFamily: 'Work Sans, sans-serif'}}>
+                        Confidence: {quizResult.confidence}% • Signal Strength: {score}/24
+                      </p>
+                    )}
+                    {quizResult?.needsRetake && (
+                      <div className="mt-3 p-3 rounded-lg" style={{backgroundColor: 'rgba(255, 193, 7, 0.1)', border: '1px solid rgba(255, 193, 7, 0.3)'}}>
+                        <p className="text-sm" style={{color: '#856404', fontFamily: 'Work Sans, sans-serif'}}>
+                          ⚠️ Low confidence result ({quizResult.confidence}%). Consider retaking the quiz for more accurate results.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
 
               {/* URGENT INSIGHT */}
@@ -508,14 +777,13 @@ export const QuizSection: React.FC = () => {
                     Unlock two extra archetypes, hybrid profiles, and a 'Shadow Archetype' guide. Includes ready-to-use scripts for ultra-custom pitches.
                   </p>
                   
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                  <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
                       <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Purpose Evangelist</h5>
-                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Mission-first storyteller with community focus</p>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Archetype Clarity Workshop</h5>
                       </div>
                     </div>
                     
@@ -524,8 +792,7 @@ export const QuizSection: React.FC = () => {
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Technical Thought Leader</h5>
-                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Deep expertise with public influence</p>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Strengths Amplification Lab</h5>
                       </div>
                     </div>
                     
@@ -534,8 +801,7 @@ export const QuizSection: React.FC = () => {
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Hybrid Profiles</h5>
-                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Visionary-Expert & Underdog-Changemaker combos</p>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Blind Spot Diagnosis & Repair</h5>
                       </div>
                     </div>
                     
@@ -544,8 +810,25 @@ export const QuizSection: React.FC = () => {
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Shadow Archetype Guide</h5>
-                        <p className="text-sm" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>Common pitfalls and countermeasures</p>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Signature Story Blueprint</h5>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Hybrid Profile Mastery</h5>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                        <span className="text-white text-sm font-bold">✓</span>
+                      </div>
+                      <div>
+                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Shadow Archetype Integration</h5>
                       </div>
                     </div>
                   </div>
@@ -776,7 +1059,7 @@ export const QuizSection: React.FC = () => {
           </motion.h2>
           
           <p className="text-subheading-clean text-foreground/90 leading-relaxed max-w-3xl mx-auto">
-            Discover your unique communication archetype and get personalized scripts that make investors lean in, customers say yes, and media take notice.
+            Discover your unique communication archetype and get personalized scripts that make investors lean in, customers say yes, and top talent want to join your team.
           </p>
           
           <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 max-w-2xl mx-auto">
@@ -829,7 +1112,7 @@ export const QuizSection: React.FC = () => {
             {/* Progress bar */}
             <div className="space-y-3 sticky top-4 z-10 bg-background/95 backdrop-blur-sm py-2 -mx-4 sm:-mx-6 md:-mx-8 px-4 sm:px-6 md:px-8">
               <div className="flex justify-between text-sm text-foreground/60">
-                <span className="font-semibold">Question {currentQuestion + 1} of {quizQuestions.length}</span>
+                <span className="font-semibold">{currentQuestion + 1} of {quizQuestions.length} questions</span>
                 <span>{Math.round(((currentQuestion + 1) / quizQuestions.length) * 100)}% Complete</span>
               </div>
               <div className="w-full bg-muted rounded-full h-3">

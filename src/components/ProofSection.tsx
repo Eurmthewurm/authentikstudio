@@ -15,11 +15,26 @@ export const ProofSection: React.FC = () => {
       <AnimatedSectionBackground variant="geometric" intensity="subtle" color="#A67C52" />
       <div className="content-clean text-center relative z-10">
         <motion.h2
-          className="text-heading-clean text-gradient-gold mb-16"
+          className="text-heading-clean text-gradient-gold mb-8"
           {...fadeIn}
         >
-          Founders Who Found Their Signal DNA
+          From overlooked to unforgettable
         </motion.h2>
+
+        {/* Archetype Copy */}
+        <motion.div
+          className="mb-16 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <p className="text-xl text-foreground/90 leading-relaxed mb-6" style={{fontFamily: 'Work Sans, sans-serif'}}>
+            Founders we work with stop guessing how to tell their story.
+          </p>
+          <p className="text-xl text-foreground/90 leading-relaxed" style={{fontFamily: 'Work Sans, sans-serif'}}>
+            They walk into investor meetings with clarity, attract better teams, and turn audiences into believers.
+          </p>
+        </motion.div>
 
         {/* Featured Testimonial - J-Griff */}
         <motion.div
@@ -227,6 +242,27 @@ export const ProofSection: React.FC = () => {
             <span className="hover:text-primary transition-colors duration-300">Black Magic</span>
             <span className="hover:text-primary transition-colors duration-300">Arte</span>
           </div>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div 
+          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.6 }}
+        >
+          <a href="/quiz">
+            <motion.button
+              className="px-8 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif', borderRadius: '12px'}}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Discover Your Archetype
+            </motion.button>
+          </a>
         </motion.div>
       </div>
     </section>

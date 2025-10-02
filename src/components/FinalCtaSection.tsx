@@ -17,7 +17,7 @@ export const FinalCtaSection: React.FC = () => {
           className="text-heading-clean text-white mb-8"
           {...fadeIn}
         >
-          Your Moment to Break Through
+          Want personalized feedback on your results?
         </motion.h2>
         <motion.p
           className="text-subheading-clean text-white/90 mb-16 max-w-4xl mx-auto"
@@ -25,7 +25,8 @@ export const FinalCtaSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
         >
-          Every day you wait, another founder claims mindshare that should be yours. The founders who dominate 2025 will be the ones who act in Q4 2024.
+          After you complete the quiz, you'll get the chance to book a free Signal DNA Audit with our team.<br />
+          We only open 10 slots per month.
         </motion.p>
 
         <motion.a
@@ -46,7 +47,7 @@ export const FinalCtaSection: React.FC = () => {
             }}
             onClick={() => trackCTAClicked('final_cta')}
           >
-            Claim Your FREE Signal DNA Audit Now
+            Take the Quiz to Unlock Your Audit
           </Button>
         </motion.a>
       </div>

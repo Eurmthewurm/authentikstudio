@@ -3,10 +3,11 @@ import { StickyHeader } from './components/StickyHeader';
 import { CustomCursor } from './components/CustomCursor';
 import { ScarcityBanner } from './components/ScarcityBanner';
 import { StickyNav } from './components/StickyNav';
-import { HorizontalFlow } from './components/HorizontalFlow';
 import { QuizVideoPreview } from './components/QuizVideoPreview';
 import { HeroSection } from './components/HeroSection';
 import { CommunicationDilemmaSection } from './components/CommunicationDilemmaSection';
+import { WhyFoundersTrustSection } from './components/WhyFoundersTrustSection';
+import { ArchetypeTeaserSection } from './components/ArchetypeTeaserSection';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { MethodSection } from './components/MethodSection';
@@ -69,7 +70,10 @@ function App() {
       <main>
         <HeroSection />
         <QuizVideoPreview />
-        <HorizontalFlow />
+        <SectionDivider />
+        <WhyFoundersTrustSection />
+        <SectionDivider />
+        <ArchetypeTeaserSection />
         <SectionDivider />
         <CommunicationDilemmaSection />
         <SectionDivider />

@@ -24,47 +24,69 @@ export const SolutionSection: React.FC = () => {
           className="text-heading-clean text-gradient-gold text-center mb-12"
           {...fadeIn}
         >
-          Solution: Signal DNA Discovery™
+          More than a quiz — it's a blueprint
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <motion.div {...fadeIn} transition={{ delay: 0.2 }}>
-            <h3 className="text-subheading-clean text-primary mb-6">What Is Signal DNA?</h3>
-            <p className="text-body-clean text-foreground/90 mb-6">
-              Your Signal DNA is the unique combination of your authentic founding story, market positioning, and future vision that makes you impossible to ignore or replicate.
-            </p>
-            <p className="text-body-clean text-foreground/90">
-              Unlike generic "founder story" templates, Signal DNA Discovery™ uses advanced AI analysis combined with deep human psychology to extract your most compelling narrative elements—the ones that create instant trust, emotional connection, and unstoppable momentum.
-            </p>
-          </motion.div>
-
-          <motion.div className="card-clean-lg p-8" {...fadeIn} transition={{ delay: 0.4 }}>
-            <h3 className="text-subheading-clean text-primary mb-8 text-center">Why Signal DNA Works</h3>
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <p className="text-xl text-foreground/90 leading-relaxed mb-8 text-center" style={{fontFamily: 'Work Sans, sans-serif'}}>
+            In just 2 minutes, you'll unlock:
+          </p>
+          
+          <motion.div className="card-clean-lg p-8" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}>
             <div className="space-y-6">
               <motion.div variants={listItemVariants} initial="initial" animate="animate" transition={{ delay: 0.6 }} className="flex items-start gap-4">
                 <CheckCircle2 className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <p className="font-semibold text-xl text-foreground">AI-Powered Analysis</p>
-                  <p className="text-foreground/80 mt-1">Advanced pattern recognition identifies your unique communication DNA</p>
+                  <p className="font-semibold text-xl text-foreground">Your founder archetype explained</p>
                 </div>
               </motion.div>
               <motion.div variants={listItemVariants} initial="initial" animate="animate" transition={{ delay: 0.8 }} className="flex items-start gap-4">
                 <CheckCircle2 className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <p className="font-semibold text-xl text-foreground">Human Psychology Integration</p>
-                  <p className="text-foreground/80 mt-1">Deep understanding of what makes people connect and convert</p>
+                  <p className="font-semibold text-xl text-foreground">A personalized 1-page blueprint showing your strongest signal</p>
                 </div>
               </motion.div>
               <motion.div variants={listItemVariants} initial="initial" animate="animate" transition={{ delay: 1.0 }} className="flex items-start gap-4">
                 <CheckCircle2 className="text-primary flex-shrink-0 mt-1" size={24} />
                 <div>
-                  <p className="font-semibold text-xl text-foreground">Proven Framework</p>
-                  <p className="text-foreground/80 mt-1">3-day transformation process used by successful founders worldwide</p>
+                  <p className="font-semibold text-xl text-foreground">The blind spot most likely costing you opportunities</p>
+                </div>
+              </motion.div>
+              <motion.div variants={listItemVariants} initial="initial" animate="animate" transition={{ delay: 1.2 }} className="flex items-start gap-4">
+                <CheckCircle2 className="text-primary flex-shrink-0 mt-1" size={24} />
+                <div>
+                  <p className="font-semibold text-xl text-foreground">A free workbook with 3 practical steps to sharpen your story</p>
                 </div>
               </motion.div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
+        
+        {/* CTA Button */}
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+        >
+          <a href="/quiz">
+            <motion.button
+              className="px-8 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif', borderRadius: '12px'}}
+              onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
+              onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start the Quiz →
+            </motion.button>
+          </a>
+        </motion.div>
         
         {/* Process Flow */}
         <ProcessFlow />

@@ -3,9 +3,8 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { trackCTAClicked } from '@/lib/analytics';
 import { AnimatedHeroBackground } from './AnimatedHeroBackground';
-import { User, Lightbulb, Target } from 'lucide-react';
 
-const featuredIn = ["David Attenborough", "National Geographic", "BBC", "Discovery", "Aaron Abke", "The Great Awakening Podcast"];
+const featuredIn = ["BBC", "National Geographic", "Forbes", "TED"];
 
 export const HeroSection: React.FC = () => {
   return (
@@ -23,10 +22,7 @@ export const HeroSection: React.FC = () => {
               transition={{ duration: 1, ease: "easeOut" }}
             >
           <div className="font-bold text-white mb-4" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
-            Stop Explaining What You Do.
-          </div>
-          <div className="font-medium text-white relative" style={{textShadow: '0 2px 4px rgba(0,0,0,0.3)'}}>
-            Start Making People Care.
+            In 2 minutes, discover your Founder Archetype
                 <motion.div
                   className="absolute -bottom-2 left-0 h-1 rounded-full"
                   style={{backgroundColor: '#D4B37A'}}
@@ -45,7 +41,7 @@ export const HeroSection: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          Unlock the words that make investors lean in, customers say yes, and media pay attention.
+          Investors. Customers. Talent. See how they read your story—and get a personalized 1-page blueprint plus free workbook to improve it.
         </motion.p>
 
         {/* CTA Button */}
@@ -76,58 +72,12 @@ export const HeroSection: React.FC = () => {
                     }}
                     onClick={() => trackCTAClicked('hero_cta')}
                   >
-                <span className="relative z-10">Start My Free Quiz</span>
+                <span className="relative z-10">Take the Free Quiz</span>
               </Button>
             </a>
           </motion.div>
         </motion.div>
 
-        {/* Value Bullets */}
-        <motion.div
-          className="mb-12 sm:mb-16 px-4"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-        >
-          <p className="text-sm mb-6 sm:mb-8 font-medium" style={{color: '#666666', fontFamily: 'Work Sans, sans-serif'}}>What you'll discover ↓</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto">
-            <motion.div
-              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
-                <User className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Reveal Your Archetype</h3>
-            </motion.div>
-            
-            <motion.div
-              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
-                <Lightbulb className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Unlock Your Story Strengths</h3>
-            </motion.div>
-            
-            <motion.div
-              className="flex flex-col items-center text-center bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 transition-all duration-300 min-h-[120px] sm:min-h-[140px]"
-              whileHover={{ y: -4 }}
-            >
-              <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#D4B37A'}}>
-                <Target className="w-6 h-6 text-white" />
-              </div>
-                  <h3 className="font-semibold text-lg" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Locate Your Connection Gaps</h3>
-                </motion.div>
-              </div>
-              
-              <div className="mt-6 p-4 rounded-lg" style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '1px solid rgba(166, 124, 82, 0.2)'}}>
-                <p className="text-sm text-center" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
-                  ✨ <strong>Bonus:</strong> Two extra archetypes + Hybrid & Shadow deep-dive (Premium)
-                </p>
-              </div>
-            </motion.div>
 
         {/* Trust indicators and bonus info */}
         <motion.div
@@ -154,7 +104,7 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
         >
           <p className="text-sm uppercase tracking-widest mb-8 font-medium" style={{color: '#999999', fontFamily: 'Inter, sans-serif'}}>
-            TRUSTED BY FOUNDERS AT:
+            TRUSTED BY FOUNDERS FEATURED IN:
           </p>
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 text-lg font-medium">
             {featuredIn.map((name, index) => (
@@ -177,6 +127,9 @@ export const HeroSection: React.FC = () => {
               </motion.span>
             ))}
           </div>
+          <p className="text-sm mt-6" style={{color: '#CCCCCC', fontFamily: 'Work Sans, sans-serif'}}>
+            "As seen in media and trusted by founders building authentic stories that convert."
+          </p>
         </motion.div>
       </div>
     </section>
