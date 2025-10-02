@@ -99,7 +99,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
 
         {/* Archetype Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
@@ -107,7 +107,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
           {archetypes.map((archetype, index) => (
             <motion.div
               key={index}
-              className="p-6 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group"
+              className="p-4 sm:p-6 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -125,7 +125,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
               
               {/* Floating icon */}
               <motion.div
-                className="text-4xl mb-4 relative z-10"
+                className="text-3xl sm:text-4xl mb-3 sm:mb-4 relative z-10"
                 animate={{
                   y: [0, -5, 0],
                   rotate: [0, 5, 0]
@@ -141,10 +141,10 @@ export const ArchetypeTeaserSection: React.FC = () => {
               
               {/* Content */}
               <div className="relative z-10">
-                <h4 className="font-bold text-lg mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                <h4 className="font-bold text-base sm:text-lg mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                   {archetype.name}
                 </h4>
-                <p className="text-foreground/80 text-sm font-medium" style={{fontFamily: 'Work Sans, sans-serif'}}>
+                <p className="text-foreground/80 text-xs sm:text-sm font-medium" style={{fontFamily: 'Work Sans, sans-serif'}}>
                   {archetype.tagline}
                 </p>
                 

@@ -746,107 +746,124 @@ export const QuizSection: React.FC = () => {
 
               {/* PREMIUM EBOOK UPSELL */}
               <motion.div
-                className="rounded-xl p-6 mb-8"
+                className="rounded-xl p-6 sm:p-8 mb-8"
                 style={{backgroundColor: 'rgba(166, 124, 82, 0.1)', border: '2px solid rgba(166, 124, 82, 0.3)'}}
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
               >
-                <div className="text-center mb-6">
-                  <div className="inline-flex items-center gap-2 mb-4">
+                {/* Header */}
+                <div className="text-center mb-8">
+                  <div className="inline-flex items-center justify-center gap-2 mb-4">
                     <Star className="w-6 h-6" style={{color: '#D4B37A'}} />
-                    <h3 className="font-serif text-2xl font-bold" style={{color: '#A67C52'}}>Upgrade to Premium</h3>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold" style={{color: '#A67C52'}}>Upgrade to Premium</h3>
                   </div>
-                  <h4 className="font-bold text-xl mb-3" style={{color: '#111111', fontFamily: 'Playfair Display, serif'}}>
-                    Deep-Dive Signal DNA Ebook
+                  <h4 className="font-bold text-lg sm:text-xl mb-4" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>
+                    Deep-Dive Signal DNA Workbook
                   </h4>
                 </div>
                 
-                <div className="mb-6">
-                  <p className="text-lg mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
-                    Unlock the complete Signal DNA Deep-Dive Workbook with two extra archetypes (Guardian & Trailblazer), hybrid profile mastery, and shadow archetype integration. Includes ready-to-use scripts, case studies, and implementation frameworks.
+                {/* Description */}
+                <div className="mb-8">
+                  <p className="text-base sm:text-lg text-center mb-6" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif', lineHeight: '1.6'}}>
+                    Unlock the complete Signal DNA Deep-Dive Workbook with two extra archetypes (Guardian & Trailblazer), hybrid profile mastery, and shadow archetype integration.
                   </p>
                   
-                  <div className="mb-4 p-4 rounded-lg" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
-                    <p className="text-sm font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                  {/* What You'll Discover */}
+                  <div className="mb-6 p-4 sm:p-6 rounded-lg" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-medium mb-4 text-center" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                       🎯 What You'll Discover:
                     </p>
-                    <ul className="text-sm space-y-1" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
-                      <li>• <strong>Guardian:</strong> Reassures stakeholders with stability and trust</li>
-                      <li>• <strong>Trailblazer:</strong> Breaks norms, pioneering uncharted territory</li>
-                      <li>• <strong>Hybrid Profiles:</strong> Strategic combinations like Visionary-Expert</li>
-                      <li>• <strong>Shadow Integration:</strong> Transform weaknesses into authentic strengths</li>
-                    </ul>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span>
+                        <span><strong>Guardian:</strong> Reassures stakeholders with stability and trust</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span>
+                        <span><strong>Trailblazer:</strong> Breaks norms, pioneering uncharted territory</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span>
+                        <span><strong>Hybrid Profiles:</strong> Strategic combinations like Visionary-Expert</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">•</span>
+                        <span><strong>Shadow Integration:</strong> Transform weaknesses into authentic strengths</span>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="space-y-3 mb-6">
+                  {/* Features List */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Archetype Clarity Workshop</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Archetype Clarity Workshop</h5>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Strengths Amplification Lab</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Strengths Amplification Lab</h5>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Blind Spot Diagnosis & Repair</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Blind Spot Diagnosis & Repair</h5>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Signature Story Blueprint</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Signature Story Blueprint</h5>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Hybrid Profile Mastery</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Hybrid Profile Mastery</h5>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5" style={{backgroundColor: '#D4B37A'}}>
+                      <div className="w-6 h-6 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0" style={{backgroundColor: '#D4B37A'}}>
                         <span className="text-white text-sm font-bold">✓</span>
                       </div>
                       <div>
-                        <h5 className="font-semibold mb-1" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Shadow Archetype Integration</h5>
+                        <h5 className="font-semibold text-sm sm:text-base" style={{color: '#111111', fontFamily: 'Work Sans, sans-serif'}}>Shadow Archetype Integration</h5>
                       </div>
                     </div>
                   </div>
                 </div>
                 
+                {/* CTA Button */}
                 <div className="text-center">
-                  <Button
+                  <button
                     onClick={() => setShowEbookModal(true)}
-                    className="px-8 py-4 text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                    className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg rounded-xl"
                     style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
                     onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
                     onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#D4B37A'}
                   >
-                    <Download className="w-5 h-5 mr-2" />
-                    Yes, I Want Premium Ebook
-                  </Button>
+                    <Download className="w-5 h-5 mr-2 inline" />
+                    Yes, I Want Premium Workbook
+                  </button>
                 </div>
               </motion.div>
 
