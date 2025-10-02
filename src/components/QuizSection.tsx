@@ -704,7 +704,7 @@ export const QuizSection: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.5 }}
                       >
                         <motion.div
-                          className="w-20 h-20 relative"
+                          className="w-32 h-32 relative"
                           animate={{
                             scale: [1, 1.05, 1],
                             rotate: [0, 2, -2, 0]
@@ -725,7 +725,7 @@ export const QuizSection: React.FC = () => {
                               const target = e.target as HTMLImageElement;
                               target.style.display = 'none';
                               target.parentElement!.innerHTML = `
-                                <div class="text-4xl flex items-center justify-center w-full h-full">
+                                <div class="text-6xl flex items-center justify-center w-full h-full">
                                   ${quizResult?.primaryArchetype === 'Visionary' ? '🌟' : 
                                     quizResult?.primaryArchetype === 'Builder' ? '🔨' :
                                     quizResult?.primaryArchetype === 'Strategist' ? '🎯' :
@@ -801,7 +801,7 @@ export const QuizSection: React.FC = () => {
                 {/* Archetype Description */}
                 <div className="rounded-lg p-6 mb-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-16 h-16 flex-shrink-0">
+                    <div className="w-24 h-24 flex-shrink-0">
                       <img 
                         src={`/images/archetypes/${quizResult?.primaryArchetype?.toLowerCase()}.png`}
                         alt={`${quizResult?.primaryArchetype} archetype visual`}
@@ -812,7 +812,7 @@ export const QuizSection: React.FC = () => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
                           target.parentElement!.innerHTML = `
-                            <div class="text-2xl flex items-center justify-center w-full h-full">
+                            <div class="text-4xl flex items-center justify-center w-full h-full">
                               ${quizResult?.primaryArchetype === 'Visionary' ? '🌟' : 
                                 quizResult?.primaryArchetype === 'Builder' ? '🔨' :
                                 quizResult?.primaryArchetype === 'Strategist' ? '🎯' :

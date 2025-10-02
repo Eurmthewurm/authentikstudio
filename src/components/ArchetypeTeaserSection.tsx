@@ -125,7 +125,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
               
               {/* Floating archetype visual */}
               <motion.div
-                className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 relative z-10"
+                className="w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4 relative z-10"
                 animate={{
                   y: [0, -5, 0],
                   rotate: [0, 5, 0]
@@ -146,7 +146,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     target.parentElement!.innerHTML = `
-                      <div class="text-2xl sm:text-3xl flex items-center justify-center w-full h-full">
+                      <div class="text-4xl sm:text-5xl flex items-center justify-center w-full h-full">
                         ${archetype.icon}
                       </div>
                     `;
