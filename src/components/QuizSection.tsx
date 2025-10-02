@@ -600,7 +600,7 @@ export const QuizSection: React.FC = () => {
                     <input type="hidden" name="archetype_name" value={quizResult?.primaryArchetype || result.title} />
                     <input type="hidden" name="signal_score" value={score} />
                     <input type="hidden" name="signal_level" value={score >= 18 ? 'HOT SIGNAL' : score >= 12 ? 'STRONG FOUNDATION' : 'ROOM TO GROW'} />
-                    <input type="hidden" name="is_hybrid" value={quizResult?.isHybrid || false} />
+                    <input type="hidden" name="is_hybrid" value={quizResult?.isHybrid ? 'true' : 'false'} />
                     <input type="hidden" name="secondary_archetype" value={quizResult?.secondaryArchetype || ''} />
                     <input type="hidden" name="confidence" value={quizResult?.confidence || 0} />
                     
