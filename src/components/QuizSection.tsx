@@ -855,7 +855,10 @@ export const QuizSection: React.FC = () => {
                 {/* CTA Button */}
                 <div className="text-center">
                   <button
-                    onClick={() => setShowEbookModal(true)}
+                    onClick={() => {
+                      console.log('Premium ebook button clicked! Opening Gamma workbook...');
+                      window.open('https://elite-edition-k8fgc36.gamma.site/', '_blank');
+                    }}
                     className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-bold transition-all duration-200 hover:-translate-y-1 hover:shadow-lg rounded-xl"
                     style={{backgroundColor: '#D4B37A', color: '#FFFFFF', fontFamily: 'Work Sans, sans-serif'}}
                     onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#A67C52'}
