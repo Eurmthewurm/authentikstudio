@@ -6,38 +6,44 @@ export const ArchetypeTeaserSection: React.FC = () => {
     {
       name: "Visionary",
       tagline: "See the future before it happens",
-      description: "Inspires with bold, forward-thinking ideas",
-      icon: "🌟"
+      description: "Inspires with bold, forward-thinking ideas that paint vivid pictures of tomorrow",
+      icon: "🌟",
+      example: "Like Elon Musk sharing his vision for Mars colonization"
     },
     {
       name: "Builder", 
       tagline: "Turn vision into reality",
-      description: "Earns trust through relentless execution",
-      icon: "🔨"
+      description: "Earns trust through relentless execution and proven results",
+      icon: "🔨",
+      example: "Like Steve Jobs delivering products that just work"
     },
     {
       name: "Strategist",
       tagline: "Navigate complexity with clarity",
-      description: "Wins attention with strategic foresight",
-      icon: "🎯"
+      description: "Wins attention with strategic foresight and logical frameworks",
+      icon: "🎯",
+      example: "Like Warren Buffett explaining investment philosophy"
     },
     {
       name: "Connector",
       tagline: "Build bridges between people",
-      description: "Attracts allies through authentic relationships",
-      icon: "🤝"
+      description: "Attracts allies through authentic relationships and shared values",
+      icon: "🤝",
+      example: "Like Oprah building communities around shared stories"
     },
     {
       name: "Guardian",
       tagline: "Protect what matters most",
-      description: "Reassures stakeholders with stability and trust",
-      icon: "🛡️"
+      description: "Reassures stakeholders with stability, reliability, and proven track records",
+      icon: "🛡️",
+      example: "Like Tim Cook maintaining Apple's quality standards"
     },
     {
       name: "Trailblazer",
       tagline: "Pioneer uncharted territory",
-      description: "Breaks norms and creates new possibilities",
-      icon: "🚀"
+      description: "Breaks norms and creates new possibilities through bold innovation",
+      icon: "🚀",
+      example: "Like Reed Hastings disrupting traditional media"
     }
   ];
 
@@ -62,9 +68,33 @@ export const ArchetypeTeaserSection: React.FC = () => {
           <p className="text-xl text-foreground/90 leading-relaxed mb-6" style={{fontFamily: 'Work Sans, sans-serif'}}>
             Every founder sends a signal, but not every signal lands the same way.
           </p>
-          <p className="text-xl text-foreground/90 leading-relaxed mb-8" style={{fontFamily: 'Work Sans, sans-serif'}}>
-            Discover which of the six founder archetypes best describes your story — so you can understand how the world perceives your communication and how to strengthen it.
+          <p className="text-lg text-foreground/80 leading-relaxed mb-8" style={{fontFamily: 'Work Sans, sans-serif'}}>
+            The Signal DNA Quiz reveals your unique founder archetype — your natural communication style that determines how investors, customers, and talent perceive your story. Understanding your archetype helps you leverage your strengths and address blind spots that might be costing you opportunities.
           </p>
+          
+          <div className="bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6 mb-8">
+            <p className="text-lg font-semibold mb-3" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+              🎯 Why Your Archetype Matters:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+              <div className="flex items-start gap-2">
+                <span className="text-green-500 mt-1">✓</span>
+                <span><strong>Investor Pitches:</strong> Match your style to their preferences</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-500 mt-1">✓</span>
+                <span><strong>Customer Acquisition:</strong> Connect authentically with your audience</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-500 mt-1">✓</span>
+                <span><strong>Team Building:</strong> Attract talent that resonates with your vision</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-green-500 mt-1">✓</span>
+                <span><strong>Media Presence:</strong> Craft stories that journalists want to tell</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Archetype Grid */}
@@ -120,12 +150,13 @@ export const ArchetypeTeaserSection: React.FC = () => {
                 
                 {/* Hover Tooltip */}
                 <motion.div
-                  className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 pointer-events-none whitespace-nowrap z-20"
+                  className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-3 bg-gray-900 text-white text-xs rounded-lg opacity-0 pointer-events-none z-20 max-w-xs"
                   initial={{ opacity: 0, y: 10 }}
                   whileHover={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {archetype.description}
+                  <div className="font-medium mb-1">{archetype.description}</div>
+                  <div className="text-gray-300 italic">{archetype.example}</div>
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                 </motion.div>
               </div>

@@ -496,29 +496,19 @@ export const QuizSection: React.FC = () => {
       console.log('✅ Ebook request sent successfully via Resend!');
       console.log('Response:', data);
       
-      // Auto-trigger PDF download
-      const link = document.createElement('a');
-      link.href = '/signal-DNA-ebook.pdf';
-      link.download = 'Signal-DNA-Premium-Ebook.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Redirect to Gamma workbook
+      window.open('https://elite-edition-k8fgc36.gamma.site/', '_blank');
       
       // Close modal
       setShowEbookModal(false);
-      alert('Thank you! Your premium ebook is downloading now.');
+      alert('Thank you! Opening your premium Signal DNA workbook now...');
       
     } catch (error) {
       console.error('Error submitting ebook form:', error);
-      alert('There was an issue processing your request, but your ebook is still downloading.');
+      alert('There was an issue processing your request, but opening your workbook now...');
       
-      // Still trigger download even if email fails
-      const link = document.createElement('a');
-      link.href = '/signal-DNA-ebook.pdf';
-      link.download = 'Signal-DNA-Premium-Ebook.pdf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // Still redirect to Gamma even if email fails
+      window.open('https://elite-edition-k8fgc36.gamma.site/', '_blank');
       
       setShowEbookModal(false);
     } finally {
@@ -774,8 +764,20 @@ export const QuizSection: React.FC = () => {
                 
                 <div className="mb-6">
                   <p className="text-lg mb-4" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
-                    Unlock two extra archetypes, hybrid profiles, and a 'Shadow Archetype' guide. Includes ready-to-use scripts for ultra-custom pitches.
+                    Unlock the complete Signal DNA Deep-Dive Workbook with two extra archetypes (Guardian & Trailblazer), hybrid profile mastery, and shadow archetype integration. Includes ready-to-use scripts, case studies, and implementation frameworks.
                   </p>
+                  
+                  <div className="mb-4 p-4 rounded-lg" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
+                    <p className="text-sm font-medium mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+                      🎯 What You'll Discover:
+                    </p>
+                    <ul className="text-sm space-y-1" style={{color: '#333333', fontFamily: 'Work Sans, sans-serif'}}>
+                      <li>• <strong>Guardian:</strong> Reassures stakeholders with stability and trust</li>
+                      <li>• <strong>Trailblazer:</strong> Breaks norms, pioneering uncharted territory</li>
+                      <li>• <strong>Hybrid Profiles:</strong> Strategic combinations like Visionary-Expert</li>
+                      <li>• <strong>Shadow Integration:</strong> Transform weaknesses into authentic strengths</li>
+                    </ul>
+                  </div>
                   
                   <div className="space-y-3 mb-6">
                     <div className="flex items-start gap-3">
