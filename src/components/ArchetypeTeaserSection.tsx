@@ -107,7 +107,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
           {archetypes.map((archetype, index) => (
             <motion.div
               key={index}
-              className="p-4 sm:p-6 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group"
+              className="p-6 sm:p-8 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group min-h-[280px] sm:min-h-[320px] flex flex-col justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -123,43 +123,42 @@ export const ArchetypeTeaserSection: React.FC = () => {
                 transition={{ duration: 0.3 }}
               />
               
-              {/* Floating archetype visual */}
-              <motion.div
-                className="w-20 h-20 sm:w-24 sm:h-24 mb-3 sm:mb-4 relative z-10"
-                animate={{
-                  y: [0, -5, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  delay: index * 0.5
-                }}
-              >
-                <img 
-                  src={`/images/archetypes/${archetype.name.toLowerCase()}.png`}
-                  alt={`${archetype.name} archetype visual`}
-                  className="w-full h-full object-contain"
-                  style={{ filter: 'drop-shadow(0 2px 4px rgba(166, 124, 82, 0.3))' }}
-                  onError={(e) => {
-                    // Fallback to emoji if image fails to load
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.parentElement!.innerHTML = `
-                      <div class="text-4xl sm:text-5xl flex items-center justify-center w-full h-full">
-                        ${archetype.icon}
-                      </div>
-                    `;
-                  }}
-                />
-              </motion.div>
-              
               {/* Content */}
-              <div className="relative z-10">
-                <h4 className="font-bold text-base sm:text-lg mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
+              <div className="relative z-10 flex flex-col items-center">
+                {/* Floating archetype visual */}
+                <motion.div
+                  className="w-24 h-24 sm:w-28 sm:h-28 mb-4 sm:mb-6"
+                  animate={{
+                    y: [0, -5, 0],
+                    rotate: [0, 5, 0]
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: index * 0.5
+                  }}
+                >
+                  <img 
+                    src={`/images/archetypes/${archetype.name.toLowerCase()}.png`}
+                    alt={`${archetype.name} archetype visual`}
+                    className="w-full h-full object-contain"
+                    style={{ filter: 'drop-shadow(0 4px 8px rgba(166, 124, 82, 0.4))' }}
+                    onError={(e) => {
+                      // Fallback to emoji if image fails to load
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      target.parentElement!.innerHTML = `
+                        <div class="text-5xl sm:text-6xl flex items-center justify-center w-full h-full">
+                          ${archetype.icon}
+                        </div>
+                      `;
+                    }}
+                  />
+                </motion.div>
+                <h4 className="font-bold text-base sm:text-lg mb-2 text-center" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
                   {archetype.name}
                 </h4>
-                <p className="text-foreground/80 text-xs sm:text-sm font-medium" style={{fontFamily: 'Work Sans, sans-serif'}}>
+                <p className="text-foreground/80 text-xs sm:text-sm font-medium text-center" style={{fontFamily: 'Work Sans, sans-serif'}}>
                   {archetype.tagline}
                 </p>
                 
