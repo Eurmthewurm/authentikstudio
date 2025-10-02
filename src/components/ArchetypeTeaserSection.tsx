@@ -123,9 +123,9 @@ export const ArchetypeTeaserSection: React.FC = () => {
                 transition={{ duration: 0.3 }}
               />
               
-              {/* Floating icon */}
+              {/* Floating archetype visual */}
               <motion.div
-                className="text-3xl sm:text-4xl mb-3 sm:mb-4 relative z-10"
+                className="w-12 h-12 sm:w-16 sm:h-16 mb-3 sm:mb-4 relative z-10"
                 animate={{
                   y: [0, -5, 0],
                   rotate: [0, 5, 0]
@@ -136,7 +136,22 @@ export const ArchetypeTeaserSection: React.FC = () => {
                   delay: index * 0.5
                 }}
               >
-                {archetype.icon}
+                <img 
+                  src={`/images/archetypes/${archetype.name.toLowerCase()}.png`}
+                  alt={`${archetype.name} archetype visual`}
+                  className="w-full h-full object-contain"
+                  style={{ filter: 'drop-shadow(0 2px 4px rgba(166, 124, 82, 0.3))' }}
+                  onError={(e) => {
+                    // Fallback to emoji if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    target.parentElement!.innerHTML = `
+                      <div class="text-2xl sm:text-3xl flex items-center justify-center w-full h-full">
+                        ${archetype.icon}
+                      </div>
+                    `;
+                  }}
+                />
               </motion.div>
               
               {/* Content */}

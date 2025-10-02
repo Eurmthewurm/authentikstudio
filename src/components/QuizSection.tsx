@@ -704,23 +704,38 @@ export const QuizSection: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.5 }}
                       >
                         <motion.div
-                          className="text-4xl"
+                          className="w-20 h-20 relative"
                           animate={{
-                            rotate: [0, 10, -10, 0],
-                            scale: [1, 1.1, 1]
+                            scale: [1, 1.05, 1],
+                            rotate: [0, 2, -2, 0]
                           }}
                           transition={{
-                            duration: 2,
+                            duration: 3,
                             repeat: Infinity,
                             delay: 1
                           }}
                         >
-                          {quizResult?.primaryArchetype === 'Visionary' && '🌟'}
-                          {quizResult?.primaryArchetype === 'Builder' && '🔨'}
-                          {quizResult?.primaryArchetype === 'Strategist' && '🎯'}
-                          {quizResult?.primaryArchetype === 'Connector' && '🤝'}
-                          {quizResult?.primaryArchetype === 'Guardian' && '🛡️'}
-                          {quizResult?.primaryArchetype === 'Trailblazer' && '🚀'}
+                          <img 
+                            src={`/images/archetypes/${quizResult?.primaryArchetype?.toLowerCase()}.png`}
+                            alt={`${quizResult?.primaryArchetype} archetype visual`}
+                            className="w-full h-full object-contain"
+                            style={{ filter: 'drop-shadow(0 4px 8px rgba(166, 124, 82, 0.3))' }}
+                            onError={(e) => {
+                              // Fallback to emoji if image fails to load
+                              const target = e.target as HTMLImageElement;
+                              target.style.display = 'none';
+                              target.parentElement!.innerHTML = `
+                                <div class="text-4xl flex items-center justify-center w-full h-full">
+                                  ${quizResult?.primaryArchetype === 'Visionary' ? '🌟' : 
+                                    quizResult?.primaryArchetype === 'Builder' ? '🔨' :
+                                    quizResult?.primaryArchetype === 'Strategist' ? '🎯' :
+                                    quizResult?.primaryArchetype === 'Connector' ? '🤝' :
+                                    quizResult?.primaryArchetype === 'Guardian' ? '🛡️' :
+                                    quizResult?.primaryArchetype === 'Trailblazer' ? '🚀' : '🌟'}
+                                </div>
+                              `;
+                            }}
+                          />
                         </motion.div>
                         <div>
                           <h3 className="text-2xl sm:text-3xl font-bold mb-1" style={{color: '#A67C52', fontFamily: 'Playfair Display, serif'}}>
@@ -786,13 +801,28 @@ export const QuizSection: React.FC = () => {
                 {/* Archetype Description */}
                 <div className="rounded-lg p-6 mb-6" style={{backgroundColor: 'rgba(212, 179, 122, 0.05)', border: '1px solid rgba(212, 179, 122, 0.2)'}}>
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="text-4xl">
-                      {quizResult?.primaryArchetype === 'Visionary' && '🌟'}
-                      {quizResult?.primaryArchetype === 'Builder' && '🔨'}
-                      {quizResult?.primaryArchetype === 'Strategist' && '🎯'}
-                      {quizResult?.primaryArchetype === 'Connector' && '🤝'}
-                      {quizResult?.primaryArchetype === 'Guardian' && '🛡️'}
-                      {quizResult?.primaryArchetype === 'Trailblazer' && '🚀'}
+                    <div className="w-16 h-16 flex-shrink-0">
+                      <img 
+                        src={`/images/archetypes/${quizResult?.primaryArchetype?.toLowerCase()}.png`}
+                        alt={`${quizResult?.primaryArchetype} archetype visual`}
+                        className="w-full h-full object-contain"
+                        style={{ filter: 'drop-shadow(0 2px 4px rgba(166, 124, 82, 0.2))' }}
+                        onError={(e) => {
+                          // Fallback to emoji if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.parentElement!.innerHTML = `
+                            <div class="text-2xl flex items-center justify-center w-full h-full">
+                              ${quizResult?.primaryArchetype === 'Visionary' ? '🌟' : 
+                                quizResult?.primaryArchetype === 'Builder' ? '🔨' :
+                                quizResult?.primaryArchetype === 'Strategist' ? '🎯' :
+                                quizResult?.primaryArchetype === 'Connector' ? '🤝' :
+                                quizResult?.primaryArchetype === 'Guardian' ? '🛡️' :
+                                quizResult?.primaryArchetype === 'Trailblazer' ? '🚀' : '🌟'}
+                            </div>
+                          `;
+                        }}
+                      />
                     </div>
                     <div>
                       <h4 className="text-xl font-bold mb-2" style={{color: '#A67C52', fontFamily: 'Work Sans, sans-serif'}}>
