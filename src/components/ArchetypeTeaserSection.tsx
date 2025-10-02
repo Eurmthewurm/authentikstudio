@@ -107,7 +107,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
           {archetypes.map((archetype, index) => (
             <motion.div
               key={index}
-              className="p-6 sm:p-8 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group min-h-[280px] sm:min-h-[320px] flex flex-col justify-center"
+              className="p-6 sm:p-8 rounded-xl border border-primary/20 bg-white/50 backdrop-blur-sm text-center relative overflow-hidden group min-h-[360px] sm:min-h-[420px] flex flex-col justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
@@ -127,7 +127,7 @@ export const ArchetypeTeaserSection: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center">
                 {/* Floating archetype visual */}
                 <motion.div
-                  className="w-24 h-24 sm:w-28 sm:h-28 mb-4 sm:mb-6"
+                  className="w-32 h-32 sm:w-40 sm:h-40 mb-6 sm:mb-8"
                   animate={{
                     y: [0, -5, 0],
                     rotate: [0, 5, 0]
@@ -142,13 +142,13 @@ export const ArchetypeTeaserSection: React.FC = () => {
                     src={`/images/archetypes/${archetype.name.toLowerCase()}.png`}
                     alt={`${archetype.name} archetype visual`}
                     className="w-full h-full object-contain"
-                    style={{ filter: 'drop-shadow(0 4px 8px rgba(166, 124, 82, 0.4))' }}
+                    style={{ filter: 'drop-shadow(0 6px 12px rgba(166, 124, 82, 0.5))' }}
                     onError={(e) => {
                       // Fallback to emoji if image fails to load
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       target.parentElement!.innerHTML = `
-                        <div class="text-5xl sm:text-6xl flex items-center justify-center w-full h-full">
+                        <div class="text-6xl sm:text-7xl flex items-center justify-center w-full h-full">
                           ${archetype.icon}
                         </div>
                       `;
