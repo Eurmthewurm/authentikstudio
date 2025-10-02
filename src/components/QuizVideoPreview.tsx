@@ -218,7 +218,7 @@ export const QuizVideoPreview: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
           >
-            <a href="#free-audit">
+            <a href="/quiz">
               <button
                 className="px-8 py-4 rounded-xl font-semibold text-white transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
                 style={{backgroundColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}

@@ -33,11 +33,27 @@ function App() {
       }
     };
 
+    const handleQuizRoute = () => {
+      // Check if the current path is /quiz
+      if (window.location.pathname === '/quiz') {
+        // Scroll to quiz section after a short delay to ensure page is loaded
+        setTimeout(() => {
+          const quizElement = document.querySelector('#quiz');
+          if (quizElement) {
+            quizElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    };
+
     // Listen for hash changes (e.g., from clicking a link with #id)
     window.addEventListener('hashchange', handleHashChange);
 
     // Also handle initial load if there's a hash in the URL
     handleHashChange();
+
+    // Handle /quiz route
+    handleQuizRoute();
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);

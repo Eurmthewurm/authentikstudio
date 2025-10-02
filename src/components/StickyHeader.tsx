@@ -62,7 +62,7 @@ export const StickyHeader: React.FC = () => {
           <a href="#faq" className="text-sm text-foreground/80 hover:text-primary transition-colors font-medium">
             FAQ
           </a>
-          <a href="#free-audit">
+          <a href="/quiz">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

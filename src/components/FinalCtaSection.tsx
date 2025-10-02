@@ -29,7 +29,7 @@ export const FinalCtaSection: React.FC = () => {
         </motion.p>
 
         <motion.a
-          href="#free-audit"
+          href="/quiz"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}

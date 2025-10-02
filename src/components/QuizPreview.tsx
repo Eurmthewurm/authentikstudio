@@ -129,7 +129,7 @@ export const QuizPreview: React.FC = () => {
             <strong>Only 2 minutes</strong> to discover your unique communication archetype
           </p>
           <motion.a
-            href="#free-audit"
+            href="/quiz"
             className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

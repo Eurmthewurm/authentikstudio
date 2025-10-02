@@ -81,7 +81,7 @@ export const WhySignalGraphic: React.FC = () => {
             Join hundreds of founders who've discovered their Signal DNA and transformed their business results.
           </p>
           <motion.a
-            href="#free-audit"
+            href="/quiz"
             className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

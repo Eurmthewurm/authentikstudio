@@ -8,22 +8,44 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, score, result } = req.body;
+    const { email, score, result, name, type, ebook_request, consent } = req.body;
     
     // Initialize Resend with API key from environment
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     console.log('Sending email to:', email);
+    console.log('Email type:', type || 'quiz_results');
     console.log('Using API key:', process.env.RESEND_API_KEY ? 'Found' : 'Not found');
     console.log('API key length:', process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.length : 0);
     console.log('API key preview:', process.env.RESEND_API_KEY ? process.env.RESEND_API_KEY.substring(0, 10) + '...' : 'No key');
 
-    // Send email
-    const emailResult = await resend.emails.send({
-      from: 'Authentik Studio <hello@authentikstudio.com>',
-      to: [email],
-      subject: `Your Signal DNA Report: ${result.title}`,
-      html: `
+    // Determine email content based on type
+    let emailContent;
+    let subject;
+    
+    if (type === 'ebook_request') {
+      subject = `Premium Ebook Request: ${name}`;
+      emailContent = `
+        <div style="font-family: 'Work Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #FAF8F5; color: #333333;">
+          <h2 style="color: #111111; font-family: 'Playfair Display', serif;">New Premium Ebook Request</h2>
+          <div style="background-color: #FFFFFF; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #D4B37A;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Request:</strong> ${ebook_request}</p>
+            <p><strong>Consent:</strong> ${consent ? 'Yes' : 'No'}</p>
+            <p><strong>Date:</strong> ${new Date().toLocaleDateString()}</p>
+          </div>
+          <div style="text-align: center; padding-top: 20px; border-top: 1px solid #D4B37A;">
+            <p style="color: #666666; font-size: 14px; margin: 0; font-family: 'Work Sans', sans-serif;">
+              Authentik Studio • Signal in the Noise
+            </p>
+          </div>
+        </div>
+      `;
+    } else {
+      // Default quiz results email
+      subject = `Your Signal DNA Report: ${result.title}`;
+      emailContent = `
         <div style="font-family: 'Work Sans', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #FAF8F5; color: #333333;">
           <div style="text-align: center; margin-bottom: 30px;">
             <h1 style="color: #111111; font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 10px;">Your Signal DNA Report</h1>
@@ -41,9 +63,9 @@ export default async function handler(req, res) {
           </div>
           
           <div style="background-color: #FFFFFF; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #D4B37A;">
-            <h3 style="color: #A67C52; font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 15px;">📚 Your Deep-Dive Workbook</h3>
+            <h3 style="color: #A67C52; font-family: 'Playfair Display', serif; font-size: 20px; margin-bottom: 15px;">📚 Your Exclusive Signal DNA Presentation</h3>
             <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-family: 'Work Sans', sans-serif;">
-              Transform from generic founder to magnetic storyteller with your exclusive Signal DNA Deep-Dive Workbook. This comprehensive guide takes you beyond surface-level awareness into deep archetype mastery.
+              Access your exclusive Signal DNA presentation with detailed archetype breakdowns, real examples, and actionable frameworks. This comprehensive guide takes you beyond surface-level awareness into deep archetype mastery.
             </p>
             <div style="background-color: rgba(212, 179, 122, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #D4B37A;">
               <h4 style="color: #111111; font-family: 'Playfair Display', serif; font-size: 18px; margin: 0 0 10px 0;">What's Inside:</h4>
@@ -56,9 +78,9 @@ export default async function handler(req, res) {
                 <li>Signature Story Blueprint</li>
               </ul>
             </div>
-            <a href="https://elite-edition-k8fgc36.gamma.site/" 
+            <a href="https://elite-edition-k8fgc36.gamma.site/?utm_source=email&utm_medium=quiz_report&utm_campaign=signal_dna" 
                style="display: inline-block; background-color: #D4B37A; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif; transition: background-color 0.2s; margin-bottom: 20px;">
-              Access Your Deep-Dive Workbook
+              Access Your Signal DNA Presentation
             </a>
             
             <div style="background-color: rgba(212, 179, 122, 0.05); padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #A67C52;">
@@ -66,7 +88,7 @@ export default async function handler(req, res) {
               <p style="color: #333333; font-size: 14px; line-height: 1.6; margin: 0 0 10px 0; font-family: 'Work Sans', sans-serif;">
                 Watch J-Griff's full testimonial video inside the workbook to see the complete transformation story and learn from his experience.
               </p>
-              <a href="https://vimeo.com/1112128628" 
+              <a href="https://vimeo.com/1112128628?utm_source=email&utm_medium=quiz_report&utm_campaign=testimonial" 
                  style="color: #A67C52; text-decoration: none; font-size: 14px; font-weight: 500; font-family: 'Work Sans', sans-serif;">
                 Watch Video Testimonial →
               </a>
@@ -74,15 +96,17 @@ export default async function handler(req, res) {
           </div>
 
           <div style="background-color: #FFFFFF; padding: 25px; border-radius: 12px; margin-bottom: 25px; border: 1px solid #D4B37A;">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px; padding: 15px; background-color: rgba(212, 179, 122, 0.05); border-radius: 8px; border-left: 4px solid #D4B37A;">
-              <img src="https://via.placeholder.com/60x60/D4B37A/fff?text=JG" alt="J-Griff" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #D4B37A;">
-              <div>
-                <p style="color: #333333; font-size: 16px; margin: 0 0 8px 0; font-style: italic; font-family: 'Work Sans', sans-serif;">
-                  "Ermo is a master at creating long-form video content—content that humanizes you, builds trust with your audience, and breaks down the invisible walls that usually prevent people from buying from strangers on the internet. He helped us grow from €2M to €6M in revenue within 18 months."
-                </p>
-                <div style="display: flex; align-items: center; gap: 10px;">
-                  <span style="color: #D4B37A; font-weight: 600; font-family: 'Work Sans', sans-serif;">— J-Griff</span>
-                  <span style="background-color: #A67C52; color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; font-family: 'Work Sans', sans-serif;">
+            <div style="margin-bottom: 20px; padding: 20px; background-color: rgba(212, 179, 122, 0.05); border-radius: 8px; border-left: 4px solid #D4B37A;">
+              <p style="color: #333333; font-size: 16px; margin: 0 0 15px 0; font-style: italic; font-family: 'Work Sans', sans-serif;">
+                "Ermo is a master at creating long-form video content—content that humanizes you, builds trust with your audience, and breaks down the invisible walls that usually prevent people from buying from strangers on the internet. He helped us grow from €2M to €6M in revenue within 18 months."
+              </p>
+              <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="width: 60px; height: 60px; background-color: #D4B37A; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px; font-family: 'Work Sans', sans-serif; border: 3px solid #A67C52;">
+                  JG
+                </div>
+                <div>
+                  <span style="color: #D4B37A; font-weight: 600; font-family: 'Work Sans', sans-serif; font-size: 16px;">— J-Griff</span>
+                  <span style="background-color: #A67C52; color: #fff; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600; font-family: 'Work Sans', sans-serif; margin-left: 10px;">
                     €6M Revenue Growth
                   </span>
                 </div>
@@ -93,7 +117,7 @@ export default async function handler(req, res) {
             <p style="color: #333333; font-size: 16px; line-height: 1.6; margin-bottom: 20px; font-family: 'Work Sans', sans-serif;">
               Ready to apply your Signal DNA to your next investor meeting? Let's discuss how your archetype can transform your communication in a free 15-minute clarity call.
             </p>
-            <a href="https://calendly.com/ermo/discoverycall" 
+            <a href="https://calendly.com/ermo/discoverycall?utm_source=email&utm_medium=quiz_report&utm_campaign=clarity_call" 
                style="display: inline-block; background-color: #D4B37A; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; font-family: 'Work Sans', sans-serif; transition: background-color 0.2s;">
               Book Free 15-Min Clarity Call
             </a>
@@ -106,7 +130,15 @@ export default async function handler(req, res) {
             </p>
           </div>
         </div>
-      `,
+      `;
+    }
+
+    // Send email
+    const emailResult = await resend.emails.send({
+      from: 'Authentik Studio <hello@authentikstudio.com>',
+      to: [email],
+      subject: subject,
+      html: emailContent
     });
 
     console.log('Email sent successfully:', emailResult);

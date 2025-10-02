@@ -133,7 +133,7 @@ export const ProcessFlow: React.FC = () => {
             Start your journey with our free 2-minute assessment
           </p>
           <motion.a
-            href="#free-audit"
+            href="/quiz"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-white transition-all duration-200 hover:scale-105"
             style={{backgroundColor: '#D4B37A', fontFamily: 'Work Sans, sans-serif'}}
             whileHover={{ scale: 1.05 }}

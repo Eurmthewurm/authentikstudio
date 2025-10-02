@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
                 How It Works
               </a>
               <a 
-                href="#free-audit" 
+                href="/quiz" 
                 className="text-white/80 transition-colors"
                 style={{color: 'rgba(255, 255, 255, 0.8)'}}
                     onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}

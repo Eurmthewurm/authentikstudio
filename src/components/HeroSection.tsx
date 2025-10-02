@@ -63,7 +63,7 @@ export const HeroSection: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <a href="#free-audit">
+            <a href="/quiz">
                   <Button
                     size="lg"
                     className="px-8 py-4 sm:px-12 sm:py-6 text-lg sm:text-xl font-bold w-full sm:w-auto relative overflow-hidden group transition-all duration-200 min-h-[48px] sm:min-h-[56px]"

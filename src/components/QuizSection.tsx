@@ -191,11 +191,11 @@ export const QuizSection: React.FC = () => {
     try {
       const result = getScoreMessage(score);
       
-      console.log('Sending email via serverless function...');
+      console.log('Sending email via Resend...');
       console.log('Email target:', email);
       console.log('Quiz result:', { score, title: result.title });
       
-      // Call our serverless function
+      // Call our serverless function (Resend)
       const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
@@ -211,13 +211,15 @@ export const QuizSection: React.FC = () => {
       const data = await response.json();
       
       if (data.success) {
-        console.log('✅ Email sent successfully via serverless function!');
+        console.log('✅ Email sent successfully via Resend!');
         console.log('Message ID:', data.messageId);
         trackEmailCapture(email, 'quiz_completion');
         setShowEmailForm(false);
         setShowResults(true);
+        alert('✅ Email sent successfully! Check your inbox (and spam folder) for your Signal DNA report.');
       } else {
-        console.error('❌ Email failed via serverless function:', data.error);
+        console.error('❌ Email failed via Resend:', data.error);
+        alert('Email delivery failed, but your results are ready! Check below for your Signal DNA report.');
         // Still show results even if email fails
         setShowEmailForm(false);
         setShowResults(true);
@@ -225,6 +227,7 @@ export const QuizSection: React.FC = () => {
       
     } catch (error) {
       console.error('Error calling serverless function:', error);
+      alert('Email service temporarily unavailable, but your results are ready! Check below for your Signal DNA report.');
       // Still show results even if email fails
       setShowEmailForm(false);
       setShowResults(true);
@@ -243,9 +246,24 @@ export const QuizSection: React.FC = () => {
       // Track ebook download
       trackCTAClicked('ebook_download');
       
-      // Here you would integrate with your email marketing API (Mailchimp, ConvertKit, etc.)
-      // For now, we'll simulate the API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Send ebook request via Resend
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: ebookForm.email,
+          name: ebookForm.name,
+          type: 'ebook_request',
+          ebook_request: 'Premium Signal DNA Ebook',
+          consent: ebookForm.consent
+        }),
+      });
+
+      const data = await response.json();
+      console.log('✅ Ebook request sent successfully via Resend!');
+      console.log('Response:', data);
       
       // Auto-trigger PDF download
       const link = document.createElement('a');
@@ -257,9 +275,21 @@ export const QuizSection: React.FC = () => {
       
       // Close modal
       setShowEbookModal(false);
+      alert('Thank you! Your premium ebook is downloading now.');
       
     } catch (error) {
       console.error('Error submitting ebook form:', error);
+      alert('There was an issue processing your request, but your ebook is still downloading.');
+      
+      // Still trigger download even if email fails
+      const link = document.createElement('a');
+      link.href = '/signal-DNA-ebook.pdf';
+      link.download = 'Signal-DNA-Premium-Ebook.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      setShowEbookModal(false);
     } finally {
       setIsEbookSubmitting(false);
     }
@@ -278,7 +308,7 @@ export const QuizSection: React.FC = () => {
     const result = getScoreMessage(score);
     
     return (
-      <section id="free-audit" className="section-white container-clean text-foreground">
+      <section id="quiz" className="section-white container-clean text-foreground">
         <div className="content-clean text-center">
           <motion.div
             className="card-clean-lg p-6 sm:p-8 max-w-2xl mx-auto"
@@ -382,7 +412,7 @@ export const QuizSection: React.FC = () => {
     const result = getScoreMessage(score);
     
     return (
-      <section id="free-audit" className="section-white container-clean text-foreground">
+      <section id="quiz" className="section-white container-clean text-foreground">
         <div className="content-clean text-center">
           <motion.div
             className="card-clean-lg p-8 sm:p-12"
@@ -732,7 +762,7 @@ export const QuizSection: React.FC = () => {
         </div>
       )}
 
-      <section id="free-audit" className="section-white container-clean text-foreground">
+      <section id="quiz" className="section-white container-clean text-foreground">
         <div className="content-clean">
         {/* Section header */}
         <div className="text-center space-y-6 mb-16">

@@ -27,11 +27,8 @@ export const ScarcityBanner: React.FC = () => {
   };
 
   const handleClick = () => {
-    // Track click and scroll to quiz
-    const element = document.querySelector('#free-audit');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Navigate to /quiz
+    window.location.href = '/quiz';
   };
 
   if (isDismissed) return null;
