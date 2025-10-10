@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const fadeIn = {
@@ -57,60 +56,30 @@ export const Footer: React.FC = () => {
               </a>
             </div>
             
-            {/* Legal & Social */}
-            <div className="flex flex-wrap justify-center items-center gap-6 text-sm">
-              <div className="flex gap-6">
-                <a 
-                  href="/terms-of-service" 
-                  className="text-white/60 transition-colors"
-                  style={{color: 'rgba(255, 255, 255, 0.6)'}}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Terms
-                </a>
-                <a 
-                  href="/privacy-policy" 
-                  className="text-white/60 transition-colors"
-                  style={{color: 'rgba(255, 255, 255, 0.6)'}}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Privacy
-                </a>
-              </div>
-              
-              {/* Social Media Icons */}
-              <div className="flex items-center gap-4">
-                <a 
-                  href="https://linkedin.com/company/authentik-studio" 
-                  className="text-white/60 transition-colors"
-                  style={{color: 'rgba(255, 255, 255, 0.6)'}}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin size={18} />
-                </a>
-                <a 
-                  href="https://twitter.com/authentikstudio" 
-                  className="text-white/60 transition-colors"
-                  style={{color: 'rgba(255, 255, 255, 0.6)'}}
-                      onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
-                      onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Twitter"
-                >
-                  <Twitter size={18} />
-                </a>
-              </div>
+            {/* Legal */}
+            <div className="flex justify-center items-center gap-6 text-sm">
+              <a 
+                href="/terms-of-service" 
+                className="text-white/60 transition-colors"
+                style={{color: 'rgba(255, 255, 255, 0.6)'}}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Terms
+              </a>
+              <a 
+                href="/privacy-policy" 
+                className="text-white/60 transition-colors"
+                style={{color: 'rgba(255, 255, 255, 0.6)'}}
+                    onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#D4B37A'}
+                    onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255, 255, 255, 0.6)'}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy
+              </a>
             </div>
             
                 {/* Brand */}
